@@ -2,9 +2,8 @@
 edgar_fetcher.py
 
 Downloads 10-K and 10-Q filings from SEC EDGAR.
-Uses the submissions API to get filing metadata, then the filing index
-to locate the primary document — handling both traditional HTM and
-modern iXBRL viewer filings correctly.
+Handles the modern EDGAR filing structure where the primary document
+is an inline XBRL (iXBRL) HTM file, NOT the XBRL viewer shell page.
 """
 
 import time
@@ -16,6 +15,9 @@ HEADERS = {"User-Agent": "finance-rag-portfolio contact@example.com"}
 EDGAR_BASE = "https://data.sec.gov"
 SEC_BASE = "https://www.sec.gov"
 SUPPORTED_FORMS = {"10-K", "10-Q"}
+
+# These patterns indicate a viewer/shell page, not the real filing
+VIEWER_PATTERNS = ["ixviewer", "xbrl-viewer", "viewer.htm", "ixv-"]
 
 
 def get_cik(ticker: str) -> str:
@@ -35,21 +37,18 @@ def get_filing_metadata(
     years: list[int] | None = None,
 ) -> list[dict]:
     """Return filing metadata for a given CIK and form type."""
-    if form_type not in SUPPORTED_FORMS:
-        raise ValueError(f"form_type must be one of {SUPPORTED_FORMS}")
-
     url = f"{EDGAR_BASE}/submissions/CIK{cik}.json"
     resp = requests.get(url, headers=HEADERS, timeout=10)
     resp.raise_for_status()
     data = resp.json()
 
     recent = data.get("filings", {}).get("recent", {})
-    forms = recent.get("form", [])
-    dates = recent.get("filingDate", [])
-    accessions = recent.get("accessionNumber", [])
-
     results = []
-    for form, date, accession in zip(forms, dates, accessions):
+    for form, date, accession in zip(
+        recent.get("form", []),
+        recent.get("filingDate", []),
+        recent.get("accessionNumber", []),
+    ):
         if form != form_type:
             continue
         if years and int(date[:4]) not in years:
@@ -66,62 +65,76 @@ def get_filing_metadata(
     return results
 
 
+def _is_viewer_page(name: str) -> bool:
+    """Return True if the filename looks like an XBRL viewer shell."""
+    name_lower = name.lower()
+    return any(p in name_lower for p in VIEWER_PATTERNS)
+
+
 def get_primary_document_url(filing: dict) -> str | None:
     """
-    Find the actual 10-K document URL from the EDGAR filing index.
+    Find the actual 10-K HTM document URL from the EDGAR filing index.
 
-    Strategy:
-    1. Fetch the filing index JSON from data.sec.gov
-    2. Look for a document whose type matches the form (e.g. '10-K')
-       and whose name ends in .htm
-    3. Fall back to the largest .htm file if no type match found
+    Modern EDGAR filings have this structure in the index:
+      - viewer.htm or R*.htm  -> XBRL viewer shell  (skip these)
+      - aapl-20240928.htm     -> the real inline XBRL filing  (want this)
+
+    Strategy: fetch the filing index JSON, find the HTM file that:
+      1. Is NOT a viewer page
+      2. Has the correct form type label OR is the largest HTM file
     """
     cik_int = filing["cik_int"]
     acc_clean = filing["acc_clean"]
     accession = filing["accession_number"]
 
-    # EDGAR filing index JSON
-    index_url = f"{EDGAR_BASE}/Archives/edgar/data/{cik_int}/{acc_clean}/{accession}-index.json"
+    index_url = (
+        f"{EDGAR_BASE}/Archives/edgar/data/{cik_int}/{acc_clean}/{accession}-index.json"
+    )
     resp = requests.get(index_url, headers=HEADERS, timeout=10)
+
+    candidates = []
 
     if resp.status_code == 200:
         try:
-            data = resp.json()
-            # The index JSON has a 'directory' key with 'item' list
-            items = data.get("directory", {}).get("item", [])
-
-            # Pass 1: exact form type match on .htm files
+            items = resp.json().get("directory", {}).get("item", [])
             for item in items:
                 name = item.get("name", "")
                 item_type = item.get("type", "")
-                if item_type == filing["form_type"] and name.lower().endswith((".htm", ".html")):
-                    return f"{SEC_BASE}/Archives/edgar/data/{cik_int}/{acc_clean}/{name}"
+                size = int(item.get("size", 0) or 0)
 
-            # Pass 2: largest .htm file that isn't the index itself
-            htm_items = [
-                i for i in items
-                if i.get("name", "").lower().endswith((".htm", ".html"))
-                and "index" not in i.get("name", "").lower()
-            ]
-            if htm_items:
-                # Sort by size descending — the real 10-K is always the biggest file
-                htm_items.sort(key=lambda i: int(i.get("size", 0)), reverse=True)
-                name = htm_items[0]["name"]
-                return f"{SEC_BASE}/Archives/edgar/data/{cik_int}/{acc_clean}/{name}"
+                if not name.lower().endswith((".htm", ".html")):
+                    continue
+                if _is_viewer_page(name):
+                    continue
+                if "index" in name.lower():
+                    continue
+
+                url = f"{SEC_BASE}/Archives/edgar/data/{cik_int}/{acc_clean}/{name}"
+
+                # Exact type match is top priority
+                if item_type == filing["form_type"]:
+                    return url
+
+                candidates.append((size, url))
 
         except Exception as e:
-            print(f"[edgar] JSON index parse error: {e}")
+            print(f"[edgar] JSON parse error for {accession}: {e}")
+
+    # If no exact type match, return the largest non-viewer HTM
+    if candidates:
+        candidates.sort(reverse=True)
+        return candidates[0][1]
 
     # Final fallback: scrape the HTM index page
-    index_htm = f"{SEC_BASE}/Archives/edgar/data/{cik_int}/{acc_clean}/{accession}-index.htm"
+    index_htm = (
+        f"{SEC_BASE}/Archives/edgar/data/{cik_int}/{acc_clean}/{accession}-index.htm"
+    )
     resp = requests.get(index_htm, headers=HEADERS, timeout=10)
     if resp.status_code != 200:
         return None
 
     soup = BeautifulSoup(resp.text, "html.parser")
-    best_link = None
-    best_size = 0
-
+    best = (0, None)
     for row in soup.find_all("tr"):
         cells = row.find_all("td")
         link = row.find("a", href=True)
@@ -130,28 +143,25 @@ def get_primary_document_url(filing: dict) -> str | None:
         href = link["href"]
         if not href.lower().endswith((".htm", ".html")):
             continue
-        if "index" in href.lower():
+        if "index" in href.lower() or _is_viewer_page(href):
             continue
 
-        # Try to get size from the last cell
-        try:
-            size = int(cells[-1].get_text(strip=True).replace(",", "")) if cells else 0
-        except ValueError:
-            size = 0
-
-        # Prefer type match
+        # Prefer exact type match
         if len(cells) >= 4:
-            doc_type = cells[3].get_text(strip=True)
-            if doc_type == filing["form_type"]:
-                full_url = f"{SEC_BASE}{href}" if href.startswith("/") else href
-                return full_url
+            if cells[3].get_text(strip=True) == filing["form_type"]:
+                full = f"{SEC_BASE}{href}" if href.startswith("/") else href
+                return full
 
-        # Otherwise track largest
-        if size > best_size:
-            best_size = size
-            best_link = f"{SEC_BASE}{href}" if href.startswith("/") else href
+        # Track largest by size column
+        try:
+            size = int(cells[-1].get_text(strip=True).replace(",", ""))
+        except (ValueError, IndexError):
+            size = 0
+        if size > best[0]:
+            full = f"{SEC_BASE}{href}" if href.startswith("/") else href
+            best = (size, full)
 
-    return best_link
+    return best[1]
 
 
 def download_filing(url: str, output_path: Path) -> Path:
@@ -170,10 +180,7 @@ def fetch_filings(
     output_dir: Path = Path("data/filings"),
     force_redownload: bool = False,
 ) -> list[dict]:
-    """
-    Download filings for a list of tickers and return metadata + local paths.
-    Set force_redownload=True to re-fetch already downloaded files.
-    """
+    """Download filings for a list of tickers. Returns metadata + local paths."""
     downloaded = []
     for ticker in tickers:
         print(f"[edgar] Resolving CIK for {ticker}...")
@@ -183,7 +190,7 @@ def fetch_filings(
             print(f"[edgar] WARNING: {e}")
             continue
 
-        print(f"[edgar] Fetching {form_type} filings for {ticker} (CIK {int(cik)})...")
+        print(f"[edgar] Fetching {form_type} for {ticker} (CIK {int(cik)})...")
         filings = get_filing_metadata(cik, form_type=form_type, years=years)
         if not filings:
             print(f"[edgar] No {form_type} filings found for {ticker} in {years}")
@@ -192,7 +199,7 @@ def fetch_filings(
         for filing in filings:
             doc_url = get_primary_document_url(filing)
             if not doc_url:
-                print(f"[edgar] Could not find primary doc for {filing['accession_number']}")
+                print(f"[edgar] No doc found for {filing['accession_number']}")
                 continue
 
             filename = f"{ticker}_{filing['form_type']}_{filing['filing_date']}.htm"
@@ -201,18 +208,19 @@ def fetch_filings(
             if local_path.exists() and not force_redownload:
                 print(f"[edgar] Already exists: {local_path.name}")
             else:
-                print(f"[edgar] Downloading {filename} from {doc_url}...")
+                print(f"[edgar] Downloading {filename}...")
+                print(f"[edgar]   URL: {doc_url}")
                 try:
                     download_filing(doc_url, local_path)
                     size_kb = local_path.stat().st_size // 1024
-                    print(f"[edgar] Saved {filename} ({size_kb} KB)")
+                    print(f"[edgar]   Saved: {size_kb} KB")
                 except Exception as e:
                     print(f"[edgar] Download failed: {e}")
                     continue
                 time.sleep(0.5)
 
             downloaded.append({
-                **{k: v for k, v in filing.items() if k != "acc_clean"},
+                **{k: v for k, v in filing.items() if k not in ("acc_clean",)},
                 "ticker": ticker,
                 "document_url": doc_url,
                 "local_path": str(local_path),
