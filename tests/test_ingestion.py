@@ -5,10 +5,7 @@ Unit tests for ingestion logic — chunking, metadata fields, and index helpers.
 No API keys needed. No file I/O beyond tmp files.
 """
 
-import json
-import pickle
 import pytest
-from pathlib import Path
 from src.ingestion.pdf_parser import _clean_text, _split_into_chunks, Chunk
 
 
