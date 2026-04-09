@@ -3,7 +3,7 @@ edgar_fetcher.py
 
 Downloads 10-K and 10-Q filings from SEC EDGAR.
 Handles the modern EDGAR filing structure where the primary document
-is an inline XBRL (iXBRL) HTM file, NOT the XBRL viewer shell page.
+is an inline XBRL (iXBRL) HTM file accessed via ix?doc= wrapper URLs.
 """
 
 import time
@@ -15,9 +15,28 @@ HEADERS = {"User-Agent": "finance-rag-portfolio contact@example.com"}
 EDGAR_BASE = "https://data.sec.gov"
 SEC_BASE = "https://www.sec.gov"
 SUPPORTED_FORMS = {"10-K", "10-Q"}
-
-# These patterns indicate a viewer/shell page, not the real filing
 VIEWER_PATTERNS = ["ixviewer", "xbrl-viewer", "viewer.htm", "ixv-"]
+
+
+def _strip_ix_wrapper(url: str) -> str:
+    """
+    EDGAR wraps iXBRL documents in an inline viewer URL:
+      https://www.sec.gov/ix?doc=/Archives/edgar/data/.../aapl-20240928.htm
+    The actual raw file lives at the path after ?doc=.
+    Strip the wrapper so we download the real document, not the 6KB shell.
+    """
+    if "/ix?doc=" in url:
+        doc_path = url.split("/ix?doc=", 1)[1]
+        if doc_path.startswith("/"):
+            return f"{SEC_BASE}{doc_path}"
+        return f"{SEC_BASE}/{doc_path}"
+    return url
+
+
+def _is_viewer_page(name: str) -> bool:
+    """Return True if the filename looks like an XBRL viewer shell."""
+    name_lower = name.lower()
+    return any(p in name_lower for p in VIEWER_PATTERNS)
 
 
 def get_cik(ticker: str) -> str:
@@ -65,23 +84,10 @@ def get_filing_metadata(
     return results
 
 
-def _is_viewer_page(name: str) -> bool:
-    """Return True if the filename looks like an XBRL viewer shell."""
-    name_lower = name.lower()
-    return any(p in name_lower for p in VIEWER_PATTERNS)
-
-
 def get_primary_document_url(filing: dict) -> str | None:
     """
     Find the actual 10-K HTM document URL from the EDGAR filing index.
-
-    Modern EDGAR filings have this structure in the index:
-      - viewer.htm or R*.htm  -> XBRL viewer shell  (skip these)
-      - aapl-20240928.htm     -> the real inline XBRL filing  (want this)
-
-    Strategy: fetch the filing index JSON, find the HTM file that:
-      1. Is NOT a viewer page
-      2. Has the correct form type label OR is the largest HTM file
+    Returns the raw document URL (ix?doc= wrapper stripped).
     """
     cik_int = filing["cik_int"]
     acc_clean = filing["acc_clean"]
@@ -111,21 +117,20 @@ def get_primary_document_url(filing: dict) -> str | None:
 
                 url = f"{SEC_BASE}/Archives/edgar/data/{cik_int}/{acc_clean}/{name}"
 
-                # Exact type match is top priority
+                # Exact type match wins immediately
                 if item_type == filing["form_type"]:
-                    return url
+                    return _strip_ix_wrapper(url)
 
                 candidates.append((size, url))
-
         except Exception as e:
             print(f"[edgar] JSON parse error for {accession}: {e}")
 
-    # If no exact type match, return the largest non-viewer HTM
+    # Return the largest non-viewer HTM if no exact match
     if candidates:
         candidates.sort(reverse=True)
-        return candidates[0][1]
+        return _strip_ix_wrapper(candidates[0][1])
 
-    # Final fallback: scrape the HTM index page
+    # Final fallback: scrape HTM index page
     index_htm = (
         f"{SEC_BASE}/Archives/edgar/data/{cik_int}/{acc_clean}/{accession}-index.htm"
     )
@@ -146,26 +151,25 @@ def get_primary_document_url(filing: dict) -> str | None:
         if "index" in href.lower() or _is_viewer_page(href):
             continue
 
-        # Prefer exact type match
+        full = f"{SEC_BASE}{href}" if href.startswith("/") else href
+
         if len(cells) >= 4:
             if cells[3].get_text(strip=True) == filing["form_type"]:
-                full = f"{SEC_BASE}{href}" if href.startswith("/") else href
-                return full
+                return _strip_ix_wrapper(full)
 
-        # Track largest by size column
         try:
             size = int(cells[-1].get_text(strip=True).replace(",", ""))
         except (ValueError, IndexError):
             size = 0
         if size > best[0]:
-            full = f"{SEC_BASE}{href}" if href.startswith("/") else href
             best = (size, full)
 
-    return best[1]
+    return _strip_ix_wrapper(best[1]) if best[1] else None
 
 
 def download_filing(url: str, output_path: Path) -> Path:
-    """Download a filing document to disk."""
+    """Download a filing document. Strips ix?doc= viewer wrapper automatically."""
+    url = _strip_ix_wrapper(url)
     output_path.parent.mkdir(parents=True, exist_ok=True)
     resp = requests.get(url, headers=HEADERS, timeout=120)
     resp.raise_for_status()
@@ -220,7 +224,7 @@ def fetch_filings(
                 time.sleep(0.5)
 
             downloaded.append({
-                **{k: v for k, v in filing.items() if k not in ("acc_clean",)},
+                **{k: v for k, v in filing.items() if k != "acc_clean"},
                 "ticker": ticker,
                 "document_url": doc_url,
                 "local_path": str(local_path),
