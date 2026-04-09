@@ -9,6 +9,7 @@ Respects EDGAR's rate limit guidance (max 10 req/sec, we stay well below).
 import time
 import requests
 from pathlib import Path
+from bs4 import BeautifulSoup
 
 HEADERS = {"User-Agent": "finance-rag-portfolio contact@example.com"}
 EDGAR_BASE = "https://data.sec.gov"
@@ -66,28 +67,49 @@ def get_filing_urls(
 
 
 def get_primary_document_url(filing: dict) -> str | None:
-    """Find the URL of the primary HTM document for a filing."""
-    cik = int(filing["cik"])
-    acc_clean = filing["accession_number"].replace("-", "")
-    index_url = (
-        f"{EDGAR_BASE}/Archives/edgar/data/{cik}/{acc_clean}/"
-        f"{filing['accession_number']}-index.json"
-    )
+    """
+    Find the URL of the primary HTM document by scraping the EDGAR
+    filing index page. The index table lists all documents in a filing
+    with their type in the 4th column.
+    """
+    index_url = filing["filing_index_url"]
     resp = requests.get(index_url, headers=HEADERS, timeout=10)
     if resp.status_code != 200:
         return None
-    for doc in resp.json().get("documents", []):
-        if doc.get("type") == filing["form_type"] and doc.get(
-            "documentUrl", ""
-        ).endswith((".htm", ".html")):
-            return f"https://www.sec.gov{doc['documentUrl']}"
+
+    soup = BeautifulSoup(resp.text, "html.parser")
+
+    # Primary pass: find row where Type column matches form_type exactly
+    for row in soup.find_all("tr"):
+        cells = row.find_all("td")
+        if len(cells) >= 4:
+            doc_type = cells[3].get_text(strip=True)
+            if doc_type == filing["form_type"]:
+                link = row.find("a", href=True)
+                if link:
+                    href = link["href"]
+                    if href.endswith((".htm", ".html")):
+                        if href.startswith("/"):
+                            return f"https://www.sec.gov{href}"
+                        return href
+
+    # Fallback: first non-index HTM link in the table
+    for row in soup.find_all("tr"):
+        link = row.find("a", href=True)
+        if link:
+            href = link["href"]
+            if href.endswith((".htm", ".html")) and "index" not in href.lower():
+                if href.startswith("/"):
+                    return f"https://www.sec.gov{href}"
+                return href
+
     return None
 
 
 def download_filing(url: str, output_path: Path) -> Path:
     """Download a filing document to disk."""
     output_path.parent.mkdir(parents=True, exist_ok=True)
-    resp = requests.get(url, headers=HEADERS, timeout=30)
+    resp = requests.get(url, headers=HEADERS, timeout=60)
     resp.raise_for_status()
     output_path.write_bytes(resp.content)
     return output_path
@@ -127,7 +149,7 @@ def fetch_filings(
         for filing in filings:
             doc_url = get_primary_document_url(filing)
             if not doc_url:
-                print(f"[edgar] No primary doc found for {filing['accession_number']}")
+                print(f"[edgar] Could not find primary doc for {filing['accession_number']}")
                 continue
 
             filename = f"{ticker}_{filing['form_type']}_{filing['filing_date']}.htm"
@@ -137,7 +159,11 @@ def fetch_filings(
                 print(f"[edgar] Already exists: {local_path.name}")
             else:
                 print(f"[edgar] Downloading {filename}...")
-                download_filing(doc_url, local_path)
+                try:
+                    download_filing(doc_url, local_path)
+                except Exception as e:
+                    print(f"[edgar] Download failed: {e}")
+                    continue
                 time.sleep(0.5)  # respect EDGAR rate limit
 
             downloaded.append({
