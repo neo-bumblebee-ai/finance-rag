@@ -92,7 +92,7 @@ def parse_pdf(
             chunk_index += 1
 
     doc.close()
-    print(f"[parser] {file_path.name}: {len(doc)} pages → {len(all_chunks)} chunks")
+    print(f"[parser] {file_path.name}: {len(doc)} pages -> {len(all_chunks)} chunks")
     return all_chunks
 
 
@@ -138,7 +138,7 @@ def parse_htm(
             )
             chunk_index += 1
 
-    print(f"[parser] {file_path.name}: ~{page_num} pages → {len(all_chunks)} chunks")
+    print(f"[parser] {file_path.name}: ~{page_num} pages -> {len(all_chunks)} chunks")
     return all_chunks
 
 

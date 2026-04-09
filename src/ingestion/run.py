@@ -20,7 +20,7 @@ from src.ingestion.indexer import build_indexes, indexes_exist
 load_dotenv()
 
 DEFAULT_TICKERS = ["AAPL", "MSFT", "AMZN", "NVDA", "JPM"]
-DEFAULT_YEARS = [2023, 2024]
+DEFAULT_YEARS = [2022, 2023, 2024]
 
 
 def main():

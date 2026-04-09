@@ -173,7 +173,7 @@ def fetch_filings(
                 "local_path": str(local_path),
             })
 
-    print(f"[edgar] Done — {len(downloaded)} filing(s) ready.")
+    print(f"[edgar] Done - {len(downloaded)} filing(s) ready.")
     return downloaded
 
 
