@@ -60,7 +60,7 @@ def build_indexes(chunks: list[Chunk], openai_api_key: str) -> None:
     index = faiss.IndexFlatIP(EMBEDDING_DIM)
     index.add(embeddings)
     faiss.write_index(index, str(FAISS_INDEX_PATH))
-    print(f"[indexer] FAISS: {index.ntotal} vectors → {FAISS_INDEX_PATH}")
+    print(f"[indexer] FAISS: {index.ntotal} vectors -> {FAISS_INDEX_PATH}")
 
     # BM25
     print("[indexer] Building BM25 index...")
@@ -68,12 +68,12 @@ def build_indexes(chunks: list[Chunk], openai_api_key: str) -> None:
     bm25 = BM25Okapi(tokenised)
     with open(BM25_INDEX_PATH, "wb") as f:
         pickle.dump(bm25, f)
-    print(f"[indexer] BM25 → {BM25_INDEX_PATH}")
+    print(f"[indexer] BM25 -> {BM25_INDEX_PATH}")
 
     # Metadata sidecar
     with open(METADATA_PATH, "w") as f:
         json.dump(metadata, f)
-    print(f"[indexer] Metadata: {len(metadata)} chunks → {METADATA_PATH}")
+    print(f"[indexer] Metadata: {len(metadata)} chunks -> {METADATA_PATH}")
 
 
 def load_indexes() -> tuple[faiss.Index, BM25Okapi, list[dict]]:

@@ -2,8 +2,8 @@
 pdf_parser.py
 
 Parses SEC filing documents (HTM/HTML or PDF) into text chunks.
-Preserves page numbers and source metadata on every chunk — this is
-what makes citation enforcement possible downstream.
+Handles both traditional HTML filings and modern iXBRL inline filings.
+Preserves approximate page numbers on every chunk for citation enforcement.
 """
 
 import re
@@ -48,7 +48,7 @@ def _clean_text(text: str) -> str:
 def _split_into_chunks(
     text: str, chunk_size: int = 512, overlap: int = 64
 ) -> list[str]:
-    """Word-based overlapping split — keeps financial sentences intact."""
+    """Word-based overlapping split."""
     words = text.split()
     chunks = []
     start = 0
@@ -58,6 +58,33 @@ def _split_into_chunks(
             chunks.append(chunk)
         start += chunk_size - overlap
     return chunks
+
+
+def _extract_text_from_html(html: str) -> str:
+    """
+    Extract readable text from HTML or iXBRL filing.
+    iXBRL filings use ix: namespace tags wrapping the actual text content.
+    We parse with lxml when available for better namespace handling,
+    falling back to html.parser.
+    """
+    # Try lxml first (better iXBRL handling), fall back to html.parser
+    for parser in ["lxml", "html.parser"]:
+        try:
+            soup = BeautifulSoup(html, parser)
+            break
+        except Exception:
+            continue
+
+    # Remove noise tags
+    for tag in soup(["script", "style", "meta", "link", "head"]):
+        tag.decompose()
+
+    # iXBRL documents wrap content in ix:nonNumeric and ix:nonFraction tags
+    # BeautifulSoup treats these as regular tags — get_text() still works
+    # but we need to make sure we're not just getting the outer shell
+    text = soup.get_text(separator=" ", strip=True)
+    text = _clean_text(text)
+    return text
 
 
 def parse_pdf(
@@ -105,16 +132,15 @@ def parse_htm(
     overlap: int = 64,
 ) -> list[Chunk]:
     """
-    Parse an HTM/HTML SEC filing into chunks.
-    Approximates page numbers by segmenting every ~3000 words
-    (typical 10-K page density in HTML form).
+    Parse an HTM/HTML SEC filing (including iXBRL) into chunks.
+    Approximates page numbers by segmenting every ~3000 words.
     """
     html = file_path.read_text(encoding="utf-8", errors="replace")
-    soup = BeautifulSoup(html, "html.parser")
-    for tag in soup(["script", "style", "meta", "link"]):
-        tag.decompose()
+    full_text = _extract_text_from_html(html)
 
-    full_text = _clean_text(soup.get_text(separator=" "))
+    if len(full_text.split()) < 100:
+        print(f"[parser] WARNING: {file_path.name} extracted very little text ({len(full_text.split())} words). File may be a redirect or viewer page.")
+
     words = full_text.split()
     page_size_words = 3000
     all_chunks: list[Chunk] = []
@@ -165,7 +191,7 @@ def parse_all_filings(
     chunk_size: int = 512,
     overlap: int = 64,
 ) -> list[Chunk]:
-    """Parse a batch of filing dicts (from edgar_fetcher) into a flat chunk list."""
+    """Parse a batch of filing dicts into a flat chunk list."""
     all_chunks: list[Chunk] = []
     for filing in filings:
         path = Path(filing["local_path"])
