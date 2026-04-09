@@ -1,0 +1,152 @@
+[
+  {
+    "question": "What are Apple's primary risk factors related to its supply chain?",
+    "ground_truth": "Apple identifies geographic concentration as a key supply chain risk, noting that a significant portion of products are manufactured in China. Trade restrictions, geopolitical tensions, and local regulation could disrupt production and delivery.",
+    "ticker": "AAPL",
+    "form_type": "10-K"
+  },
+  {
+    "question": "How does Apple describe its competition in the smartphone market?",
+    "ground_truth": "Apple faces intense competition from companies offering lower-priced products, and competes on innovation, ecosystem integration, and brand loyalty across its product lines.",
+    "ticker": "AAPL",
+    "form_type": "10-K"
+  },
+  {
+    "question": "What does Apple say about its revenue from services?",
+    "ground_truth": "Apple reports Services as a growing segment including the App Store, Apple Music, iCloud, and Apple TV+. The segment contributes significant recurring revenue with high margins.",
+    "ticker": "AAPL",
+    "form_type": "10-K"
+  },
+  {
+    "question": "What is Microsoft's stated strategy for Azure cloud growth?",
+    "ground_truth": "Microsoft describes Azure growth as driven by enterprise cloud migrations, hybrid cloud adoption, and AI services layered on top of core infrastructure offerings.",
+    "ticker": "MSFT",
+    "form_type": "10-K"
+  },
+  {
+    "question": "How does Microsoft describe its AI investment in recent filings?",
+    "ground_truth": "Microsoft highlights significant capital expenditure in AI infrastructure, partnerships with OpenAI, and integration of AI capabilities across its product suite including Azure, Office, and Copilot.",
+    "ticker": "MSFT",
+    "form_type": "10-K"
+  },
+  {
+    "question": "What are Microsoft's primary cybersecurity risk disclosures?",
+    "ground_truth": "Microsoft discloses risks from nation-state attacks, ransomware, and supply chain vulnerabilities. The company notes that security incidents could materially affect customer trust and financial results.",
+    "ticker": "MSFT",
+    "form_type": "10-K"
+  },
+  {
+    "question": "How does Amazon describe AWS revenue growth drivers?",
+    "ground_truth": "Amazon attributes AWS growth to enterprise cloud adoption, expansion of AI and machine learning services, and growing usage from existing customers across compute, storage, and database offerings.",
+    "ticker": "AMZN",
+    "form_type": "10-K"
+  },
+  {
+    "question": "What does Amazon say about its advertising business?",
+    "ground_truth": "Amazon describes its advertising business as a high-margin segment that benefits from first-party purchase data, enabling targeted ads across its marketplace and third-party properties.",
+    "ticker": "AMZN",
+    "form_type": "10-K"
+  },
+  {
+    "question": "How does Amazon characterize its fulfillment network investments?",
+    "ground_truth": "Amazon continues to invest heavily in its logistics and fulfillment infrastructure, including same-day delivery capabilities and robotics, to reduce cost per unit shipped and improve delivery speed.",
+    "ticker": "AMZN",
+    "form_type": "10-K"
+  },
+  {
+    "question": "What does NVIDIA say about its data center segment growth?",
+    "ground_truth": "NVIDIA attributes data center growth to strong demand for AI accelerators, particularly the H100 and successor GPUs, driven by hyperscaler and enterprise customers building large language model infrastructure.",
+    "ticker": "NVDA",
+    "form_type": "10-K"
+  },
+  {
+    "question": "How does NVIDIA describe its competitive position in AI chips?",
+    "ground_truth": "NVIDIA highlights its CUDA software ecosystem as a key competitive moat, noting that the combination of hardware and software creates significant switching costs for customers.",
+    "ticker": "NVDA",
+    "form_type": "10-K"
+  },
+  {
+    "question": "What risks does NVIDIA disclose around export controls?",
+    "ground_truth": "NVIDIA discloses that US export restrictions on advanced chips to China could materially impact revenue from that region, and that further restrictions could be imposed with limited notice.",
+    "ticker": "NVDA",
+    "form_type": "10-K"
+  },
+  {
+    "question": "How does JPMorgan Chase describe its credit loss provisions?",
+    "ground_truth": "JPMorgan sets aside credit loss provisions based on expected losses across its consumer and wholesale loan portfolios, with amounts driven by macroeconomic forecasts and portfolio credit quality.",
+    "ticker": "JPM",
+    "form_type": "10-K"
+  },
+  {
+    "question": "What does JPMorgan say about its investment banking revenue?",
+    "ground_truth": "JPMorgan's investment banking revenue is described as cyclical, driven by advisory fees, equity underwriting, and debt capital markets activity, which fluctuate with market conditions.",
+    "ticker": "JPM",
+    "form_type": "10-K"
+  },
+  {
+    "question": "How does JPMorgan describe its approach to interest rate risk?",
+    "ground_truth": "JPMorgan manages interest rate risk through asset-liability management, hedging strategies, and monitoring net interest income sensitivity across different rate scenarios.",
+    "ticker": "JPM",
+    "form_type": "10-K"
+  },
+  {
+    "question": "What capital ratios does JPMorgan report under Basel III requirements?",
+    "ground_truth": "JPMorgan reports its Common Equity Tier 1 (CET1) ratio, Tier 1 capital ratio, and Total capital ratio under Basel III standardized and advanced approaches, maintaining buffers above regulatory minimums.",
+    "ticker": "JPM",
+    "form_type": "10-K"
+  },
+  {
+    "question": "How does Apple describe its research and development spending?",
+    "ground_truth": "Apple discusses R&D investment as critical to maintaining competitive differentiation, covering hardware, software, and services innovation across its product ecosystem.",
+    "ticker": "AAPL",
+    "form_type": "10-K"
+  },
+  {
+    "question": "What does Microsoft say about its gaming segment?",
+    "ground_truth": "Microsoft's gaming segment, which includes Xbox hardware, Game Pass subscriptions, and following the Activision Blizzard acquisition, a broader content library, is described as a growth area with subscription-driven recurring revenue.",
+    "ticker": "MSFT",
+    "form_type": "10-K"
+  },
+  {
+    "question": "How does Amazon describe its international segment performance?",
+    "ground_truth": "Amazon's international segment is described as still scaling toward profitability in many markets, with losses driven by logistics investment and competitive pricing, partially offset by growing Prime membership.",
+    "ticker": "AMZN",
+    "form_type": "10-K"
+  },
+  {
+    "question": "What does NVIDIA say about its gross margin trends?",
+    "ground_truth": "NVIDIA reports high gross margins in its data center segment driven by strong pricing power for AI GPUs, with overall margins benefiting from the shift toward high-value accelerated computing products.",
+    "ticker": "NVDA",
+    "form_type": "10-K"
+  },
+  {
+    "question": "How does JPMorgan describe its consumer banking deposit trends?",
+    "ground_truth": "JPMorgan discusses consumer deposit growth as influenced by interest rate environment, competitive pressures from higher-yielding alternatives, and the stability of its core checking account base.",
+    "ticker": "JPM",
+    "form_type": "10-K"
+  },
+  {
+    "question": "What does Apple say about its cash and capital return program?",
+    "ground_truth": "Apple describes an ongoing capital return program including share buybacks and dividends, funded by its substantial cash and marketable securities position and strong free cash flow generation.",
+    "ticker": "AAPL",
+    "form_type": "10-K"
+  },
+  {
+    "question": "How does Microsoft describe its commercial cloud revenue?",
+    "ground_truth": "Microsoft defines commercial cloud as Azure plus cloud-based versions of Office 365, Dynamics 365, and LinkedIn, reporting it as a key growth metric reflecting enterprise digital transformation.",
+    "ticker": "MSFT",
+    "form_type": "10-K"
+  },
+  {
+    "question": "What does NVIDIA say about its automotive segment?",
+    "ground_truth": "NVIDIA describes its automotive segment as an emerging growth area focused on autonomous driving platforms and in-vehicle AI systems, with design wins providing long-term revenue visibility.",
+    "ticker": "NVDA",
+    "form_type": "10-K"
+  },
+  {
+    "question": "How does JPMorgan describe its risk management framework?",
+    "ground_truth": "JPMorgan outlines a comprehensive risk framework covering credit, market, operational, and liquidity risks, governed by the Board Risk Committee and managed through stress testing and scenario analysis.",
+    "ticker": "JPM",
+    "form_type": "10-K"
+  }
+]
