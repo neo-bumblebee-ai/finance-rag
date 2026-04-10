@@ -1,7 +1,7 @@
 """
 tests/test_retrieval.py
 
-Unit tests for the retrieval layer — BM25 search, RRF fusion, and reranker.
+Unit tests for the retrieval layer - BM25 search, RRF fusion, and reranker.
 These run without API keys so they execute cleanly in CI.
 """
 
@@ -11,7 +11,7 @@ from src.retrieval.bm25_search import bm25_search
 from src.retrieval.fusion import reciprocal_rank_fusion
 
 
-# ── Fixtures ──────────────────────────────────────────────────────────────────
+# -- Fixtures ------------------------------------------------------------------
 
 SAMPLE_METADATA = [
     {
@@ -68,7 +68,7 @@ def bm25_index():
     return BM25Okapi(tokenised)
 
 
-# ── BM25 tests ────────────────────────────────────────────────────────────────
+# -- BM25 tests ----------------------------------------------------------------
 
 def test_bm25_returns_relevant_result(bm25_index):
     results = bm25_search("Apple supply chain China", bm25_index, SAMPLE_METADATA, top_k=3)
@@ -95,11 +95,11 @@ def test_bm25_adds_score_field(bm25_index):
 
 def test_bm25_empty_query_returns_no_results(bm25_index):
     results = bm25_search("", bm25_index, SAMPLE_METADATA, top_k=5)
-    # All BM25 scores will be 0 for empty query — expect empty list
+    # All BM25 scores will be 0 for empty query - expect empty list
     assert len(results) == 0
 
 
-# ── RRF fusion tests ──────────────────────────────────────────────────────────
+# -- RRF fusion tests ----------------------------------------------------------
 
 def _make_vector_results():
     """Simulate vector search results with scores."""
@@ -122,7 +122,7 @@ def _make_bm25_results():
 def test_rrf_merges_both_lists():
     fused = reciprocal_rank_fusion([_make_vector_results(), _make_bm25_results()])
     chunk_indices = [r["chunk_index"] for r in fused]
-    # chunk 0 appeared in both lists — should be top ranked
+    # chunk 0 appeared in both lists - should be top ranked
     assert chunk_indices[0] == 0
 
 
@@ -162,7 +162,7 @@ def test_rrf_empty_lists():
     assert fused == []
 
 
-# ── Prompt builder tests ──────────────────────────────────────────────────────
+# -- Prompt builder tests ------------------------------------------------------
 
 def test_prompt_builder_includes_citation_format():
     from src.generation.prompt_builder import build_messages

@@ -16,7 +16,7 @@ import os
 def build_langfuse_client():
     """
     Build and return a Langfuse client if credentials are present in env.
-    Returns None silently if LANGFUSE_SECRET_KEY is not set — this allows
+    Returns None silently if LANGFUSE_SECRET_KEY is not set - this allows
     the app to run without tracing in local dev without raising errors.
     """
     secret_key = os.environ.get("LANGFUSE_SECRET_KEY")
@@ -35,7 +35,7 @@ def build_langfuse_client():
         print("[langfuse] Tracing enabled.")
         return client
     except ImportError:
-        print("[langfuse] Package not installed — run: pip install langfuse")
+        print("[langfuse] Package not installed - run: pip install langfuse")
         return None
     except Exception as e:
         print(f"[langfuse] Failed to initialise (non-fatal): {e}")

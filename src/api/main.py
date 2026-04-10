@@ -1,8 +1,8 @@
 """
-main.py — FastAPI application
+main.py - FastAPI application
 
-POST /ask   — run the full retrieval + generation pipeline
-GET  /health — health check with chunk count
+POST /ask   - run the full retrieval + generation pipeline
+GET  /health - health check with chunk count
 """
 
 import os
@@ -48,18 +48,18 @@ async def lifespan(app: FastAPI):
             )
             print("[api] Langfuse tracing enabled.")
         except ImportError:
-            print("[api] Langfuse not installed — tracing disabled.")
+            print("[api] Langfuse not installed - tracing disabled.")
     _state["langfuse"] = langfuse_client
-    print(f"[api] Ready — {len(metadata)} chunks indexed.")
+    print(f"[api] Ready - {len(metadata)} chunks indexed.")
     yield
     _state.clear()
 
 
 app = FastAPI(
-    title="Finance RAG — Ask My 10-Ks",
+    title="Finance RAG - Ask My 10-Ks",
     description=(
         "Production RAG over SEC 10-K / 10-Q filings. "
-        "Hybrid retrieval (BM25 + vector) → RRF fusion → Cohere rerank → GPT-4o."
+        "Hybrid retrieval (BM25 + vector) -> RRF fusion -> Cohere rerank -> GPT-4o."
     ),
     version="1.0.0",
     lifespan=lifespan,
@@ -89,9 +89,9 @@ async def ask(request: AskRequest):
 
     Pipeline:
         Vector search (top-K) + BM25 (top-K)
-        → RRF fusion (top-40)
-        → Cohere rerank (top-N)
-        → GPT-4o with citation-enforced prompt
+        -> RRF fusion (top-40)
+        -> Cohere rerank (top-N)
+        -> GPT-4o with citation-enforced prompt
     """
     if not request.question.strip():
         raise HTTPException(status_code=400, detail="Question cannot be empty.")
@@ -121,7 +121,7 @@ async def ask(request: AskRequest):
             top_n=request.top_n_rerank,
         )
     else:
-        print("[api] No COHERE_API_KEY — skipping rerank, using top-N from fusion.")
+        print("[api] No COHERE_API_KEY - skipping rerank, using top-N from fusion.")
         top_chunks = fused[: request.top_n_rerank]
 
     if not top_chunks:

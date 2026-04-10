@@ -1,5 +1,5 @@
 """
-llm_client.py — OpenAI GPT-4o wrapper with optional Langfuse tracing
+llm_client.py - OpenAI GPT-4o wrapper with optional Langfuse tracing
 """
 
 import time
@@ -19,12 +19,12 @@ def generate_answer(
     Generate a grounded, cited answer from top-K reranked chunks.
 
     Returns:
-        answer         — LLM response string with inline citations
-        latency_ms     — total generation time
-        input_tokens   — prompt token count
-        output_tokens  — completion token count
-        cost_usd       — estimated cost at GPT-4o pricing
-        chunks_used    — number of chunks passed as context
+        answer         - LLM response string with inline citations
+        latency_ms     - total generation time
+        input_tokens   - prompt token count
+        output_tokens  - completion token count
+        cost_usd       - estimated cost at GPT-4o pricing
+        chunks_used    - number of chunks passed as context
     """
     client = OpenAI(api_key=openai_api_key)
     messages = build_messages(query, chunks)

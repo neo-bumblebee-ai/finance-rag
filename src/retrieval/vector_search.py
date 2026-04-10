@@ -1,5 +1,5 @@
 """
-vector_search.py — Dense semantic search via FAISS
+vector_search.py - Dense semantic search via FAISS
 
 Why: Captures meaning-based similarity. "Profitability concerns" matches
 "earnings uncertainty" even without shared keywords.

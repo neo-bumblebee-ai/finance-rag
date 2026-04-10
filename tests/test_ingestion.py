@@ -1,14 +1,14 @@
 """
 tests/test_ingestion.py
 
-Unit tests for ingestion logic — chunking, metadata fields, and index helpers.
+Unit tests for ingestion logic - chunking, metadata fields, and index helpers.
 No API keys needed. No file I/O beyond tmp files.
 """
 
 from src.ingestion.pdf_parser import _clean_text, _split_into_chunks, Chunk
 
 
-# ── Text cleaning ─────────────────────────────────────────────────────────────
+# -- Text cleaning -------------------------------------------------------------
 
 def test_clean_text_collapses_whitespace():
     assert _clean_text("hello   world\n\t foo") == "hello world foo"
@@ -26,7 +26,7 @@ def test_clean_text_empty_string():
     assert _clean_text("") == ""
 
 
-# ── Chunking ──────────────────────────────────────────────────────────────────
+# -- Chunking ------------------------------------------------------------------
 
 def test_split_respects_chunk_size():
     words = ["word"] * 600
@@ -58,7 +58,7 @@ def test_split_returns_list():
     assert isinstance(chunks, list)
 
 
-# ── Chunk dataclass ───────────────────────────────────────────────────────────
+# -- Chunk dataclass -----------------------------------------------------------
 
 def test_chunk_to_dict_has_required_keys():
     chunk = Chunk(
@@ -106,7 +106,7 @@ def test_chunk_metadata_merged_into_dict():
     assert d["custom_field"] == "custom_value"
 
 
-# ── Index helpers ─────────────────────────────────────────────────────────────
+# -- Index helpers -------------------------------------------------------------
 
 def test_indexes_exist_returns_false_when_missing(tmp_path, monkeypatch):
     import src.ingestion.indexer as indexer

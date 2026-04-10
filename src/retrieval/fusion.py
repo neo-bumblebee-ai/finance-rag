@@ -1,11 +1,11 @@
 """
-fusion.py — Reciprocal Rank Fusion (RRF)
+fusion.py - Reciprocal Rank Fusion (RRF)
 
 Merges ranked lists from vector search and BM25 without needing to tune
 score weights. RRF rewards chunks that rank highly in both lists and
 degrades gracefully when one retriever returns noise.
 
-Formula: RRF(d) = Σ_r  1 / (k + rank_r(d))   where k=60 (standard default)
+Formula: RRF(d) = sum_r  1 / (k + rank_r(d))   where k=60 (standard default)
 """
 
 

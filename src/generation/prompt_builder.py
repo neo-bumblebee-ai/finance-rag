@@ -1,9 +1,9 @@
 """
-prompt_builder.py — Citation-enforced prompt templates
+prompt_builder.py - Citation-enforced prompt templates
 
 The citation enforcement is the key difference between a research toy
 and a finance-grade system. The prompt structure makes it structurally
-difficult for the LLM to answer from general knowledge — every factual
+difficult for the LLM to answer from general knowledge - every factual
 claim must map to a specific filing and page number.
 """
 
@@ -19,7 +19,7 @@ Rules you must follow without exception:
    say exactly: "The provided filings do not contain sufficient information
    to answer this question." Do not speculate or use outside knowledge.
 4. Do not combine information from different filings without citing each source.
-5. Use precise financial language. Do not paraphrase numbers — quote them exactly.
+5. Use precise financial language. Do not paraphrase numbers - quote them exactly.
 """
 
 

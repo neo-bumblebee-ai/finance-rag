@@ -1,5 +1,5 @@
 """
-run_ragas.py — RAGAS evaluation harness + CI gate
+run_ragas.py - RAGAS evaluation harness + CI gate
 
 Runs against the fixed 25-question test set in eval/test_set.json.
 Calls the /ask API for each question, collects answers + retrieved contexts,
@@ -58,7 +58,7 @@ def collect_answers(test_cases: list[dict]) -> list[dict]:
     results = []
     with httpx.Client() as client:
         for i, case in enumerate(test_cases, start=1):
-            print(f"[eval] {i}/{len(test_cases)} — {case['question'][:70]}...")
+            print(f"[eval] {i}/{len(test_cases)} - {case['question'][:70]}...")
             response = call_api(case["question"], client)
             if response is None:
                 continue
@@ -109,7 +109,7 @@ if __name__ == "__main__":
     answers = collect_answers(test_cases)
 
     if not answers:
-        print("[eval] No answers collected — is the API running? (`make run`)")
+        print("[eval] No answers collected - is the API running? (`make run`)")
         sys.exit(1)
 
     print(f"\n[eval] Running RAGAS on {len(answers)} answered questions...")
@@ -122,5 +122,5 @@ if __name__ == "__main__":
     print(f"\n[eval] Report saved to {REPORT_PATH}")
 
     passed = check_thresholds(scores)
-    print(f"\n[eval] Overall: {'PASSED ✓' if passed else 'FAILED ✗'}")
+    print(f"\n[eval] Overall: {'PASSED OK' if passed else 'FAILED FAIL'}")
     sys.exit(0 if passed else 1)

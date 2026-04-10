@@ -1,10 +1,10 @@
 """
-reranker.py — Cross-encoder reranking via Cohere Rerank API
+reranker.py - Cross-encoder reranking via Cohere Rerank API
 
 Takes the top-40 fused candidates and scores each against the query
 using a cross-encoder (query + document seen together, not independently).
 Much more precise than bi-encoder similarity but too slow to run on the
-full corpus — which is why we funnel through BM25 + vector first.
+full corpus - which is why we funnel through BM25 + vector first.
 
 Result: top-5 chunks with the highest relevance to the actual query.
 """

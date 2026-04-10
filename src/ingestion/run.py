@@ -1,5 +1,5 @@
 """
-run.py — Ingestion CLI
+run.py - Ingestion CLI
 
 Fetches filings from SEC EDGAR, parses them into chunks,
 and builds FAISS + BM25 indexes. Run this once before starting the API.
@@ -49,7 +49,7 @@ def main():
 
     openai_key = os.environ.get("OPENAI_API_KEY")
     if not openai_key:
-        raise EnvironmentError("OPENAI_API_KEY not set — check your .env file.")
+        raise EnvironmentError("OPENAI_API_KEY not set - check your .env file.")
 
     if indexes_exist() and not args.force_reindex and not args.force_redownload:
         print("[run] Indexes already exist. Use --force-reindex to rebuild.")
@@ -60,7 +60,7 @@ def main():
     print(f"[run] Form:    {args.form_type}")
     print()
 
-    # Step 1 — Download
+    # Step 1 - Download
     filings = fetch_filings(
         tickers=args.tickers,
         form_type=args.form_type,
@@ -71,7 +71,7 @@ def main():
         print("[run] No filings downloaded. Exiting.")
         return
 
-    # Step 2 — Parse
+    # Step 2 - Parse
     chunks = parse_all_filings(filings)
     if not chunks:
         print("[run] No chunks produced. Check your filings.")
@@ -82,7 +82,7 @@ def main():
         print(f"[run] WARNING: only {len(good_chunks)}/{len(chunks)} chunks have sufficient text.")
         print("[run] Downloaded files may be viewer pages. Try --force-redownload.")
 
-    # Step 3 — Index
+    # Step 3 - Index
     build_indexes(chunks, openai_api_key=openai_key)
     print("\n[run] Ingestion complete. Start the API with: uvicorn src.api.main:app --reload")
 

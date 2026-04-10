@@ -80,7 +80,7 @@ def _extract_text_from_html(html: str) -> str:
         tag.decompose()
 
     # iXBRL documents wrap content in ix:nonNumeric and ix:nonFraction tags
-    # BeautifulSoup treats these as regular tags — get_text() still works
+    # BeautifulSoup treats these as regular tags - get_text() still works
     # but we need to make sure we're not just getting the outer shell
     text = soup.get_text(separator=" ", strip=True)
     text = _clean_text(text)

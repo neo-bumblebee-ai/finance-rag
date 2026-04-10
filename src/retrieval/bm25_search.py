@@ -1,8 +1,8 @@
 """
-bm25_search.py — Keyword / sparse search via BM25
+bm25_search.py - Keyword / sparse search via BM25
 
 Why: Financial text contains exact terms that vector search consistently
-underranks — ticker symbols (NVDA, JPM), metrics (EBITDA, Tier 1 capital),
+underranks - ticker symbols (NVDA, JPM), metrics (EBITDA, Tier 1 capital),
 and regulatory references (Basel III, SEC Rule 10b-5). BM25 catches these
 precisely because it rewards exact token matches without embedding averaging.
 """

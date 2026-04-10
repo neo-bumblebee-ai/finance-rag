@@ -2,9 +2,9 @@
 indexer.py
 
 Builds and persists:
-  1. FAISS vector index  — dense semantic search
-  2. BM25 index          — keyword / sparse search
-  3. Metadata JSON       — chunk provenance for citations
+  1. FAISS vector index  - dense semantic search
+  2. BM25 index          - keyword / sparse search
+  3. Metadata JSON       - chunk provenance for citations
 
 Both indexes are built from the same chunk list so they stay in sync.
 Run once at ingestion time; subsequent queries load from disk.
@@ -45,15 +45,15 @@ def _embed_texts(
 def build_indexes(chunks: list[Chunk], openai_api_key: str) -> None:
     """
     Build FAISS and BM25 indexes from chunks and save to disk.
-    Expensive — run once per corpus change.
+    Expensive - run once per corpus change.
     """
-    from openai import OpenAI  # lazy import — only needed at build time
+    from openai import OpenAI  # lazy import - only needed at build time
     INDEX_DIR.mkdir(parents=True, exist_ok=True)
     client = OpenAI(api_key=openai_api_key)
     texts = [c.text for c in chunks]
     metadata = [c.to_dict() for c in chunks]
 
-    # FAISS — L2-normalised vectors give cosine similarity via IndexFlatIP
+    # FAISS - L2-normalised vectors give cosine similarity via IndexFlatIP
     print("[indexer] Building FAISS index...")
     embeddings = _embed_texts(texts, client)
     faiss.normalize_L2(embeddings)
@@ -90,7 +90,7 @@ def load_indexes() -> tuple[faiss.Index, BM25Okapi, list[dict]]:
     with open(METADATA_PATH) as f:
         metadata = json.load(f)
     print(
-        f"[indexer] Loaded — FAISS: {faiss_index.ntotal} vectors, "
+        f"[indexer] Loaded - FAISS: {faiss_index.ntotal} vectors, "
         f"BM25 + {len(metadata)} chunks"
     )
     return faiss_index, bm25_index, metadata
