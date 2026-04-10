@@ -1,5 +1,5 @@
 """
-llm_client.py - OpenAI GPT-4o wrapper with optional Langfuse tracing
+llm_client.py - OpenAI GPT-4o wrapper with Langfuse v4 tracing
 """
 
 import time
@@ -17,14 +17,7 @@ def generate_answer(
 ) -> dict:
     """
     Generate a grounded, cited answer from top-K reranked chunks.
-
-    Returns:
-        answer         - LLM response string with inline citations
-        latency_ms     - total generation time
-        input_tokens   - prompt token count
-        output_tokens  - completion token count
-        cost_usd       - estimated cost at GPT-4o pricing
-        chunks_used    - number of chunks passed as context
+    Logs to Langfuse v4 if client is provided.
     """
     client = OpenAI(api_key=openai_api_key)
     messages = build_messages(query, chunks)
@@ -38,9 +31,8 @@ def generate_answer(
     latency_ms = round((time.perf_counter() - start) * 1000, 1)
 
     answer = response.choices[0].message.content
-    usage = response.usage
-    input_tokens = usage.prompt_tokens
-    output_tokens = usage.completion_tokens
+    input_tokens = response.usage.prompt_tokens
+    output_tokens = response.usage.completion_tokens
 
     # GPT-4o pricing (early 2025): $5/1M input, $15/1M output
     cost_usd = round((input_tokens * 5 + output_tokens * 15) / 1_000_000, 6)
@@ -55,17 +47,28 @@ def generate_answer(
         "chunks_used": len(chunks),
     }
 
+    # Langfuse v4 tracing
     if langfuse_client:
         try:
-            trace = langfuse_client.trace(name="finance-rag-query")
-            trace.generation(
-                name="llm-generation",
-                model=model,
+            obs = langfuse_client.start_observation(
+                name="finance-rag-query",
+                as_type="generation",
                 input=messages,
                 output=answer,
-                usage={"input": input_tokens, "output": output_tokens},
-                metadata={"latency_ms": latency_ms, "cost_usd": cost_usd},
+                model=model,
+                usage_details={
+                    "input": input_tokens,
+                    "output": output_tokens,
+                },
+                cost_details={"total": cost_usd},
+                metadata={
+                    "latency_ms": latency_ms,
+                    "chunks_used": len(chunks),
+                    "query": query,
+                },
             )
+            obs.end()
+            langfuse_client.flush()
         except Exception as e:
             print(f"[langfuse] Trace failed (non-fatal): {e}")
 

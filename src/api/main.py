@@ -19,6 +19,7 @@ from src.retrieval.bm25_search import bm25_search
 from src.retrieval.fusion import reciprocal_rank_fusion
 from src.retrieval.reranker import rerank
 from src.generation.llm_client import generate_answer
+from src.observability.langfuse_tracer import build_langfuse_client
 
 load_dotenv()
 
@@ -37,18 +38,7 @@ async def lifespan(app: FastAPI):
     _state["metadata"] = metadata
     _state["openai_client"] = OpenAI(api_key=os.environ["OPENAI_API_KEY"])
 
-    langfuse_client = None
-    if os.environ.get("LANGFUSE_SECRET_KEY"):
-        try:
-            from langfuse import Langfuse
-            langfuse_client = Langfuse(
-                secret_key=os.environ["LANGFUSE_SECRET_KEY"],
-                public_key=os.environ["LANGFUSE_PUBLIC_KEY"],
-                host=os.environ.get("LANGFUSE_HOST", "https://cloud.langfuse.com"),
-            )
-            print("[api] Langfuse tracing enabled.")
-        except ImportError:
-            print("[api] Langfuse not installed - tracing disabled.")
+    langfuse_client = build_langfuse_client()
     _state["langfuse"] = langfuse_client
     print(f"[api] Ready - {len(metadata)} chunks indexed.")
     yield
