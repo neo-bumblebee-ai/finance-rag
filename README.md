@@ -242,7 +242,7 @@ python eval/run_ragas.py
 | Jan | [Databricks AI Engineering Challenge](https://github.com/neo-bumblebee-ai/databricks-ai-engineering-challenge) | Complete |
 | Feb | [Traditional RAG Pipeline](https://github.com/neo-bumblebee-ai/traditional-rag-pipeline) | Complete |
 | Mar | [Agentic RAG with LangGraph](https://github.com/neo-bumblebee-ai/agentic-rag-langgraph) | Complete |
-| **Apr** | **Finance RAG - Ask My 10-Ks (this repo)** | In progress |
+| **Apr** | **Finance RAG - Ask My 10-Ks (this repo)** | Complete |
 | May | LLMOps Evaluation Platform | Coming |
 | Jun | Enterprise AI Platform (Capstone) | Coming |
 
