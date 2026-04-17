@@ -49,7 +49,8 @@ app = FastAPI(
     title="Finance RAG - Ask My 10-Ks",
     description=(
         "Production RAG over SEC 10-K / 10-Q filings. "
-        "Hybrid retrieval (BM25 + vector) -> RRF fusion -> Cohere rerank -> GPT-4o."
+        "Hybrid retrieval (BM25 + vector) -> RRF fusion -> Cohere rerank -> GPT-4o structured output. "
+        "Returns grounded answer, per-claim citations, confidence score, and decision recommendation."
     ),
     version="1.0.0",
     lifespan=lifespan,
@@ -62,9 +63,19 @@ class AskRequest(BaseModel):
     top_n_rerank: int = 5
 
 
+class Claim(BaseModel):
+    statement: str
+    citation: str
+
+
 class AskResponse(BaseModel):
     question: str
     answer: str
+    claims: list[Claim]
+    confidence_score: float
+    confidence_reasoning: str
+    decision_recommendation: str
+    data_sufficiency: str
     chunks_used: int
     latency_ms: float
     cost_usd: float
@@ -75,13 +86,14 @@ class AskResponse(BaseModel):
 @app.post("/ask", response_model=AskResponse)
 async def ask(request: AskRequest):
     """
-    Answer a question about SEC filings.
+    Answer a question about SEC filings with decision support.
 
     Pipeline:
         Vector search (top-K) + BM25 (top-K)
         -> RRF fusion (top-40)
         -> Cohere rerank (top-N)
-        -> GPT-4o with citation-enforced prompt
+        -> GPT-4o structured output (claims, confidence, recommendation)
+        -> Confidence score = 0.7 * llm_confidence + 0.3 * mean(rerank_scores)
     """
     if not request.question.strip():
         raise HTTPException(status_code=400, detail="Question cannot be empty.")
@@ -129,6 +141,11 @@ async def ask(request: AskRequest):
     return AskResponse(
         question=request.question,
         answer=result["answer"],
+        claims=[Claim(**c) for c in result["claims"]],
+        confidence_score=result["confidence_score"],
+        confidence_reasoning=result["confidence_reasoning"],
+        decision_recommendation=result["decision_recommendation"],
+        data_sufficiency=result["data_sufficiency"],
         chunks_used=result["chunks_used"],
         latency_ms=result["latency_ms"],
         cost_usd=result["cost_usd"],

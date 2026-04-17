@@ -62,13 +62,18 @@ def collect_answers(test_cases: list[dict]) -> list[dict]:
             response = call_api(case["question"], client)
             if response is None:
                 continue
+            # Use structured claims as RAGAS contexts (statement + citation per claim).
+            # Falls back to the full answer if claims are absent (e.g. older API version).
+            claims = response.get("claims", [])
+            contexts = (
+                [f"{c['statement']} {c['citation']}" for c in claims]
+                if claims
+                else [response["answer"]]
+            )
             results.append({
                 "question": case["question"],
                 "answer": response["answer"],
-                # RAGAS context_precision needs the raw context strings
-                # In a production setup, expose contexts from the /ask endpoint
-                # For now we use the answer as a proxy (update when you add contexts to response)
-                "contexts": [response["answer"]],
+                "contexts": contexts,
                 "ground_truth": case["ground_truth"],
             })
             time.sleep(0.2)  # avoid hammering the local API

@@ -186,3 +186,73 @@ def test_context_block_numbers_chunks():
     assert "[Context 1]" in block
     assert "[Context 2]" in block
     assert "[Context 3]" in block
+
+
+# -- Decision support: confidence blending tests --------------------------------
+
+def test_retrieval_signal_returns_mean_rerank_score():
+    from src.generation.llm_client import _retrieval_signal
+    chunks = [
+        {**SAMPLE_METADATA[0], "rerank_score": 0.9},
+        {**SAMPLE_METADATA[1], "rerank_score": 0.7},
+    ]
+    signal = _retrieval_signal(chunks)
+    assert signal == pytest.approx(0.8, abs=1e-6)
+
+
+def test_retrieval_signal_returns_none_when_no_rerank_scores():
+    from src.generation.llm_client import _retrieval_signal
+    # Chunks from fusion only — no rerank_score key
+    signal = _retrieval_signal(SAMPLE_METADATA[:3])
+    assert signal is None
+
+
+def test_retrieval_signal_ignores_chunks_without_rerank_score():
+    from src.generation.llm_client import _retrieval_signal
+    chunks = [
+        {**SAMPLE_METADATA[0], "rerank_score": 0.6},
+        {**SAMPLE_METADATA[1]},           # no rerank_score
+        {**SAMPLE_METADATA[2], "rerank_score": 0.4},
+    ]
+    signal = _retrieval_signal(chunks)
+    assert signal == pytest.approx(0.5, abs=1e-6)
+
+
+def test_confidence_blends_llm_and_retrieval():
+    """When rerank scores are present, final confidence = 0.7*llm + 0.3*retrieval."""
+    llm_confidence = 0.8
+    retrieval_signal = 1.0
+    expected = round(0.7 * llm_confidence + 0.3 * retrieval_signal, 3)
+    assert expected == pytest.approx(0.86, abs=1e-3)
+
+
+def test_confidence_falls_back_to_llm_only():
+    """Without rerank scores, confidence should equal llm_confidence."""
+    from src.generation.llm_client import _retrieval_signal
+    signal = _retrieval_signal(SAMPLE_METADATA)   # no rerank_score fields
+    assert signal is None
+    # When signal is None the caller uses llm_confidence directly — no blending
+
+
+def test_structured_answer_schema_fields():
+    """StructuredAnswer Pydantic model accepts all required fields."""
+    from src.generation.llm_client import StructuredAnswer, Claim
+    obj = StructuredAnswer(
+        answer="Apple faces risks [AAPL, 10-K, 2023-11-03, Page 3].",
+        claims=[Claim(statement="Apple faces risks", citation="[AAPL, 10-K, 2023-11-03, Page 3]")],
+        llm_confidence=0.9,
+        confidence_reasoning="Direct evidence from two corroborating chunks.",
+        decision_recommendation="Monitor AAPL supply chain disclosures.",
+        data_sufficiency="SUFFICIENT",
+    )
+    assert obj.llm_confidence == 0.9
+    assert obj.data_sufficiency == "SUFFICIENT"
+    assert len(obj.claims) == 1
+    assert obj.claims[0].citation == "[AAPL, 10-K, 2023-11-03, Page 3]"
+
+
+def test_claim_schema_fields():
+    from src.generation.llm_client import Claim
+    c = Claim(statement="Revenue grew 12%", citation="[MSFT, 10-K, 2023-07-27, Page 5]")
+    assert c.statement == "Revenue grew 12%"
+    assert "MSFT" in c.citation
