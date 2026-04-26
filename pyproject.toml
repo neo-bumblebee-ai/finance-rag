@@ -1,21 +1,34 @@
 [project]
 name = "finance-rag"
-version = "1.0.0"
-description = "Production RAG over SEC 10-K filings — hybrid retrieval, citation enforcement, RAGAS CI eval"
+version = "2.0.0"
+description = "Production RAG over SEC 10-K filings — RBAC, guardrails, hybrid retrieval, citation enforcement, RAGAS + LangSmith CI eval"
 requires-python = ">=3.11"
 
 dependencies = [
+    # Core RAG
     "openai>=1.30.0",
     "faiss-cpu>=1.8.0",
     "rank-bm25>=0.2.2",
     "pymupdf>=1.24.0",
     "beautifulsoup4>=4.12.0",
     "cohere>=5.0.0",
+    # Observability
     "langfuse>=2.0.0",
+    "langsmith>=0.1.0",
+    # Evaluation
     "ragas>=0.1.9",
+    # API
     "fastapi>=0.111.0",
     "uvicorn[standard]>=0.29.0",
     "pydantic>=2.7.0",
+    # Auth — JWT RBAC
+    "python-jose[cryptography]>=3.3.0",
+    "python-multipart>=0.0.9",          # OAuth2PasswordRequestForm requires this
+    # Guardrails — LangChain
+    "langchain>=0.2.0",
+    "langchain-openai>=0.1.0",
+    "langchain-core>=0.2.0",
+    # Shared utilities
     "numpy>=1.26.0",
     "requests>=2.31.0",
     "datasets>=2.19.0",

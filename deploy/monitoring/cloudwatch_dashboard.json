@@ -1,0 +1,154 @@
+{
+  "Comment": "Finance RAG — CloudWatch dashboard. Import via AWS Console > CloudWatch > Dashboards > Create > JSON source. Replace ACCOUNT_ID and REGION.",
+  "widgets": [
+    {
+      "type": "text",
+      "x": 0, "y": 0, "width": 24, "height": 1,
+      "properties": {
+        "markdown": "# Finance RAG — Production Dashboard\nReal-time API health, latency, errors, and ECS capacity."
+      }
+    },
+
+    {
+      "type": "metric",
+      "x": 0, "y": 1, "width": 6, "height": 6,
+      "properties": {
+        "title": "Request Count (per minute)",
+        "metrics": [[
+          "AWS/ApplicationELB", "RequestCount",
+          "LoadBalancer", "app/finance-rag-alb/REPLACE_ALB_ID",
+          {"stat": "Sum", "period": 60}
+        ]],
+        "view": "timeSeries",
+        "region": "REPLACE_REGION"
+      }
+    },
+
+    {
+      "type": "metric",
+      "x": 6, "y": 1, "width": 6, "height": 6,
+      "properties": {
+        "title": "p95 Target Response Time (ms)",
+        "metrics": [[
+          "AWS/ApplicationELB", "TargetResponseTime",
+          "LoadBalancer", "app/finance-rag-alb/REPLACE_ALB_ID",
+          {"stat": "p95", "period": 60, "id": "p95"}
+        ]],
+        "view": "timeSeries",
+        "yAxis": {"left": {"min": 0, "max": 8000}},
+        "annotations": {
+          "horizontal": [{"label": "SLA 5s", "value": 5000, "color": "#ff0000"}]
+        },
+        "region": "REPLACE_REGION"
+      }
+    },
+
+    {
+      "type": "metric",
+      "x": 12, "y": 1, "width": 6, "height": 6,
+      "properties": {
+        "title": "5xx Error Count (per minute)",
+        "metrics": [[
+          "AWS/ApplicationELB", "HTTPCode_Target_5XX_Count",
+          "LoadBalancer", "app/finance-rag-alb/REPLACE_ALB_ID",
+          {"stat": "Sum", "period": 60, "color": "#d62728"}
+        ]],
+        "view": "timeSeries",
+        "region": "REPLACE_REGION"
+      }
+    },
+
+    {
+      "type": "metric",
+      "x": 18, "y": 1, "width": 6, "height": 6,
+      "properties": {
+        "title": "Healthy Host Count",
+        "metrics": [[
+          "AWS/ApplicationELB", "HealthyHostCount",
+          "TargetGroup", "targetgroup/finance-rag-tg/REPLACE_TG_ID",
+          "LoadBalancer", "app/finance-rag-alb/REPLACE_ALB_ID",
+          {"stat": "Average", "period": 60}
+        ]],
+        "view": "timeSeries",
+        "annotations": {
+          "horizontal": [{"label": "Min HA (2)", "value": 2, "color": "#ff7f0e"}]
+        },
+        "region": "REPLACE_REGION"
+      }
+    },
+
+    {
+      "type": "metric",
+      "x": 0, "y": 7, "width": 8, "height": 6,
+      "properties": {
+        "title": "ECS CPU Utilization (%)",
+        "metrics": [[
+          "AWS/ECS", "CPUUtilization",
+          "ClusterName", "finance-rag-cluster",
+          "ServiceName", "finance-rag-service",
+          {"stat": "Average", "period": 60}
+        ]],
+        "view": "timeSeries",
+        "annotations": {
+          "horizontal": [{"label": "Scale-out 70%", "value": 70, "color": "#ff7f0e"}]
+        },
+        "region": "REPLACE_REGION"
+      }
+    },
+
+    {
+      "type": "metric",
+      "x": 8, "y": 7, "width": 8, "height": 6,
+      "properties": {
+        "title": "ECS Memory Utilization (%)",
+        "metrics": [[
+          "AWS/ECS", "MemoryUtilization",
+          "ClusterName", "finance-rag-cluster",
+          "ServiceName", "finance-rag-service",
+          {"stat": "Average", "period": 60}
+        ]],
+        "view": "timeSeries",
+        "region": "REPLACE_REGION"
+      }
+    },
+
+    {
+      "type": "metric",
+      "x": 16, "y": 7, "width": 8, "height": 6,
+      "properties": {
+        "title": "Running Task Count",
+        "metrics": [[
+          "ECS/ContainerInsights", "RunningTaskCount",
+          "ClusterName", "finance-rag-cluster",
+          "ServiceName", "finance-rag-service",
+          {"stat": "Average", "period": 60}
+        ]],
+        "view": "timeSeries",
+        "region": "REPLACE_REGION"
+      }
+    },
+
+    {
+      "type": "log",
+      "x": 0, "y": 13, "width": 24, "height": 6,
+      "properties": {
+        "title": "Recent Application Errors (last 1h)",
+        "query": "SOURCE '/ecs/finance-rag' | fields @timestamp, @message | filter @message like /ERROR|Exception|error/ | sort @timestamp desc | limit 50",
+        "region": "REPLACE_REGION",
+        "view": "table"
+      }
+    },
+
+    {
+      "type": "alarm",
+      "x": 0, "y": 19, "width": 12, "height": 4,
+      "properties": {
+        "title": "Active Alarms",
+        "alarms": [
+          "arn:aws:cloudwatch:REPLACE_REGION:REPLACE_ACCOUNT_ID:alarm:finance-rag-high-p95-latency",
+          "arn:aws:cloudwatch:REPLACE_REGION:REPLACE_ACCOUNT_ID:alarm:finance-rag-5xx-errors"
+        ]
+      }
+    }
+  ]
+}

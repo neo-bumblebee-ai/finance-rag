@@ -26,6 +26,11 @@ jobs:
           COHERE_API_KEY: ${{ secrets.COHERE_API_KEY }}
           LANGFUSE_SECRET_KEY: ${{ secrets.LANGFUSE_SECRET_KEY }}
           LANGFUSE_PUBLIC_KEY: ${{ secrets.LANGFUSE_PUBLIC_KEY }}
+          # Disable LLM guardrail checks in CI — avoids 50 extra API calls per eval run.
+          # Guardrails are exercised separately in unit tests.
+          GUARDRAILS_DISABLED: "true"
+          # Deterministic JWT secret for CI — not used with real data
+          JWT_SECRET_KEY: "ci-only-not-a-real-secret"
         run: |
           uvicorn src.api.main:app --port 8000 &
           sleep 5  # give the API time to start
@@ -34,6 +39,9 @@ jobs:
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           EVAL_API_BASE: http://localhost:8000
+          # Optional: upload results to LangSmith for trend tracking
+          LANGCHAIN_API_KEY: ${{ secrets.LANGCHAIN_API_KEY }}
+          LANGCHAIN_PROJECT: finance-rag-production
         run: python eval/run_ragas.py
 
       - name: Upload eval report

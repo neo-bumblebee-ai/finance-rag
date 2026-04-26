@@ -1,0 +1,521 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Description: >
+  Finance RAG — Production AWS stack
+  ECS Fargate (API) + ECR (container registry) + ALB (HTTPS termination)
+  + Secrets Manager (API keys) + CloudWatch (logs + alarms)
+  + VPC with public/private subnets + NAT Gateway
+
+# ============================================================
+# Parameters
+# ============================================================
+Parameters:
+  ProjectName:
+    Type: String
+    Default: finance-rag
+
+  Environment:
+    Type: String
+    Default: production
+    AllowedValues: [production, staging]
+
+  # Container image — push to ECR first, then deploy this stack
+  ContainerImage:
+    Type: String
+    Description: "ECR image URI, e.g. 123456789.dkr.ecr.us-east-1.amazonaws.com/finance-rag:latest"
+
+  # DNS — must be a valid ACM certificate ARN in the same region
+  CertificateArn:
+    Type: String
+    Description: "ACM certificate ARN for HTTPS on the ALB"
+
+  # Compute
+  TaskCpu:
+    Type: Number
+    Default: 1024
+    Description: "Fargate vCPU units (1024 = 1 vCPU)"
+
+  TaskMemory:
+    Type: Number
+    Default: 2048
+    Description: "Fargate memory in MiB"
+
+  DesiredCount:
+    Type: Number
+    Default: 2
+    Description: "Number of ECS tasks (minimum 2 for HA)"
+
+  # Secrets — set these BEFORE deploying via:
+  #   aws secretsmanager create-secret --name finance-rag/openai-api-key --secret-string "sk-..."
+  OpenAISecretArn:
+    Type: String
+    Description: "Secrets Manager ARN for OPENAI_API_KEY"
+
+  CohereSecretArn:
+    Type: String
+    Description: "Secrets Manager ARN for COHERE_API_KEY"
+
+  JwtSecretArn:
+    Type: String
+    Description: "Secrets Manager ARN for JWT_SECRET_KEY"
+
+  LangSmithSecretArn:
+    Type: String
+    Description: "Secrets Manager ARN for LANGCHAIN_API_KEY"
+
+  LangfuseSecretArn:
+    Type: String
+    Description: "Secrets Manager ARN for LANGFUSE_SECRET_KEY (JSON with secret+public keys)"
+
+
+# ============================================================
+# Resources
+# ============================================================
+Resources:
+
+  # ----------------------------------------------------------
+  # VPC + Networking
+  # ----------------------------------------------------------
+  VPC:
+    Type: AWS::EC2::VPC
+    Properties:
+      CidrBlock: 10.0.0.0/16
+      EnableDnsSupport: true
+      EnableDnsHostnames: true
+      Tags:
+        - Key: Name
+          Value: !Sub "${ProjectName}-vpc"
+
+  PublicSubnetA:
+    Type: AWS::EC2::Subnet
+    Properties:
+      VpcId: !Ref VPC
+      CidrBlock: 10.0.1.0/24
+      AvailabilityZone: !Select [0, !GetAZs ""]
+      MapPublicIpOnLaunch: true
+
+  PublicSubnetB:
+    Type: AWS::EC2::Subnet
+    Properties:
+      VpcId: !Ref VPC
+      CidrBlock: 10.0.2.0/24
+      AvailabilityZone: !Select [1, !GetAZs ""]
+      MapPublicIpOnLaunch: true
+
+  PrivateSubnetA:
+    Type: AWS::EC2::Subnet
+    Properties:
+      VpcId: !Ref VPC
+      CidrBlock: 10.0.3.0/24
+      AvailabilityZone: !Select [0, !GetAZs ""]
+
+  PrivateSubnetB:
+    Type: AWS::EC2::Subnet
+    Properties:
+      VpcId: !Ref VPC
+      CidrBlock: 10.0.4.0/24
+      AvailabilityZone: !Select [1, !GetAZs ""]
+
+  InternetGateway:
+    Type: AWS::EC2::InternetGateway
+
+  VPCGatewayAttachment:
+    Type: AWS::EC2::VPCGatewayAttachment
+    Properties:
+      VpcId: !Ref VPC
+      InternetGatewayId: !Ref InternetGateway
+
+  PublicRouteTable:
+    Type: AWS::EC2::RouteTable
+    Properties:
+      VpcId: !Ref VPC
+
+  PublicRoute:
+    Type: AWS::EC2::Route
+    DependsOn: VPCGatewayAttachment
+    Properties:
+      RouteTableId: !Ref PublicRouteTable
+      DestinationCidrBlock: 0.0.0.0/0
+      GatewayId: !Ref InternetGateway
+
+  PublicSubnetARouteTableAssociation:
+    Type: AWS::EC2::SubnetRouteTableAssociation
+    Properties:
+      SubnetId: !Ref PublicSubnetA
+      RouteTableId: !Ref PublicRouteTable
+
+  PublicSubnetBRouteTableAssociation:
+    Type: AWS::EC2::SubnetRouteTableAssociation
+    Properties:
+      SubnetId: !Ref PublicSubnetB
+      RouteTableId: !Ref PublicRouteTable
+
+  NatEIP:
+    Type: AWS::EC2::EIP
+    Properties:
+      Domain: vpc
+
+  NatGateway:
+    Type: AWS::EC2::NatGateway
+    Properties:
+      AllocationId: !GetAtt NatEIP.AllocationId
+      SubnetId: !Ref PublicSubnetA
+
+  PrivateRouteTable:
+    Type: AWS::EC2::RouteTable
+    Properties:
+      VpcId: !Ref VPC
+
+  PrivateRoute:
+    Type: AWS::EC2::Route
+    Properties:
+      RouteTableId: !Ref PrivateRouteTable
+      DestinationCidrBlock: 0.0.0.0/0
+      NatGatewayId: !Ref NatGateway
+
+  PrivateSubnetARouteTableAssociation:
+    Type: AWS::EC2::SubnetRouteTableAssociation
+    Properties:
+      SubnetId: !Ref PrivateSubnetA
+      RouteTableId: !Ref PrivateRouteTable
+
+  PrivateSubnetBRouteTableAssociation:
+    Type: AWS::EC2::SubnetRouteTableAssociation
+    Properties:
+      SubnetId: !Ref PrivateSubnetB
+      RouteTableId: !Ref PrivateRouteTable
+
+  # ----------------------------------------------------------
+  # ECR Repository
+  # ----------------------------------------------------------
+  ECRRepository:
+    Type: AWS::ECR::Repository
+    Properties:
+      RepositoryName: !Ref ProjectName
+      ImageScanningConfiguration:
+        ScanOnPush: true
+      LifecyclePolicy:
+        LifecyclePolicyText: |
+          {
+            "rules": [{
+              "rulePriority": 1,
+              "description": "Keep last 10 images",
+              "selection": {"tagStatus": "any", "countType": "imageCountMoreThan", "countNumber": 10},
+              "action": {"type": "expire"}
+            }]
+          }
+
+  # ----------------------------------------------------------
+  # Security Groups
+  # ----------------------------------------------------------
+  ALBSecurityGroup:
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      GroupDescription: Allow HTTPS from internet to ALB
+      VpcId: !Ref VPC
+      SecurityGroupIngress:
+        - IpProtocol: tcp
+          FromPort: 443
+          ToPort: 443
+          CidrIp: 0.0.0.0/0
+        - IpProtocol: tcp
+          FromPort: 80
+          ToPort: 80
+          CidrIp: 0.0.0.0/0
+
+  ECSSecurityGroup:
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      GroupDescription: Allow traffic from ALB to ECS tasks on port 8000
+      VpcId: !Ref VPC
+      SecurityGroupIngress:
+        - IpProtocol: tcp
+          FromPort: 8000
+          ToPort: 8000
+          SourceSecurityGroupId: !Ref ALBSecurityGroup
+
+  # ----------------------------------------------------------
+  # ALB
+  # ----------------------------------------------------------
+  ALB:
+    Type: AWS::ElasticLoadBalancingV2::LoadBalancer
+    Properties:
+      Name: !Sub "${ProjectName}-alb"
+      Subnets:
+        - !Ref PublicSubnetA
+        - !Ref PublicSubnetB
+      SecurityGroups:
+        - !Ref ALBSecurityGroup
+      Scheme: internet-facing
+      LoadBalancerAttributes:
+        - Key: idle_timeout.timeout_seconds
+          Value: "120"
+
+  ALBTargetGroup:
+    Type: AWS::ElasticLoadBalancingV2::TargetGroup
+    Properties:
+      Name: !Sub "${ProjectName}-tg"
+      Port: 8000
+      Protocol: HTTP
+      VpcId: !Ref VPC
+      TargetType: ip
+      HealthCheckPath: /health
+      HealthCheckIntervalSeconds: 15
+      HealthyThresholdCount: 2
+      UnhealthyThresholdCount: 3
+      Matcher:
+        HttpCode: "200"
+
+  ALBHTTPSListener:
+    Type: AWS::ElasticLoadBalancingV2::Listener
+    Properties:
+      LoadBalancerArn: !Ref ALB
+      Port: 443
+      Protocol: HTTPS
+      Certificates:
+        - CertificateArn: !Ref CertificateArn
+      DefaultActions:
+        - Type: forward
+          TargetGroupArn: !Ref ALBTargetGroup
+
+  ALBHTTPListener:
+    Type: AWS::ElasticLoadBalancingV2::Listener
+    Properties:
+      LoadBalancerArn: !Ref ALB
+      Port: 80
+      Protocol: HTTP
+      DefaultActions:
+        - Type: redirect
+          RedirectConfig:
+            Protocol: HTTPS
+            Port: "443"
+            StatusCode: HTTP_301
+
+  # ----------------------------------------------------------
+  # ECS Cluster + Task Definition
+  # ----------------------------------------------------------
+  ECSCluster:
+    Type: AWS::ECS::Cluster
+    Properties:
+      ClusterName: !Sub "${ProjectName}-cluster"
+      ClusterSettings:
+        - Name: containerInsights
+          Value: enabled
+
+  ECSTaskExecutionRole:
+    Type: AWS::IAM::Role
+    Properties:
+      RoleName: !Sub "${ProjectName}-task-exec-role"
+      AssumeRolePolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Effect: Allow
+            Principal:
+              Service: ecs-tasks.amazonaws.com
+            Action: sts:AssumeRole
+      ManagedPolicyArns:
+        - arn:aws:iam::aws:policy/service-role/AmazonECSTaskExecutionRolePolicy
+      Policies:
+        - PolicyName: SecretsManagerRead
+          PolicyDocument:
+            Version: "2012-10-17"
+            Statement:
+              - Effect: Allow
+                Action: secretsmanager:GetSecretValue
+                Resource:
+                  - !Ref OpenAISecretArn
+                  - !Ref CohereSecretArn
+                  - !Ref JwtSecretArn
+                  - !Ref LangSmithSecretArn
+                  - !Ref LangfuseSecretArn
+
+  ECSTaskRole:
+    Type: AWS::IAM::Role
+    Properties:
+      RoleName: !Sub "${ProjectName}-task-role"
+      AssumeRolePolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Effect: Allow
+            Principal:
+              Service: ecs-tasks.amazonaws.com
+            Action: sts:AssumeRole
+      Policies:
+        - PolicyName: S3DataAccess
+          PolicyDocument:
+            Version: "2012-10-17"
+            Statement:
+              - Effect: Allow
+                Action:
+                  - s3:GetObject
+                  - s3:PutObject
+                Resource: !Sub "arn:aws:s3:::${ProjectName}-data/*"
+
+  CloudWatchLogGroup:
+    Type: AWS::Logs::LogGroup
+    Properties:
+      LogGroupName: !Sub "/ecs/${ProjectName}"
+      RetentionInDays: 30
+
+  ECSTaskDefinition:
+    Type: AWS::ECS::TaskDefinition
+    Properties:
+      Family: !Sub "${ProjectName}-task"
+      Cpu: !Ref TaskCpu
+      Memory: !Ref TaskMemory
+      NetworkMode: awsvpc
+      RequiresCompatibilities: [FARGATE]
+      ExecutionRoleArn: !GetAtt ECSTaskExecutionRole.Arn
+      TaskRoleArn: !GetAtt ECSTaskRole.Arn
+      ContainerDefinitions:
+        - Name: api
+          Image: !Ref ContainerImage
+          PortMappings:
+            - ContainerPort: 8000
+          LogConfiguration:
+            LogDriver: awslogs
+            Options:
+              awslogs-group: !Ref CloudWatchLogGroup
+              awslogs-region: !Ref AWS::Region
+              awslogs-stream-prefix: ecs
+          HealthCheck:
+            Command: ["CMD-SHELL", "curl -f http://localhost:8000/health || exit 1"]
+            Interval: 10
+            Timeout: 5
+            Retries: 3
+            StartPeriod: 30
+          # Secrets injected from Secrets Manager at container start
+          # — never stored in task definition or environment variables
+          Secrets:
+            - Name: OPENAI_API_KEY
+              ValueFrom: !Ref OpenAISecretArn
+            - Name: COHERE_API_KEY
+              ValueFrom: !Ref CohereSecretArn
+            - Name: JWT_SECRET_KEY
+              ValueFrom: !Ref JwtSecretArn
+            - Name: LANGCHAIN_API_KEY
+              ValueFrom: !Ref LangSmithSecretArn
+            - Name: LANGFUSE_SECRET_KEY
+              ValueFrom: !Sub "${LangfuseSecretArn}:secret_key::"
+            - Name: LANGFUSE_PUBLIC_KEY
+              ValueFrom: !Sub "${LangfuseSecretArn}:public_key::"
+          Environment:
+            - Name: LANGFUSE_HOST
+              Value: https://cloud.langfuse.com
+            - Name: LANGCHAIN_PROJECT
+              Value: finance-rag-production
+            - Name: LANGCHAIN_TRACING_V2
+              Value: "true"
+            - Name: JWT_EXPIRE_MINUTES
+              Value: "60"
+
+  ECSService:
+    Type: AWS::ECS::Service
+    DependsOn: ALBHTTPSListener
+    Properties:
+      ServiceName: !Sub "${ProjectName}-service"
+      Cluster: !Ref ECSCluster
+      TaskDefinition: !Ref ECSTaskDefinition
+      DesiredCount: !Ref DesiredCount
+      LaunchType: FARGATE
+      NetworkConfiguration:
+        AwsvpcConfiguration:
+          Subnets:
+            - !Ref PrivateSubnetA
+            - !Ref PrivateSubnetB
+          SecurityGroups:
+            - !Ref ECSSecurityGroup
+          AssignPublicIp: DISABLED
+      LoadBalancers:
+        - ContainerName: api
+          ContainerPort: 8000
+          TargetGroupArn: !Ref ALBTargetGroup
+      DeploymentConfiguration:
+        MinimumHealthyPercent: 100
+        MaximumPercent: 200
+        DeploymentCircuitBreaker:
+          Enable: true
+          Rollback: true
+
+  # ----------------------------------------------------------
+  # Auto Scaling
+  # ----------------------------------------------------------
+  ECSAutoScalingTarget:
+    Type: AWS::ApplicationAutoScaling::ScalableTarget
+    Properties:
+      MaxCapacity: 10
+      MinCapacity: 2
+      ResourceId: !Sub "service/${ECSCluster}/${ProjectName}-service"
+      ScalableDimension: ecs:service:DesiredCount
+      ServiceNamespace: ecs
+      RoleARN: !Sub "arn:aws:iam::${AWS::AccountId}:role/aws-service-role/ecs.application-autoscaling.amazonaws.com/AWSServiceRoleForApplicationAutoScaling_ECSService"
+
+  ECSCPUScalingPolicy:
+    Type: AWS::ApplicationAutoScaling::ScalingPolicy
+    Properties:
+      PolicyName: !Sub "${ProjectName}-cpu-scaling"
+      PolicyType: TargetTrackingScaling
+      ScalingTargetId: !Ref ECSAutoScalingTarget
+      TargetTrackingScalingPolicyConfiguration:
+        TargetValue: 70.0
+        PredefinedMetricSpecification:
+          PredefinedMetricType: ECSServiceAverageCPUUtilization
+        ScaleInCooldown: 300
+        ScaleOutCooldown: 60
+
+  # ----------------------------------------------------------
+  # CloudWatch Alarms
+  # ----------------------------------------------------------
+  HighP95LatencyAlarm:
+    Type: AWS::CloudWatch::Alarm
+    Properties:
+      AlarmName: !Sub "${ProjectName}-high-p95-latency"
+      AlarmDescription: "ALB target response p95 > 5s"
+      MetricName: TargetResponseTime
+      Namespace: AWS/ApplicationELB
+      Statistic: p95
+      Period: 300
+      EvaluationPeriods: 2
+      Threshold: 5.0
+      ComparisonOperator: GreaterThanThreshold
+      Dimensions:
+        - Name: LoadBalancer
+          Value: !GetAtt ALB.LoadBalancerFullName
+      TreatMissingData: notBreaching
+
+  High5xxAlarm:
+    Type: AWS::CloudWatch::Alarm
+    Properties:
+      AlarmName: !Sub "${ProjectName}-5xx-errors"
+      AlarmDescription: "ALB 5xx error rate > 5%"
+      MetricName: HTTPCode_Target_5XX_Count
+      Namespace: AWS/ApplicationELB
+      Statistic: Sum
+      Period: 60
+      EvaluationPeriods: 3
+      Threshold: 10
+      ComparisonOperator: GreaterThanThreshold
+      Dimensions:
+        - Name: LoadBalancer
+          Value: !GetAtt ALB.LoadBalancerFullName
+      TreatMissingData: notBreaching
+
+
+# ============================================================
+# Outputs
+# ============================================================
+Outputs:
+  ALBURL:
+    Description: "Public HTTPS URL for the Finance RAG API"
+    Value: !Sub "https://${ALB.DNSName}"
+
+  ECRRepositoryURI:
+    Description: "ECR repository URI for pushing container images"
+    Value: !Sub "${AWS::AccountId}.dkr.ecr.${AWS::Region}.amazonaws.com/${ProjectName}"
+
+  ECSClusterName:
+    Description: "ECS cluster name"
+    Value: !Ref ECSCluster
+
+  CloudWatchLogGroup:
+    Description: "CloudWatch log group for ECS task logs"
+    Value: !Ref CloudWatchLogGroup
