@@ -1,0 +1,6190 @@
+{
+  "nodes": [
+    {
+      "id": "deploy_monitoring_langsmith_monitor_py",
+      "label": "langsmith_monitor.py",
+      "file_type": "code",
+      "source_file": "deploy\\monitoring\\langsmith_monitor.py",
+      "source_location": "L1"
+    },
+    {
+      "id": "monitoring_langsmith_monitor_get_client",
+      "label": "get_client()",
+      "file_type": "code",
+      "source_file": "deploy\\monitoring\\langsmith_monitor.py",
+      "source_location": "L30"
+    },
+    {
+      "id": "monitoring_langsmith_monitor_fetch_runs",
+      "label": "fetch_runs()",
+      "file_type": "code",
+      "source_file": "deploy\\monitoring\\langsmith_monitor.py",
+      "source_location": "L38"
+    },
+    {
+      "id": "monitoring_langsmith_monitor_cost_report",
+      "label": "cost_report()",
+      "file_type": "code",
+      "source_file": "deploy\\monitoring\\langsmith_monitor.py",
+      "source_location": "L49"
+    },
+    {
+      "id": "monitoring_langsmith_monitor_latency_report",
+      "label": "latency_report()",
+      "file_type": "code",
+      "source_file": "deploy\\monitoring\\langsmith_monitor.py",
+      "source_location": "L68"
+    },
+    {
+      "id": "monitoring_langsmith_monitor_confidence_report",
+      "label": "confidence_report()",
+      "file_type": "code",
+      "source_file": "deploy\\monitoring\\langsmith_monitor.py",
+      "source_location": "L86"
+    },
+    {
+      "id": "monitoring_langsmith_monitor_fetch_eval_runs",
+      "label": "fetch_eval_runs()",
+      "file_type": "code",
+      "source_file": "deploy\\monitoring\\langsmith_monitor.py",
+      "source_location": "L113"
+    },
+    {
+      "id": "monitoring_langsmith_monitor_print_report",
+      "label": "print_report()",
+      "file_type": "code",
+      "source_file": "deploy\\monitoring\\langsmith_monitor.py",
+      "source_location": "L136"
+    },
+    {
+      "id": "monitoring_langsmith_monitor_main",
+      "label": "main()",
+      "file_type": "code",
+      "source_file": "deploy\\monitoring\\langsmith_monitor.py",
+      "source_location": "L210"
+    },
+    {
+      "id": "monitoring_langsmith_monitor_rationale_1",
+      "label": "langsmith_monitor.py \u2014 LangSmith cost + performance monitoring dashboard  Pull",
+      "file_type": "rationale",
+      "source_file": "deploy\\monitoring\\langsmith_monitor.py",
+      "source_location": "L1"
+    },
+    {
+      "id": "monitoring_langsmith_monitor_rationale_39",
+      "label": "Fetch all 'llm' runs from the last N days.",
+      "file_type": "rationale",
+      "source_file": "deploy\\monitoring\\langsmith_monitor.py",
+      "source_location": "L39"
+    },
+    {
+      "id": "monitoring_langsmith_monitor_rationale_50",
+      "label": "Aggregate cost by user and model.",
+      "file_type": "rationale",
+      "source_file": "deploy\\monitoring\\langsmith_monitor.py",
+      "source_location": "L50"
+    },
+    {
+      "id": "monitoring_langsmith_monitor_rationale_69",
+      "label": "Calculate latency percentiles from run metadata.",
+      "file_type": "rationale",
+      "source_file": "deploy\\monitoring\\langsmith_monitor.py",
+      "source_location": "L69"
+    },
+    {
+      "id": "monitoring_langsmith_monitor_rationale_87",
+      "label": "Distribution of confidence scores.",
+      "file_type": "rationale",
+      "source_file": "deploy\\monitoring\\langsmith_monitor.py",
+      "source_location": "L87"
+    },
+    {
+      "id": "monitoring_langsmith_monitor_rationale_114",
+      "label": "Fetch the last N RAGAS eval runs and return their metric scores.",
+      "file_type": "rationale",
+      "source_file": "deploy\\monitoring\\langsmith_monitor.py",
+      "source_location": "L114"
+    },
+    {
+      "id": "eval_run_ragas_py",
+      "label": "run_ragas.py",
+      "file_type": "code",
+      "source_file": "eval\\run_ragas.py",
+      "source_location": "L1"
+    },
+    {
+      "id": "eval_run_ragas_get_bearer_token",
+      "label": "get_bearer_token()",
+      "file_type": "code",
+      "source_file": "eval\\run_ragas.py",
+      "source_location": "L64"
+    },
+    {
+      "id": "eval_run_ragas_call_api",
+      "label": "call_api()",
+      "file_type": "code",
+      "source_file": "eval\\run_ragas.py",
+      "source_location": "L80"
+    },
+    {
+      "id": "eval_run_ragas_collect_answers",
+      "label": "collect_answers()",
+      "file_type": "code",
+      "source_file": "eval\\run_ragas.py",
+      "source_location": "L95"
+    },
+    {
+      "id": "eval_run_ragas_run_ragas",
+      "label": "run_ragas()",
+      "file_type": "code",
+      "source_file": "eval\\run_ragas.py",
+      "source_location": "L129"
+    },
+    {
+      "id": "eval_run_ragas_check_thresholds",
+      "label": "check_thresholds()",
+      "file_type": "code",
+      "source_file": "eval\\run_ragas.py",
+      "source_location": "L145"
+    },
+    {
+      "id": "eval_run_ragas_upload_to_langsmith",
+      "label": "upload_to_langsmith()",
+      "file_type": "code",
+      "source_file": "eval\\run_ragas.py",
+      "source_location": "L163"
+    },
+    {
+      "id": "eval_run_ragas_rationale_1",
+      "label": "run_ragas.py \u2014 RAGAS evaluation harness + LangSmith dataset upload + CI gate",
+      "file_type": "rationale",
+      "source_file": "eval\\run_ragas.py",
+      "source_location": "L1"
+    },
+    {
+      "id": "eval_run_ragas_rationale_65",
+      "label": "Exchange eval credentials for a JWT Bearer token.",
+      "file_type": "rationale",
+      "source_file": "eval\\run_ragas.py",
+      "source_location": "L65"
+    },
+    {
+      "id": "eval_run_ragas_rationale_130",
+      "label": "Score answers with RAGAS (faithfulness, relevancy, precision, recall).",
+      "file_type": "rationale",
+      "source_file": "eval\\run_ragas.py",
+      "source_location": "L130"
+    },
+    {
+      "id": "eval_run_ragas_rationale_164",
+      "label": "Upload eval results to LangSmith as an experiment run.      Creates (or reuses",
+      "file_type": "rationale",
+      "source_file": "eval\\run_ragas.py",
+      "source_location": "L164"
+    },
+    {
+      "id": "src_init_py",
+      "label": "__init__.py",
+      "file_type": "code",
+      "source_file": "src\\__init__.py",
+      "source_location": "L1"
+    },
+    {
+      "id": "src_api_main_py",
+      "label": "main.py",
+      "file_type": "code",
+      "source_file": "src\\api\\main.py",
+      "source_location": "L1"
+    },
+    {
+      "id": "api_main_lifespan",
+      "label": "lifespan()",
+      "file_type": "code",
+      "source_file": "src\\api\\main.py",
+      "source_location": "L47"
+    },
+    {
+      "id": "api_main_askrequest",
+      "label": "AskRequest",
+      "file_type": "code",
+      "source_file": "src\\api\\main.py",
+      "source_location": "L88"
+    },
+    {
+      "id": "basemodel",
+      "label": "BaseModel",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": ""
+    },
+    {
+      "id": "api_main_claim",
+      "label": "Claim",
+      "file_type": "code",
+      "source_file": "src\\api\\main.py",
+      "source_location": "L96"
+    },
+    {
+      "id": "api_main_askresponse",
+      "label": "AskResponse",
+      "file_type": "code",
+      "source_file": "src\\api\\main.py",
+      "source_location": "L101"
+    },
+    {
+      "id": "api_main_ingestresponse",
+      "label": "IngestResponse",
+      "file_type": "code",
+      "source_file": "src\\api\\main.py",
+      "source_location": "L119"
+    },
+    {
+      "id": "api_main_login",
+      "label": "login()",
+      "file_type": "code",
+      "source_file": "src\\api\\main.py",
+      "source_location": "L129"
+    },
+    {
+      "id": "api_main_ask",
+      "label": "ask()",
+      "file_type": "code",
+      "source_file": "src\\api\\main.py",
+      "source_location": "L146"
+    },
+    {
+      "id": "api_main_run_ingest",
+      "label": "run_ingest()",
+      "file_type": "code",
+      "source_file": "src\\api\\main.py",
+      "source_location": "L248"
+    },
+    {
+      "id": "api_main_health",
+      "label": "health()",
+      "file_type": "code",
+      "source_file": "src\\api\\main.py",
+      "source_location": "L270"
+    },
+    {
+      "id": "api_main_rationale_1",
+      "label": "main.py - FastAPI application (production edition)  Endpoints:   POST /auth/t",
+      "file_type": "rationale",
+      "source_file": "src\\api\\main.py",
+      "source_location": "L1"
+    },
+    {
+      "id": "api_main_rationale_130",
+      "label": "Exchange username + password for a JWT Bearer token.      Example:         cu",
+      "file_type": "rationale",
+      "source_file": "src\\api\\main.py",
+      "source_location": "L130"
+    },
+    {
+      "id": "api_main_rationale_150",
+      "label": "Answer a question grounded in SEC filings.      Security flow:       1. JWT v",
+      "file_type": "rationale",
+      "source_file": "src\\api\\main.py",
+      "source_location": "L150"
+    },
+    {
+      "id": "api_main_rationale_251",
+      "label": "Trigger the ingestion pipeline via the API.     Restricted to ADMIN role. In pr",
+      "file_type": "rationale",
+      "source_file": "src\\api\\main.py",
+      "source_location": "L251"
+    },
+    {
+      "id": "src_api_init_py",
+      "label": "__init__.py",
+      "file_type": "code",
+      "source_file": "src\\api\\__init__.py",
+      "source_location": "L1"
+    },
+    {
+      "id": "src_auth_models_py",
+      "label": "models.py",
+      "file_type": "code",
+      "source_file": "src\\auth\\models.py",
+      "source_location": "L1"
+    },
+    {
+      "id": "auth_models_role",
+      "label": "Role",
+      "file_type": "code",
+      "source_file": "src\\auth\\models.py",
+      "source_location": "L22"
+    },
+    {
+      "id": "str",
+      "label": "str",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": ""
+    },
+    {
+      "id": "enum",
+      "label": "Enum",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": ""
+    },
+    {
+      "id": "auth_models_has_permission",
+      "label": "has_permission()",
+      "file_type": "code",
+      "source_file": "src\\auth\\models.py",
+      "source_location": "L47"
+    },
+    {
+      "id": "auth_models_user",
+      "label": "User",
+      "file_type": "code",
+      "source_file": "src\\auth\\models.py",
+      "source_location": "L55"
+    },
+    {
+      "id": "basemodel",
+      "label": "BaseModel",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": ""
+    },
+    {
+      "id": "auth_models_tokenpayload",
+      "label": "TokenPayload",
+      "file_type": "code",
+      "source_file": "src\\auth\\models.py",
+      "source_location": "L68"
+    },
+    {
+      "id": "auth_models_tokenresponse",
+      "label": "TokenResponse",
+      "file_type": "code",
+      "source_file": "src\\auth\\models.py",
+      "source_location": "L76"
+    },
+    {
+      "id": "auth_models_loginrequest",
+      "label": "LoginRequest",
+      "file_type": "code",
+      "source_file": "src\\auth\\models.py",
+      "source_location": "L82"
+    },
+    {
+      "id": "auth_models_get_user_by_username",
+      "label": "get_user_by_username()",
+      "file_type": "code",
+      "source_file": "src\\auth\\models.py",
+      "source_location": "L121"
+    },
+    {
+      "id": "auth_models_verify_password",
+      "label": "verify_password()",
+      "file_type": "code",
+      "source_file": "src\\auth\\models.py",
+      "source_location": "L128"
+    },
+    {
+      "id": "auth_models_rationale_1",
+      "label": "RBAC models: roles, permissions, and user/token schemas.  Role hierarchy:   A",
+      "file_type": "rationale",
+      "source_file": "src\\auth\\models.py",
+      "source_location": "L1"
+    },
+    {
+      "id": "auth_models_rationale_129",
+      "label": "Plaintext check for demo. Replace with bcrypt.checkpw() in production.",
+      "file_type": "rationale",
+      "source_file": "src\\auth\\models.py",
+      "source_location": "L129"
+    },
+    {
+      "id": "src_auth_rbac_py",
+      "label": "rbac.py",
+      "file_type": "code",
+      "source_file": "src\\auth\\rbac.py",
+      "source_location": "L1"
+    },
+    {
+      "id": "auth_rbac_create_access_token",
+      "label": "create_access_token()",
+      "file_type": "code",
+      "source_file": "src\\auth\\rbac.py",
+      "source_location": "L52"
+    },
+    {
+      "id": "auth_rbac_authenticate_user",
+      "label": "authenticate_user()",
+      "file_type": "code",
+      "source_file": "src\\auth\\rbac.py",
+      "source_location": "L68"
+    },
+    {
+      "id": "auth_rbac_get_current_user",
+      "label": "get_current_user()",
+      "file_type": "code",
+      "source_file": "src\\auth\\rbac.py",
+      "source_location": "L90"
+    },
+    {
+      "id": "auth_rbac_require_permission",
+      "label": "require_permission()",
+      "file_type": "code",
+      "source_file": "src\\auth\\rbac.py",
+      "source_location": "L112"
+    },
+    {
+      "id": "auth_rbac_require_ticker_access",
+      "label": "require_ticker_access()",
+      "file_type": "code",
+      "source_file": "src\\auth\\rbac.py",
+      "source_location": "L132"
+    },
+    {
+      "id": "auth_rbac_rationale_1",
+      "label": "JWT-based RBAC for Finance RAG.  Flow:   POST /auth/token  \u2192  verify credenti",
+      "file_type": "rationale",
+      "source_file": "src\\auth\\rbac.py",
+      "source_location": "L1"
+    },
+    {
+      "id": "auth_rbac_rationale_69",
+      "label": "Verify credentials and return User, or raise 401.",
+      "file_type": "rationale",
+      "source_file": "src\\auth\\rbac.py",
+      "source_location": "L69"
+    },
+    {
+      "id": "auth_rbac_rationale_91",
+      "label": "Decode JWT and return the current User. Raises 401 on any failure.",
+      "file_type": "rationale",
+      "source_file": "src\\auth\\rbac.py",
+      "source_location": "L91"
+    },
+    {
+      "id": "auth_rbac_rationale_113",
+      "label": "Dependency factory. Returns a FastAPI Depends that checks the user's role     h",
+      "file_type": "rationale",
+      "source_file": "src\\auth\\rbac.py",
+      "source_location": "L113"
+    },
+    {
+      "id": "auth_rbac_rationale_133",
+      "label": "Raise 403 if the user's role restricts ticker access and the requested     tick",
+      "file_type": "rationale",
+      "source_file": "src\\auth\\rbac.py",
+      "source_location": "L133"
+    },
+    {
+      "id": "src_auth_init_py",
+      "label": "__init__.py",
+      "file_type": "code",
+      "source_file": "src\\auth\\__init__.py",
+      "source_location": "L1"
+    },
+    {
+      "id": "src_generation_llm_client_py",
+      "label": "llm_client.py",
+      "file_type": "code",
+      "source_file": "src\\generation\\llm_client.py",
+      "source_location": "L1"
+    },
+    {
+      "id": "generation_llm_client_claim",
+      "label": "Claim",
+      "file_type": "code",
+      "source_file": "src\\generation\\llm_client.py",
+      "source_location": "L30"
+    },
+    {
+      "id": "basemodel",
+      "label": "BaseModel",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": ""
+    },
+    {
+      "id": "generation_llm_client_structuredanswer",
+      "label": "StructuredAnswer",
+      "file_type": "code",
+      "source_file": "src\\generation\\llm_client.py",
+      "source_location": "L39"
+    },
+    {
+      "id": "generation_llm_client_retrieval_signal",
+      "label": "_retrieval_signal()",
+      "file_type": "code",
+      "source_file": "src\\generation\\llm_client.py",
+      "source_location": "L68"
+    },
+    {
+      "id": "generation_llm_client_langsmith_log",
+      "label": "_langsmith_log()",
+      "file_type": "code",
+      "source_file": "src\\generation\\llm_client.py",
+      "source_location": "L73"
+    },
+    {
+      "id": "generation_llm_client_generate_answer",
+      "label": "generate_answer()",
+      "file_type": "code",
+      "source_file": "src\\generation\\llm_client.py",
+      "source_location": "L119"
+    },
+    {
+      "id": "generation_llm_client_rationale_1",
+      "label": "llm_client.py - GPT-4o wrapper with structured output, Langfuse v4 tracing,",
+      "file_type": "rationale",
+      "source_file": "src\\generation\\llm_client.py",
+      "source_location": "L1"
+    },
+    {
+      "id": "generation_llm_client_rationale_80",
+      "label": "Log a run to LangSmith using the low-level REST client.     Silently no-ops if",
+      "file_type": "rationale",
+      "source_file": "src\\generation\\llm_client.py",
+      "source_location": "L80"
+    },
+    {
+      "id": "generation_llm_client_rationale_128",
+      "label": "Generate a structured, grounded, cited answer from top-K reranked chunks.",
+      "file_type": "rationale",
+      "source_file": "src\\generation\\llm_client.py",
+      "source_location": "L128"
+    },
+    {
+      "id": "src_generation_prompt_builder_py",
+      "label": "prompt_builder.py",
+      "file_type": "code",
+      "source_file": "src\\generation\\prompt_builder.py",
+      "source_location": "L1"
+    },
+    {
+      "id": "generation_prompt_builder_build_context_block",
+      "label": "build_context_block()",
+      "file_type": "code",
+      "source_file": "src\\generation\\prompt_builder.py",
+      "source_location": "L43"
+    },
+    {
+      "id": "generation_prompt_builder_build_messages",
+      "label": "build_messages()",
+      "file_type": "code",
+      "source_file": "src\\generation\\prompt_builder.py",
+      "source_location": "L58"
+    },
+    {
+      "id": "generation_prompt_builder_rationale_1",
+      "label": "prompt_builder.py - Citation-enforced prompt templates for decision support  The",
+      "file_type": "rationale",
+      "source_file": "src\\generation\\prompt_builder.py",
+      "source_location": "L1"
+    },
+    {
+      "id": "generation_prompt_builder_rationale_44",
+      "label": "Format reranked chunks into a numbered context block.",
+      "file_type": "rationale",
+      "source_file": "src\\generation\\prompt_builder.py",
+      "source_location": "L44"
+    },
+    {
+      "id": "generation_prompt_builder_rationale_59",
+      "label": "Build the messages list for OpenAI chat completions.     Ready to pass directly",
+      "file_type": "rationale",
+      "source_file": "src\\generation\\prompt_builder.py",
+      "source_location": "L59"
+    },
+    {
+      "id": "src_generation_init_py",
+      "label": "__init__.py",
+      "file_type": "code",
+      "source_file": "src\\generation\\__init__.py",
+      "source_location": "L1"
+    },
+    {
+      "id": "src_guardrails_chain_py",
+      "label": "chain.py",
+      "file_type": "code",
+      "source_file": "src\\guardrails\\chain.py",
+      "source_location": "L1"
+    },
+    {
+      "id": "guardrails_chain_guardrailresult",
+      "label": "GuardrailResult",
+      "file_type": "code",
+      "source_file": "src\\guardrails\\chain.py",
+      "source_location": "L29"
+    },
+    {
+      "id": "basemodel",
+      "label": "BaseModel",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": ""
+    },
+    {
+      "id": "guardrails_chain_user_message",
+      "label": "user_message()",
+      "file_type": "code",
+      "source_file": "src\\guardrails\\chain.py",
+      "source_location": "L37"
+    },
+    {
+      "id": "guardrails_chain_guardrailchain",
+      "label": "GuardrailChain",
+      "file_type": "code",
+      "source_file": "src\\guardrails\\chain.py",
+      "source_location": "L59"
+    },
+    {
+      "id": "guardrails_chain_guardrailchain_post_init",
+      "label": ".__post_init__()",
+      "file_type": "code",
+      "source_file": "src\\guardrails\\chain.py",
+      "source_location": "L64"
+    },
+    {
+      "id": "guardrails_chain_guardrailchain_run",
+      "label": ".run()",
+      "file_type": "code",
+      "source_file": "src\\guardrails\\chain.py",
+      "source_location": "L68"
+    },
+    {
+      "id": "guardrails_chain_rationale_1",
+      "label": "Combined guardrail chain.  Runs scope check and safety check in parallel (via",
+      "file_type": "rationale",
+      "source_file": "src\\guardrails\\chain.py",
+      "source_location": "L1"
+    },
+    {
+      "id": "guardrails_chain_rationale_69",
+      "label": "Run both checks concurrently.  Returns GuardrailResult.         Short-circuits",
+      "file_type": "rationale",
+      "source_file": "src\\guardrails\\chain.py",
+      "source_location": "L69"
+    },
+    {
+      "id": "src_guardrails_safety_filter_py",
+      "label": "safety_filter.py",
+      "file_type": "code",
+      "source_file": "src\\guardrails\\safety_filter.py",
+      "source_location": "L1"
+    },
+    {
+      "id": "guardrails_safety_filter_safetyresult",
+      "label": "SafetyResult",
+      "file_type": "code",
+      "source_file": "src\\guardrails\\safety_filter.py",
+      "source_location": "L30"
+    },
+    {
+      "id": "basemodel",
+      "label": "BaseModel",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": ""
+    },
+    {
+      "id": "guardrails_safety_filter_safetyfilter",
+      "label": "SafetyFilter",
+      "file_type": "code",
+      "source_file": "src\\guardrails\\safety_filter.py",
+      "source_location": "L83"
+    },
+    {
+      "id": "guardrails_safety_filter_safetyfilter_post_init",
+      "label": ".__post_init__()",
+      "file_type": "code",
+      "source_file": "src\\guardrails\\safety_filter.py",
+      "source_location": "L88"
+    },
+    {
+      "id": "guardrails_safety_filter_safetyfilter_check",
+      "label": ".check()",
+      "file_type": "code",
+      "source_file": "src\\guardrails\\safety_filter.py",
+      "source_location": "L96"
+    },
+    {
+      "id": "guardrails_safety_filter_rationale_1",
+      "label": "Safety guardrail: toxicity + brand safety.  Two checks run in a single LLM cal",
+      "file_type": "rationale",
+      "source_file": "src\\guardrails\\safety_filter.py",
+      "source_location": "L1"
+    },
+    {
+      "id": "src_guardrails_scope_filter_py",
+      "label": "scope_filter.py",
+      "file_type": "code",
+      "source_file": "src\\guardrails\\scope_filter.py",
+      "source_location": "L1"
+    },
+    {
+      "id": "guardrails_scope_filter_scoperesult",
+      "label": "ScopeResult",
+      "file_type": "code",
+      "source_file": "src\\guardrails\\scope_filter.py",
+      "source_location": "L31"
+    },
+    {
+      "id": "basemodel",
+      "label": "BaseModel",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": ""
+    },
+    {
+      "id": "guardrails_scope_filter_scopefilter",
+      "label": "ScopeFilter",
+      "file_type": "code",
+      "source_file": "src\\guardrails\\scope_filter.py",
+      "source_location": "L77"
+    },
+    {
+      "id": "guardrails_scope_filter_scopefilter_post_init",
+      "label": ".__post_init__()",
+      "file_type": "code",
+      "source_file": "src\\guardrails\\scope_filter.py",
+      "source_location": "L82"
+    },
+    {
+      "id": "guardrails_scope_filter_scopefilter_check",
+      "label": ".check()",
+      "file_type": "code",
+      "source_file": "src\\guardrails\\scope_filter.py",
+      "source_location": "L90"
+    },
+    {
+      "id": "guardrails_scope_filter_rationale_1",
+      "label": "Finance scope guardrail.  Uses a lightweight GPT-4o-mini classification call t",
+      "file_type": "rationale",
+      "source_file": "src\\guardrails\\scope_filter.py",
+      "source_location": "L1"
+    },
+    {
+      "id": "src_guardrails_init_py",
+      "label": "__init__.py",
+      "file_type": "code",
+      "source_file": "src\\guardrails\\__init__.py",
+      "source_location": "L1"
+    },
+    {
+      "id": "src_ingestion_edgar_fetcher_py",
+      "label": "edgar_fetcher.py",
+      "file_type": "code",
+      "source_file": "src\\ingestion\\edgar_fetcher.py",
+      "source_location": "L1"
+    },
+    {
+      "id": "ingestion_edgar_fetcher_strip_ix_wrapper",
+      "label": "_strip_ix_wrapper()",
+      "file_type": "code",
+      "source_file": "src\\ingestion\\edgar_fetcher.py",
+      "source_location": "L21"
+    },
+    {
+      "id": "ingestion_edgar_fetcher_is_viewer_page",
+      "label": "_is_viewer_page()",
+      "file_type": "code",
+      "source_file": "src\\ingestion\\edgar_fetcher.py",
+      "source_location": "L36"
+    },
+    {
+      "id": "ingestion_edgar_fetcher_get_cik",
+      "label": "get_cik()",
+      "file_type": "code",
+      "source_file": "src\\ingestion\\edgar_fetcher.py",
+      "source_location": "L42"
+    },
+    {
+      "id": "ingestion_edgar_fetcher_get_filing_metadata",
+      "label": "get_filing_metadata()",
+      "file_type": "code",
+      "source_file": "src\\ingestion\\edgar_fetcher.py",
+      "source_location": "L53"
+    },
+    {
+      "id": "ingestion_edgar_fetcher_get_primary_document_url",
+      "label": "get_primary_document_url()",
+      "file_type": "code",
+      "source_file": "src\\ingestion\\edgar_fetcher.py",
+      "source_location": "L87"
+    },
+    {
+      "id": "ingestion_edgar_fetcher_download_filing",
+      "label": "download_filing()",
+      "file_type": "code",
+      "source_file": "src\\ingestion\\edgar_fetcher.py",
+      "source_location": "L170"
+    },
+    {
+      "id": "ingestion_edgar_fetcher_fetch_filings",
+      "label": "fetch_filings()",
+      "file_type": "code",
+      "source_file": "src\\ingestion\\edgar_fetcher.py",
+      "source_location": "L180"
+    },
+    {
+      "id": "ingestion_edgar_fetcher_rationale_1",
+      "label": "edgar_fetcher.py  Downloads 10-K and 10-Q filings from SEC EDGAR. Handles the mo",
+      "file_type": "rationale",
+      "source_file": "src\\ingestion\\edgar_fetcher.py",
+      "source_location": "L1"
+    },
+    {
+      "id": "ingestion_edgar_fetcher_rationale_22",
+      "label": "EDGAR wraps iXBRL documents in an inline viewer URL:       https://www.sec.gov/i",
+      "file_type": "rationale",
+      "source_file": "src\\ingestion\\edgar_fetcher.py",
+      "source_location": "L22"
+    },
+    {
+      "id": "ingestion_edgar_fetcher_rationale_37",
+      "label": "Return True if the filename looks like an XBRL viewer shell.",
+      "file_type": "rationale",
+      "source_file": "src\\ingestion\\edgar_fetcher.py",
+      "source_location": "L37"
+    },
+    {
+      "id": "ingestion_edgar_fetcher_rationale_43",
+      "label": "Resolve a ticker symbol to a zero-padded 10-digit CIK.",
+      "file_type": "rationale",
+      "source_file": "src\\ingestion\\edgar_fetcher.py",
+      "source_location": "L43"
+    },
+    {
+      "id": "ingestion_edgar_fetcher_rationale_58",
+      "label": "Return filing metadata for a given CIK and form type.",
+      "file_type": "rationale",
+      "source_file": "src\\ingestion\\edgar_fetcher.py",
+      "source_location": "L58"
+    },
+    {
+      "id": "ingestion_edgar_fetcher_rationale_88",
+      "label": "Find the actual 10-K HTM document URL from the EDGAR filing index.     Returns t",
+      "file_type": "rationale",
+      "source_file": "src\\ingestion\\edgar_fetcher.py",
+      "source_location": "L88"
+    },
+    {
+      "id": "ingestion_edgar_fetcher_rationale_171",
+      "label": "Download a filing document. Strips ix?doc= viewer wrapper automatically.",
+      "file_type": "rationale",
+      "source_file": "src\\ingestion\\edgar_fetcher.py",
+      "source_location": "L171"
+    },
+    {
+      "id": "ingestion_edgar_fetcher_rationale_187",
+      "label": "Download filings for a list of tickers. Returns metadata + local paths.",
+      "file_type": "rationale",
+      "source_file": "src\\ingestion\\edgar_fetcher.py",
+      "source_location": "L187"
+    },
+    {
+      "id": "src_ingestion_indexer_py",
+      "label": "indexer.py",
+      "file_type": "code",
+      "source_file": "src\\ingestion\\indexer.py",
+      "source_location": "L1"
+    },
+    {
+      "id": "ingestion_indexer_embed_texts",
+      "label": "_embed_texts()",
+      "file_type": "code",
+      "source_file": "src\\ingestion\\indexer.py",
+      "source_location": "L32"
+    },
+    {
+      "id": "ingestion_indexer_build_indexes",
+      "label": "build_indexes()",
+      "file_type": "code",
+      "source_file": "src\\ingestion\\indexer.py",
+      "source_location": "L45"
+    },
+    {
+      "id": "ingestion_indexer_load_indexes",
+      "label": "load_indexes()",
+      "file_type": "code",
+      "source_file": "src\\ingestion\\indexer.py",
+      "source_location": "L79"
+    },
+    {
+      "id": "ingestion_indexer_indexes_exist",
+      "label": "indexes_exist()",
+      "file_type": "code",
+      "source_file": "src\\ingestion\\indexer.py",
+      "source_location": "L99"
+    },
+    {
+      "id": "ingestion_indexer_rationale_1",
+      "label": "indexer.py  Builds and persists:   1. FAISS vector index  - dense semantic searc",
+      "file_type": "rationale",
+      "source_file": "src\\ingestion\\indexer.py",
+      "source_location": "L1"
+    },
+    {
+      "id": "ingestion_indexer_rationale_35",
+      "label": "Embed texts in batches. Returns (N, 1536) float32 array.",
+      "file_type": "rationale",
+      "source_file": "src\\ingestion\\indexer.py",
+      "source_location": "L35"
+    },
+    {
+      "id": "ingestion_indexer_rationale_46",
+      "label": "Build FAISS and BM25 indexes from chunks and save to disk.     Expensive - run o",
+      "file_type": "rationale",
+      "source_file": "src\\ingestion\\indexer.py",
+      "source_location": "L46"
+    },
+    {
+      "id": "ingestion_indexer_rationale_80",
+      "label": "Load pre-built indexes from disk. Raises if not found.",
+      "file_type": "rationale",
+      "source_file": "src\\ingestion\\indexer.py",
+      "source_location": "L80"
+    },
+    {
+      "id": "src_ingestion_pdf_parser_py",
+      "label": "pdf_parser.py",
+      "file_type": "code",
+      "source_file": "src\\ingestion\\pdf_parser.py",
+      "source_location": "L1"
+    },
+    {
+      "id": "ingestion_pdf_parser_chunk",
+      "label": "Chunk",
+      "file_type": "code",
+      "source_file": "src\\ingestion\\pdf_parser.py",
+      "source_location": "L18"
+    },
+    {
+      "id": "ingestion_pdf_parser_chunk_to_dict",
+      "label": ".to_dict()",
+      "file_type": "code",
+      "source_file": "src\\ingestion\\pdf_parser.py",
+      "source_location": "L29"
+    },
+    {
+      "id": "ingestion_pdf_parser_clean_text",
+      "label": "_clean_text()",
+      "file_type": "code",
+      "source_file": "src\\ingestion\\pdf_parser.py",
+      "source_location": "L42"
+    },
+    {
+      "id": "ingestion_pdf_parser_split_into_chunks",
+      "label": "_split_into_chunks()",
+      "file_type": "code",
+      "source_file": "src\\ingestion\\pdf_parser.py",
+      "source_location": "L48"
+    },
+    {
+      "id": "ingestion_pdf_parser_extract_text_from_html",
+      "label": "_extract_text_from_html()",
+      "file_type": "code",
+      "source_file": "src\\ingestion\\pdf_parser.py",
+      "source_location": "L63"
+    },
+    {
+      "id": "ingestion_pdf_parser_parse_pdf",
+      "label": "parse_pdf()",
+      "file_type": "code",
+      "source_file": "src\\ingestion\\pdf_parser.py",
+      "source_location": "L90"
+    },
+    {
+      "id": "ingestion_pdf_parser_parse_htm",
+      "label": "parse_htm()",
+      "file_type": "code",
+      "source_file": "src\\ingestion\\pdf_parser.py",
+      "source_location": "L126"
+    },
+    {
+      "id": "ingestion_pdf_parser_parse_filing",
+      "label": "parse_filing()",
+      "file_type": "code",
+      "source_file": "src\\ingestion\\pdf_parser.py",
+      "source_location": "L171"
+    },
+    {
+      "id": "ingestion_pdf_parser_parse_all_filings",
+      "label": "parse_all_filings()",
+      "file_type": "code",
+      "source_file": "src\\ingestion\\pdf_parser.py",
+      "source_location": "L189"
+    },
+    {
+      "id": "ingestion_pdf_parser_rationale_1",
+      "label": "pdf_parser.py  Parses SEC filing documents (HTM/HTML or PDF) into text chunks. H",
+      "file_type": "rationale",
+      "source_file": "src\\ingestion\\pdf_parser.py",
+      "source_location": "L1"
+    },
+    {
+      "id": "ingestion_pdf_parser_rationale_19",
+      "label": "A single text chunk with full provenance for citations.",
+      "file_type": "rationale",
+      "source_file": "src\\ingestion\\pdf_parser.py",
+      "source_location": "L19"
+    },
+    {
+      "id": "ingestion_pdf_parser_rationale_51",
+      "label": "Word-based overlapping split.",
+      "file_type": "rationale",
+      "source_file": "src\\ingestion\\pdf_parser.py",
+      "source_location": "L51"
+    },
+    {
+      "id": "ingestion_pdf_parser_rationale_64",
+      "label": "Extract readable text from HTML or iXBRL filing.     iXBRL filings use ix: names",
+      "file_type": "rationale",
+      "source_file": "src\\ingestion\\pdf_parser.py",
+      "source_location": "L64"
+    },
+    {
+      "id": "ingestion_pdf_parser_rationale_98",
+      "label": "Parse a PDF filing into chunks preserving page numbers.",
+      "file_type": "rationale",
+      "source_file": "src\\ingestion\\pdf_parser.py",
+      "source_location": "L98"
+    },
+    {
+      "id": "ingestion_pdf_parser_rationale_134",
+      "label": "Parse an HTM/HTML SEC filing (including iXBRL) into chunks.     Approximates pag",
+      "file_type": "rationale",
+      "source_file": "src\\ingestion\\pdf_parser.py",
+      "source_location": "L134"
+    },
+    {
+      "id": "ingestion_pdf_parser_rationale_179",
+      "label": "Route to the right parser based on file extension.",
+      "file_type": "rationale",
+      "source_file": "src\\ingestion\\pdf_parser.py",
+      "source_location": "L179"
+    },
+    {
+      "id": "ingestion_pdf_parser_rationale_194",
+      "label": "Parse a batch of filing dicts into a flat chunk list.",
+      "file_type": "rationale",
+      "source_file": "src\\ingestion\\pdf_parser.py",
+      "source_location": "L194"
+    },
+    {
+      "id": "src_ingestion_run_py",
+      "label": "run.py",
+      "file_type": "code",
+      "source_file": "src\\ingestion\\run.py",
+      "source_location": "L1"
+    },
+    {
+      "id": "ingestion_run_main",
+      "label": "main()",
+      "file_type": "code",
+      "source_file": "src\\ingestion\\run.py",
+      "source_location": "L26"
+    },
+    {
+      "id": "ingestion_run_rationale_1",
+      "label": "run.py - Ingestion CLI  Fetches filings from SEC EDGAR, parses them into chunks,",
+      "file_type": "rationale",
+      "source_file": "src\\ingestion\\run.py",
+      "source_location": "L1"
+    },
+    {
+      "id": "src_ingestion_init_py",
+      "label": "__init__.py",
+      "file_type": "code",
+      "source_file": "src\\ingestion\\__init__.py",
+      "source_location": "L1"
+    },
+    {
+      "id": "src_observability_langfuse_tracer_py",
+      "label": "langfuse_tracer.py",
+      "file_type": "code",
+      "source_file": "src\\observability\\langfuse_tracer.py",
+      "source_location": "L1"
+    },
+    {
+      "id": "observability_langfuse_tracer_build_langfuse_client",
+      "label": "build_langfuse_client()",
+      "file_type": "code",
+      "source_file": "src\\observability\\langfuse_tracer.py",
+      "source_location": "L11"
+    },
+    {
+      "id": "observability_langfuse_tracer_rationale_1",
+      "label": "langfuse_tracer.py  Thin wrapper around the Langfuse v4 client. Langfuse 4.x use",
+      "file_type": "rationale",
+      "source_file": "src\\observability\\langfuse_tracer.py",
+      "source_location": "L1"
+    },
+    {
+      "id": "observability_langfuse_tracer_rationale_12",
+      "label": "Build and return a Langfuse client if credentials are present.     Returns None",
+      "file_type": "rationale",
+      "source_file": "src\\observability\\langfuse_tracer.py",
+      "source_location": "L12"
+    },
+    {
+      "id": "src_observability_init_py",
+      "label": "__init__.py",
+      "file_type": "code",
+      "source_file": "src\\observability\\__init__.py",
+      "source_location": "L1"
+    },
+    {
+      "id": "src_retrieval_bm25_search_py",
+      "label": "bm25_search.py",
+      "file_type": "code",
+      "source_file": "src\\retrieval\\bm25_search.py",
+      "source_location": "L1"
+    },
+    {
+      "id": "retrieval_bm25_search_bm25_search",
+      "label": "bm25_search()",
+      "file_type": "code",
+      "source_file": "src\\retrieval\\bm25_search.py",
+      "source_location": "L13"
+    },
+    {
+      "id": "retrieval_bm25_search_rationale_1",
+      "label": "bm25_search.py - Keyword / sparse search via BM25  Why: Financial text contains",
+      "file_type": "rationale",
+      "source_file": "src\\retrieval\\bm25_search.py",
+      "source_location": "L1"
+    },
+    {
+      "id": "retrieval_bm25_search_rationale_19",
+      "label": "Return top_k chunks by BM25 score.     Each result includes the original chunk m",
+      "file_type": "rationale",
+      "source_file": "src\\retrieval\\bm25_search.py",
+      "source_location": "L19"
+    },
+    {
+      "id": "src_retrieval_fusion_py",
+      "label": "fusion.py",
+      "file_type": "code",
+      "source_file": "src\\retrieval\\fusion.py",
+      "source_location": "L1"
+    },
+    {
+      "id": "retrieval_fusion_reciprocal_rank_fusion",
+      "label": "reciprocal_rank_fusion()",
+      "file_type": "code",
+      "source_file": "src\\retrieval\\fusion.py",
+      "source_location": "L12"
+    },
+    {
+      "id": "retrieval_fusion_rationale_1",
+      "label": "fusion.py - Reciprocal Rank Fusion (RRF)  Merges ranked lists from vector search",
+      "file_type": "rationale",
+      "source_file": "src\\retrieval\\fusion.py",
+      "source_location": "L1"
+    },
+    {
+      "id": "retrieval_fusion_rationale_18",
+      "label": "Fuse multiple ranked result lists using RRF.      Args:         result_lists: Ea",
+      "file_type": "rationale",
+      "source_file": "src\\retrieval\\fusion.py",
+      "source_location": "L18"
+    },
+    {
+      "id": "src_retrieval_reranker_py",
+      "label": "reranker.py",
+      "file_type": "code",
+      "source_file": "src\\retrieval\\reranker.py",
+      "source_location": "L1"
+    },
+    {
+      "id": "retrieval_reranker_rerank",
+      "label": "rerank()",
+      "file_type": "code",
+      "source_file": "src\\retrieval\\reranker.py",
+      "source_location": "L15"
+    },
+    {
+      "id": "retrieval_reranker_rationale_1",
+      "label": "reranker.py - Cross-encoder reranking via Cohere Rerank API  Takes the top-40 fu",
+      "file_type": "rationale",
+      "source_file": "src\\retrieval\\reranker.py",
+      "source_location": "L1"
+    },
+    {
+      "id": "retrieval_reranker_rationale_22",
+      "label": "Rerank candidate chunks using Cohere's rerank API.      Args:         query:",
+      "file_type": "rationale",
+      "source_file": "src\\retrieval\\reranker.py",
+      "source_location": "L22"
+    },
+    {
+      "id": "src_retrieval_vector_search_py",
+      "label": "vector_search.py",
+      "file_type": "code",
+      "source_file": "src\\retrieval\\vector_search.py",
+      "source_location": "L1"
+    },
+    {
+      "id": "retrieval_vector_search_embed_query",
+      "label": "embed_query()",
+      "file_type": "code",
+      "source_file": "src\\retrieval\\vector_search.py",
+      "source_location": "L15"
+    },
+    {
+      "id": "retrieval_vector_search_vector_search",
+      "label": "vector_search()",
+      "file_type": "code",
+      "source_file": "src\\retrieval\\vector_search.py",
+      "source_location": "L23"
+    },
+    {
+      "id": "retrieval_vector_search_rationale_1",
+      "label": "vector_search.py - Dense semantic search via FAISS  Why: Captures meaning-based",
+      "file_type": "rationale",
+      "source_file": "src\\retrieval\\vector_search.py",
+      "source_location": "L1"
+    },
+    {
+      "id": "retrieval_vector_search_rationale_16",
+      "label": "Embed a single query string. Returns L2-normalised (1, 1536) array.",
+      "file_type": "rationale",
+      "source_file": "src\\retrieval\\vector_search.py",
+      "source_location": "L16"
+    },
+    {
+      "id": "retrieval_vector_search_rationale_30",
+      "label": "Return top_k chunks by cosine similarity.     Each result includes the original",
+      "file_type": "rationale",
+      "source_file": "src\\retrieval\\vector_search.py",
+      "source_location": "L30"
+    },
+    {
+      "id": "src_retrieval_init_py",
+      "label": "__init__.py",
+      "file_type": "code",
+      "source_file": "src\\retrieval\\__init__.py",
+      "source_location": "L1"
+    },
+    {
+      "id": "tests_test_ingestion_py",
+      "label": "test_ingestion.py",
+      "file_type": "code",
+      "source_file": "tests\\test_ingestion.py",
+      "source_location": "L1"
+    },
+    {
+      "id": "tests_test_ingestion_test_clean_text_collapses_whitespace",
+      "label": "test_clean_text_collapses_whitespace()",
+      "file_type": "code",
+      "source_file": "tests\\test_ingestion.py",
+      "source_location": "L13"
+    },
+    {
+      "id": "tests_test_ingestion_test_clean_text_strips_control_chars",
+      "label": "test_clean_text_strips_control_chars()",
+      "file_type": "code",
+      "source_file": "tests\\test_ingestion.py",
+      "source_location": "L17"
+    },
+    {
+      "id": "tests_test_ingestion_test_clean_text_strips_leading_trailing",
+      "label": "test_clean_text_strips_leading_trailing()",
+      "file_type": "code",
+      "source_file": "tests\\test_ingestion.py",
+      "source_location": "L21"
+    },
+    {
+      "id": "tests_test_ingestion_test_clean_text_empty_string",
+      "label": "test_clean_text_empty_string()",
+      "file_type": "code",
+      "source_file": "tests\\test_ingestion.py",
+      "source_location": "L25"
+    },
+    {
+      "id": "tests_test_ingestion_test_split_respects_chunk_size",
+      "label": "test_split_respects_chunk_size()",
+      "file_type": "code",
+      "source_file": "tests\\test_ingestion.py",
+      "source_location": "L31"
+    },
+    {
+      "id": "tests_test_ingestion_test_split_produces_overlap",
+      "label": "test_split_produces_overlap()",
+      "file_type": "code",
+      "source_file": "tests\\test_ingestion.py",
+      "source_location": "L39"
+    },
+    {
+      "id": "tests_test_ingestion_test_split_skips_tiny_chunks",
+      "label": "test_split_skips_tiny_chunks()",
+      "file_type": "code",
+      "source_file": "tests\\test_ingestion.py",
+      "source_location": "L50"
+    },
+    {
+      "id": "tests_test_ingestion_test_split_returns_list",
+      "label": "test_split_returns_list()",
+      "file_type": "code",
+      "source_file": "tests\\test_ingestion.py",
+      "source_location": "L56"
+    },
+    {
+      "id": "tests_test_ingestion_test_chunk_to_dict_has_required_keys",
+      "label": "test_chunk_to_dict_has_required_keys()",
+      "file_type": "code",
+      "source_file": "tests\\test_ingestion.py",
+      "source_location": "L63"
+    },
+    {
+      "id": "tests_test_ingestion_test_chunk_to_dict_values_correct",
+      "label": "test_chunk_to_dict_values_correct()",
+      "file_type": "code",
+      "source_file": "tests\\test_ingestion.py",
+      "source_location": "L78"
+    },
+    {
+      "id": "tests_test_ingestion_test_chunk_metadata_merged_into_dict",
+      "label": "test_chunk_metadata_merged_into_dict()",
+      "file_type": "code",
+      "source_file": "tests\\test_ingestion.py",
+      "source_location": "L94"
+    },
+    {
+      "id": "tests_test_ingestion_test_indexes_exist_returns_false_when_missing",
+      "label": "test_indexes_exist_returns_false_when_missing()",
+      "file_type": "code",
+      "source_file": "tests\\test_ingestion.py",
+      "source_location": "L111"
+    },
+    {
+      "id": "tests_test_ingestion_test_indexes_exist_returns_true_when_present",
+      "label": "test_indexes_exist_returns_true_when_present()",
+      "file_type": "code",
+      "source_file": "tests\\test_ingestion.py",
+      "source_location": "L120"
+    },
+    {
+      "id": "tests_test_ingestion_rationale_1",
+      "label": "tests/test_ingestion.py  Unit tests for ingestion logic - chunking, metadata fie",
+      "file_type": "rationale",
+      "source_file": "tests\\test_ingestion.py",
+      "source_location": "L1"
+    },
+    {
+      "id": "tests_test_retrieval_py",
+      "label": "test_retrieval.py",
+      "file_type": "code",
+      "source_file": "tests\\test_retrieval.py",
+      "source_location": "L1"
+    },
+    {
+      "id": "tests_test_retrieval_bm25_index",
+      "label": "bm25_index()",
+      "file_type": "code",
+      "source_file": "tests\\test_retrieval.py",
+      "source_location": "L66"
+    },
+    {
+      "id": "tests_test_retrieval_test_bm25_returns_relevant_result",
+      "label": "test_bm25_returns_relevant_result()",
+      "file_type": "code",
+      "source_file": "tests\\test_retrieval.py",
+      "source_location": "L73"
+    },
+    {
+      "id": "tests_test_retrieval_test_bm25_ticker_exact_match",
+      "label": "test_bm25_ticker_exact_match()",
+      "file_type": "code",
+      "source_file": "tests\\test_retrieval.py",
+      "source_location": "L79"
+    },
+    {
+      "id": "tests_test_retrieval_test_bm25_respects_top_k",
+      "label": "test_bm25_respects_top_k()",
+      "file_type": "code",
+      "source_file": "tests\\test_retrieval.py",
+      "source_location": "L84"
+    },
+    {
+      "id": "tests_test_retrieval_test_bm25_adds_score_field",
+      "label": "test_bm25_adds_score_field()",
+      "file_type": "code",
+      "source_file": "tests\\test_retrieval.py",
+      "source_location": "L89"
+    },
+    {
+      "id": "tests_test_retrieval_test_bm25_empty_query_returns_no_results",
+      "label": "test_bm25_empty_query_returns_no_results()",
+      "file_type": "code",
+      "source_file": "tests\\test_retrieval.py",
+      "source_location": "L96"
+    },
+    {
+      "id": "tests_test_retrieval_make_vector_results",
+      "label": "_make_vector_results()",
+      "file_type": "code",
+      "source_file": "tests\\test_retrieval.py",
+      "source_location": "L104"
+    },
+    {
+      "id": "tests_test_retrieval_make_bm25_results",
+      "label": "_make_bm25_results()",
+      "file_type": "code",
+      "source_file": "tests\\test_retrieval.py",
+      "source_location": "L113"
+    },
+    {
+      "id": "tests_test_retrieval_test_rrf_merges_both_lists",
+      "label": "test_rrf_merges_both_lists()",
+      "file_type": "code",
+      "source_file": "tests\\test_retrieval.py",
+      "source_location": "L122"
+    },
+    {
+      "id": "tests_test_retrieval_test_rrf_deduplicates",
+      "label": "test_rrf_deduplicates()",
+      "file_type": "code",
+      "source_file": "tests\\test_retrieval.py",
+      "source_location": "L129"
+    },
+    {
+      "id": "tests_test_retrieval_test_rrf_adds_rrf_score",
+      "label": "test_rrf_adds_rrf_score()",
+      "file_type": "code",
+      "source_file": "tests\\test_retrieval.py",
+      "source_location": "L135"
+    },
+    {
+      "id": "tests_test_retrieval_test_rrf_respects_top_n",
+      "label": "test_rrf_respects_top_n()",
+      "file_type": "code",
+      "source_file": "tests\\test_retrieval.py",
+      "source_location": "L142"
+    },
+    {
+      "id": "tests_test_retrieval_test_rrf_sorted_descending",
+      "label": "test_rrf_sorted_descending()",
+      "file_type": "code",
+      "source_file": "tests\\test_retrieval.py",
+      "source_location": "L149"
+    },
+    {
+      "id": "tests_test_retrieval_test_rrf_single_list",
+      "label": "test_rrf_single_list()",
+      "file_type": "code",
+      "source_file": "tests\\test_retrieval.py",
+      "source_location": "L155"
+    },
+    {
+      "id": "tests_test_retrieval_test_rrf_empty_lists",
+      "label": "test_rrf_empty_lists()",
+      "file_type": "code",
+      "source_file": "tests\\test_retrieval.py",
+      "source_location": "L160"
+    },
+    {
+      "id": "tests_test_retrieval_test_prompt_builder_includes_citation_format",
+      "label": "test_prompt_builder_includes_citation_format()",
+      "file_type": "code",
+      "source_file": "tests\\test_retrieval.py",
+      "source_location": "L167"
+    },
+    {
+      "id": "tests_test_retrieval_test_prompt_builder_returns_two_messages",
+      "label": "test_prompt_builder_returns_two_messages()",
+      "file_type": "code",
+      "source_file": "tests\\test_retrieval.py",
+      "source_location": "L175"
+    },
+    {
+      "id": "tests_test_retrieval_test_context_block_numbers_chunks",
+      "label": "test_context_block_numbers_chunks()",
+      "file_type": "code",
+      "source_file": "tests\\test_retrieval.py",
+      "source_location": "L183"
+    },
+    {
+      "id": "tests_test_retrieval_test_retrieval_signal_returns_mean_rerank_score",
+      "label": "test_retrieval_signal_returns_mean_rerank_score()",
+      "file_type": "code",
+      "source_file": "tests\\test_retrieval.py",
+      "source_location": "L193"
+    },
+    {
+      "id": "tests_test_retrieval_test_retrieval_signal_returns_none_when_no_rerank_scores",
+      "label": "test_retrieval_signal_returns_none_when_no_rerank_scores()",
+      "file_type": "code",
+      "source_file": "tests\\test_retrieval.py",
+      "source_location": "L203"
+    },
+    {
+      "id": "tests_test_retrieval_test_retrieval_signal_ignores_chunks_without_rerank_score",
+      "label": "test_retrieval_signal_ignores_chunks_without_rerank_score()",
+      "file_type": "code",
+      "source_file": "tests\\test_retrieval.py",
+      "source_location": "L210"
+    },
+    {
+      "id": "tests_test_retrieval_test_confidence_blends_llm_and_retrieval",
+      "label": "test_confidence_blends_llm_and_retrieval()",
+      "file_type": "code",
+      "source_file": "tests\\test_retrieval.py",
+      "source_location": "L221"
+    },
+    {
+      "id": "tests_test_retrieval_test_confidence_falls_back_to_llm_only",
+      "label": "test_confidence_falls_back_to_llm_only()",
+      "file_type": "code",
+      "source_file": "tests\\test_retrieval.py",
+      "source_location": "L229"
+    },
+    {
+      "id": "tests_test_retrieval_test_structured_answer_schema_fields",
+      "label": "test_structured_answer_schema_fields()",
+      "file_type": "code",
+      "source_file": "tests\\test_retrieval.py",
+      "source_location": "L237"
+    },
+    {
+      "id": "tests_test_retrieval_test_claim_schema_fields",
+      "label": "test_claim_schema_fields()",
+      "file_type": "code",
+      "source_file": "tests\\test_retrieval.py",
+      "source_location": "L254"
+    },
+    {
+      "id": "tests_test_retrieval_rationale_1",
+      "label": "tests/test_retrieval.py  Unit tests for the retrieval layer - BM25 search, RRF f",
+      "file_type": "rationale",
+      "source_file": "tests\\test_retrieval.py",
+      "source_location": "L1"
+    },
+    {
+      "id": "tests_test_retrieval_rationale_105",
+      "label": "Simulate vector search results with scores.",
+      "file_type": "rationale",
+      "source_file": "tests\\test_retrieval.py",
+      "source_location": "L105"
+    },
+    {
+      "id": "tests_test_retrieval_rationale_114",
+      "label": "Simulate BM25 results with scores.",
+      "file_type": "rationale",
+      "source_file": "tests\\test_retrieval.py",
+      "source_location": "L114"
+    },
+    {
+      "id": "tests_test_retrieval_rationale_222",
+      "label": "When rerank scores are present, final confidence = 0.7*llm + 0.3*retrieval.",
+      "file_type": "rationale",
+      "source_file": "tests\\test_retrieval.py",
+      "source_location": "L222"
+    },
+    {
+      "id": "tests_test_retrieval_rationale_230",
+      "label": "Without rerank scores, confidence should equal llm_confidence.",
+      "file_type": "rationale",
+      "source_file": "tests\\test_retrieval.py",
+      "source_location": "L230"
+    },
+    {
+      "id": "tests_test_retrieval_rationale_238",
+      "label": "StructuredAnswer Pydantic model accepts all required fields.",
+      "file_type": "rationale",
+      "source_file": "tests\\test_retrieval.py",
+      "source_location": "L238"
+    },
+    {
+      "id": "tests_init_py",
+      "label": "__init__.py",
+      "file_type": "code",
+      "source_file": "tests\\__init__.py",
+      "source_location": "L1"
+    },
+    {
+      "id": "readme_finance_rag",
+      "label": "Finance RAG System",
+      "file_type": "document",
+      "source_file": "README.md"
+    },
+    {
+      "id": "readme_jwt_rbac",
+      "label": "JWT RBAC",
+      "file_type": "document",
+      "source_file": "README.md"
+    },
+    {
+      "id": "readme_langchain_guardrails",
+      "label": "LangChain Guardrails",
+      "file_type": "document",
+      "source_file": "README.md"
+    },
+    {
+      "id": "readme_ragas_eval",
+      "label": "RAGAS Evaluation",
+      "file_type": "document",
+      "source_file": "README.md"
+    },
+    {
+      "id": "readme_sec_edgar",
+      "label": "SEC EDGAR Ingestion",
+      "file_type": "document",
+      "source_file": "README.md"
+    },
+    {
+      "id": "readme_hybrid_search",
+      "label": "Hybrid Search",
+      "file_type": "document",
+      "source_file": "README.md"
+    },
+    {
+      "id": "langfuse_traces",
+      "label": "Langfuse Trace Monitoring",
+      "file_type": "image",
+      "source_file": "docs/langfuse-traces.png"
+    }
+  ],
+  "links": [
+    {
+      "source": "deploy_monitoring_langsmith_monitor_py",
+      "target": "argparse",
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "source_file": "deploy\\monitoring\\langsmith_monitor.py",
+      "source_location": "L20",
+      "weight": 1.0
+    },
+    {
+      "source": "deploy_monitoring_langsmith_monitor_py",
+      "target": "os",
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "source_file": "deploy\\monitoring\\langsmith_monitor.py",
+      "source_location": "L21",
+      "weight": 1.0
+    },
+    {
+      "source": "deploy_monitoring_langsmith_monitor_py",
+      "target": "statistics",
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "source_file": "deploy\\monitoring\\langsmith_monitor.py",
+      "source_location": "L22",
+      "weight": 1.0
+    },
+    {
+      "source": "deploy_monitoring_langsmith_monitor_py",
+      "target": "datetime",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "deploy\\monitoring\\langsmith_monitor.py",
+      "source_location": "L23",
+      "weight": 1.0
+    },
+    {
+      "source": "deploy_monitoring_langsmith_monitor_py",
+      "target": "dotenv",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "deploy\\monitoring\\langsmith_monitor.py",
+      "source_location": "L25",
+      "weight": 1.0
+    },
+    {
+      "source": "deploy_monitoring_langsmith_monitor_py",
+      "target": "monitoring_langsmith_monitor_get_client",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "deploy\\monitoring\\langsmith_monitor.py",
+      "source_location": "L30",
+      "weight": 1.0
+    },
+    {
+      "source": "deploy_monitoring_langsmith_monitor_py",
+      "target": "monitoring_langsmith_monitor_fetch_runs",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "deploy\\monitoring\\langsmith_monitor.py",
+      "source_location": "L38",
+      "weight": 1.0
+    },
+    {
+      "source": "deploy_monitoring_langsmith_monitor_py",
+      "target": "monitoring_langsmith_monitor_cost_report",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "deploy\\monitoring\\langsmith_monitor.py",
+      "source_location": "L49",
+      "weight": 1.0
+    },
+    {
+      "source": "deploy_monitoring_langsmith_monitor_py",
+      "target": "monitoring_langsmith_monitor_latency_report",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "deploy\\monitoring\\langsmith_monitor.py",
+      "source_location": "L68",
+      "weight": 1.0
+    },
+    {
+      "source": "deploy_monitoring_langsmith_monitor_py",
+      "target": "monitoring_langsmith_monitor_confidence_report",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "deploy\\monitoring\\langsmith_monitor.py",
+      "source_location": "L86",
+      "weight": 1.0
+    },
+    {
+      "source": "deploy_monitoring_langsmith_monitor_py",
+      "target": "monitoring_langsmith_monitor_fetch_eval_runs",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "deploy\\monitoring\\langsmith_monitor.py",
+      "source_location": "L113",
+      "weight": 1.0
+    },
+    {
+      "source": "deploy_monitoring_langsmith_monitor_py",
+      "target": "monitoring_langsmith_monitor_print_report",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "deploy\\monitoring\\langsmith_monitor.py",
+      "source_location": "L136",
+      "weight": 1.0
+    },
+    {
+      "source": "deploy_monitoring_langsmith_monitor_py",
+      "target": "monitoring_langsmith_monitor_main",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "deploy\\monitoring\\langsmith_monitor.py",
+      "source_location": "L210",
+      "weight": 1.0
+    },
+    {
+      "source": "monitoring_langsmith_monitor_print_report",
+      "target": "monitoring_langsmith_monitor_cost_report",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "deploy\\monitoring\\langsmith_monitor.py",
+      "source_location": "L137",
+      "weight": 1.0
+    },
+    {
+      "source": "monitoring_langsmith_monitor_print_report",
+      "target": "monitoring_langsmith_monitor_latency_report",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "deploy\\monitoring\\langsmith_monitor.py",
+      "source_location": "L138",
+      "weight": 1.0
+    },
+    {
+      "source": "monitoring_langsmith_monitor_print_report",
+      "target": "monitoring_langsmith_monitor_confidence_report",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "deploy\\monitoring\\langsmith_monitor.py",
+      "source_location": "L139",
+      "weight": 1.0
+    },
+    {
+      "source": "monitoring_langsmith_monitor_main",
+      "target": "monitoring_langsmith_monitor_get_client",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "deploy\\monitoring\\langsmith_monitor.py",
+      "source_location": "L217",
+      "weight": 1.0
+    },
+    {
+      "source": "monitoring_langsmith_monitor_main",
+      "target": "monitoring_langsmith_monitor_fetch_runs",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "deploy\\monitoring\\langsmith_monitor.py",
+      "source_location": "L218",
+      "weight": 1.0
+    },
+    {
+      "source": "monitoring_langsmith_monitor_main",
+      "target": "monitoring_langsmith_monitor_fetch_eval_runs",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "deploy\\monitoring\\langsmith_monitor.py",
+      "source_location": "L219",
+      "weight": 1.0
+    },
+    {
+      "source": "monitoring_langsmith_monitor_main",
+      "target": "monitoring_langsmith_monitor_print_report",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "deploy\\monitoring\\langsmith_monitor.py",
+      "source_location": "L220",
+      "weight": 1.0
+    },
+    {
+      "source": "monitoring_langsmith_monitor_rationale_1",
+      "target": "deploy_monitoring_langsmith_monitor_py",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "deploy\\monitoring\\langsmith_monitor.py",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "monitoring_langsmith_monitor_rationale_39",
+      "target": "monitoring_langsmith_monitor_fetch_runs",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "deploy\\monitoring\\langsmith_monitor.py",
+      "source_location": "L39",
+      "weight": 1.0
+    },
+    {
+      "source": "monitoring_langsmith_monitor_rationale_50",
+      "target": "monitoring_langsmith_monitor_cost_report",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "deploy\\monitoring\\langsmith_monitor.py",
+      "source_location": "L50",
+      "weight": 1.0
+    },
+    {
+      "source": "monitoring_langsmith_monitor_rationale_69",
+      "target": "monitoring_langsmith_monitor_latency_report",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "deploy\\monitoring\\langsmith_monitor.py",
+      "source_location": "L69",
+      "weight": 1.0
+    },
+    {
+      "source": "monitoring_langsmith_monitor_rationale_87",
+      "target": "monitoring_langsmith_monitor_confidence_report",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "deploy\\monitoring\\langsmith_monitor.py",
+      "source_location": "L87",
+      "weight": 1.0
+    },
+    {
+      "source": "monitoring_langsmith_monitor_rationale_114",
+      "target": "monitoring_langsmith_monitor_fetch_eval_runs",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "deploy\\monitoring\\langsmith_monitor.py",
+      "source_location": "L114",
+      "weight": 1.0
+    },
+    {
+      "source": "eval_run_ragas_py",
+      "target": "json",
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "source_file": "eval\\run_ragas.py",
+      "source_location": "L23",
+      "weight": 1.0
+    },
+    {
+      "source": "eval_run_ragas_py",
+      "target": "os",
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "source_file": "eval\\run_ragas.py",
+      "source_location": "L24",
+      "weight": 1.0
+    },
+    {
+      "source": "eval_run_ragas_py",
+      "target": "sys",
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "source_file": "eval\\run_ragas.py",
+      "source_location": "L25",
+      "weight": 1.0
+    },
+    {
+      "source": "eval_run_ragas_py",
+      "target": "time",
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "source_file": "eval\\run_ragas.py",
+      "source_location": "L26",
+      "weight": 1.0
+    },
+    {
+      "source": "eval_run_ragas_py",
+      "target": "uuid",
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "source_file": "eval\\run_ragas.py",
+      "source_location": "L27",
+      "weight": 1.0
+    },
+    {
+      "source": "eval_run_ragas_py",
+      "target": "datetime",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "eval\\run_ragas.py",
+      "source_location": "L28",
+      "weight": 1.0
+    },
+    {
+      "source": "eval_run_ragas_py",
+      "target": "pathlib",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "eval\\run_ragas.py",
+      "source_location": "L29",
+      "weight": 1.0
+    },
+    {
+      "source": "eval_run_ragas_py",
+      "target": "httpx",
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "source_file": "eval\\run_ragas.py",
+      "source_location": "L31",
+      "weight": 1.0
+    },
+    {
+      "source": "eval_run_ragas_py",
+      "target": "datasets",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "eval\\run_ragas.py",
+      "source_location": "L32",
+      "weight": 1.0
+    },
+    {
+      "source": "eval_run_ragas_py",
+      "target": "dotenv",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "eval\\run_ragas.py",
+      "source_location": "L33",
+      "weight": 1.0
+    },
+    {
+      "source": "eval_run_ragas_py",
+      "target": "ragas",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "eval\\run_ragas.py",
+      "source_location": "L34",
+      "weight": 1.0
+    },
+    {
+      "source": "eval_run_ragas_py",
+      "target": "ragas_metrics",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "eval\\run_ragas.py",
+      "source_location": "L35",
+      "weight": 1.0
+    },
+    {
+      "source": "eval_run_ragas_py",
+      "target": "eval_run_ragas_get_bearer_token",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "eval\\run_ragas.py",
+      "source_location": "L64",
+      "weight": 1.0
+    },
+    {
+      "source": "eval_run_ragas_py",
+      "target": "eval_run_ragas_call_api",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "eval\\run_ragas.py",
+      "source_location": "L80",
+      "weight": 1.0
+    },
+    {
+      "source": "eval_run_ragas_py",
+      "target": "eval_run_ragas_collect_answers",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "eval\\run_ragas.py",
+      "source_location": "L95",
+      "weight": 1.0
+    },
+    {
+      "source": "eval_run_ragas_py",
+      "target": "eval_run_ragas_run_ragas",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "eval\\run_ragas.py",
+      "source_location": "L129",
+      "weight": 1.0
+    },
+    {
+      "source": "eval_run_ragas_py",
+      "target": "eval_run_ragas_check_thresholds",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "eval\\run_ragas.py",
+      "source_location": "L145",
+      "weight": 1.0
+    },
+    {
+      "source": "eval_run_ragas_py",
+      "target": "eval_run_ragas_upload_to_langsmith",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "eval\\run_ragas.py",
+      "source_location": "L163",
+      "weight": 1.0
+    },
+    {
+      "source": "eval_run_ragas_collect_answers",
+      "target": "eval_run_ragas_get_bearer_token",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "eval\\run_ragas.py",
+      "source_location": "L98",
+      "weight": 1.0
+    },
+    {
+      "source": "eval_run_ragas_collect_answers",
+      "target": "eval_run_ragas_call_api",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "eval\\run_ragas.py",
+      "source_location": "L101",
+      "weight": 1.0
+    },
+    {
+      "source": "eval_run_ragas_rationale_1",
+      "target": "eval_run_ragas_py",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "eval\\run_ragas.py",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "eval_run_ragas_rationale_65",
+      "target": "eval_run_ragas_get_bearer_token",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "eval\\run_ragas.py",
+      "source_location": "L65",
+      "weight": 1.0
+    },
+    {
+      "source": "eval_run_ragas_rationale_130",
+      "target": "eval_run_ragas_run_ragas",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "eval\\run_ragas.py",
+      "source_location": "L130",
+      "weight": 1.0
+    },
+    {
+      "source": "eval_run_ragas_rationale_164",
+      "target": "eval_run_ragas_upload_to_langsmith",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "eval\\run_ragas.py",
+      "source_location": "L164",
+      "weight": 1.0
+    },
+    {
+      "source": "src_api_main_py",
+      "target": "os",
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\api\\main.py",
+      "source_location": "L16",
+      "weight": 1.0
+    },
+    {
+      "source": "src_api_main_py",
+      "target": "contextlib",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\api\\main.py",
+      "source_location": "L17",
+      "weight": 1.0
+    },
+    {
+      "source": "src_api_main_py",
+      "target": "fastapi",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\api\\main.py",
+      "source_location": "L19",
+      "weight": 1.0
+    },
+    {
+      "source": "src_api_main_py",
+      "target": "fastapi_security",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\api\\main.py",
+      "source_location": "L20",
+      "weight": 1.0
+    },
+    {
+      "source": "src_api_main_py",
+      "target": "openai",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\api\\main.py",
+      "source_location": "L21",
+      "weight": 1.0
+    },
+    {
+      "source": "src_api_main_py",
+      "target": "pydantic",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\api\\main.py",
+      "source_location": "L22",
+      "weight": 1.0
+    },
+    {
+      "source": "src_api_main_py",
+      "target": "dotenv",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\api\\main.py",
+      "source_location": "L23",
+      "weight": 1.0
+    },
+    {
+      "source": "src_api_main_py",
+      "target": "src_ingestion_indexer",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\api\\main.py",
+      "source_location": "L25",
+      "weight": 1.0
+    },
+    {
+      "source": "src_api_main_py",
+      "target": "src_retrieval_vector_search",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\api\\main.py",
+      "source_location": "L26",
+      "weight": 1.0
+    },
+    {
+      "source": "src_api_main_py",
+      "target": "src_retrieval_bm25_search",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\api\\main.py",
+      "source_location": "L27",
+      "weight": 1.0
+    },
+    {
+      "source": "src_api_main_py",
+      "target": "src_retrieval_fusion",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\api\\main.py",
+      "source_location": "L28",
+      "weight": 1.0
+    },
+    {
+      "source": "src_api_main_py",
+      "target": "src_retrieval_reranker",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\api\\main.py",
+      "source_location": "L29",
+      "weight": 1.0
+    },
+    {
+      "source": "src_api_main_py",
+      "target": "src_generation_llm_client",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\api\\main.py",
+      "source_location": "L30",
+      "weight": 1.0
+    },
+    {
+      "source": "src_api_main_py",
+      "target": "src_observability_langfuse_tracer",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\api\\main.py",
+      "source_location": "L31",
+      "weight": 1.0
+    },
+    {
+      "source": "src_api_main_py",
+      "target": "src_auth_models",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\api\\main.py",
+      "source_location": "L32",
+      "weight": 1.0
+    },
+    {
+      "source": "src_api_main_py",
+      "target": "src_auth_rbac",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\api\\main.py",
+      "source_location": "L33",
+      "weight": 1.0
+    },
+    {
+      "source": "src_api_main_py",
+      "target": "src_guardrails_chain",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\api\\main.py",
+      "source_location": "L39",
+      "weight": 1.0
+    },
+    {
+      "source": "src_api_main_py",
+      "target": "api_main_lifespan",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\api\\main.py",
+      "source_location": "L47",
+      "weight": 1.0
+    },
+    {
+      "source": "src_api_main_py",
+      "target": "api_main_askrequest",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\api\\main.py",
+      "source_location": "L88",
+      "weight": 1.0
+    },
+    {
+      "source": "api_main_askrequest",
+      "target": "basemodel",
+      "relation": "inherits",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\api\\main.py",
+      "source_location": "L88",
+      "weight": 1.0
+    },
+    {
+      "source": "src_api_main_py",
+      "target": "api_main_claim",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\api\\main.py",
+      "source_location": "L96",
+      "weight": 1.0
+    },
+    {
+      "source": "api_main_claim",
+      "target": "basemodel",
+      "relation": "inherits",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\api\\main.py",
+      "source_location": "L96",
+      "weight": 1.0
+    },
+    {
+      "source": "src_api_main_py",
+      "target": "api_main_askresponse",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\api\\main.py",
+      "source_location": "L101",
+      "weight": 1.0
+    },
+    {
+      "source": "api_main_askresponse",
+      "target": "basemodel",
+      "relation": "inherits",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\api\\main.py",
+      "source_location": "L101",
+      "weight": 1.0
+    },
+    {
+      "source": "src_api_main_py",
+      "target": "api_main_ingestresponse",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\api\\main.py",
+      "source_location": "L119",
+      "weight": 1.0
+    },
+    {
+      "source": "api_main_ingestresponse",
+      "target": "basemodel",
+      "relation": "inherits",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\api\\main.py",
+      "source_location": "L119",
+      "weight": 1.0
+    },
+    {
+      "source": "src_api_main_py",
+      "target": "api_main_login",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\api\\main.py",
+      "source_location": "L129",
+      "weight": 1.0
+    },
+    {
+      "source": "src_api_main_py",
+      "target": "api_main_ask",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\api\\main.py",
+      "source_location": "L146",
+      "weight": 1.0
+    },
+    {
+      "source": "src_api_main_py",
+      "target": "api_main_run_ingest",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\api\\main.py",
+      "source_location": "L248",
+      "weight": 1.0
+    },
+    {
+      "source": "src_api_main_py",
+      "target": "api_main_health",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\api\\main.py",
+      "source_location": "L270",
+      "weight": 1.0
+    },
+    {
+      "source": "api_main_ask",
+      "target": "api_main_askresponse",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\api\\main.py",
+      "source_location": "L225",
+      "weight": 1.0
+    },
+    {
+      "source": "api_main_ask",
+      "target": "api_main_claim",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\api\\main.py",
+      "source_location": "L228",
+      "weight": 1.0
+    },
+    {
+      "source": "api_main_run_ingest",
+      "target": "api_main_ingestresponse",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\api\\main.py",
+      "source_location": "L260",
+      "weight": 1.0
+    },
+    {
+      "source": "api_main_rationale_1",
+      "target": "src_api_main_py",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\api\\main.py",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "api_main_rationale_130",
+      "target": "api_main_login",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\api\\main.py",
+      "source_location": "L130",
+      "weight": 1.0
+    },
+    {
+      "source": "api_main_rationale_150",
+      "target": "api_main_ask",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\api\\main.py",
+      "source_location": "L150",
+      "weight": 1.0
+    },
+    {
+      "source": "api_main_rationale_251",
+      "target": "api_main_run_ingest",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\api\\main.py",
+      "source_location": "L251",
+      "weight": 1.0
+    },
+    {
+      "source": "src_auth_models_py",
+      "target": "enum",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\auth\\models.py",
+      "source_location": "L12",
+      "weight": 1.0
+    },
+    {
+      "source": "src_auth_models_py",
+      "target": "typing",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\auth\\models.py",
+      "source_location": "L13",
+      "weight": 1.0
+    },
+    {
+      "source": "src_auth_models_py",
+      "target": "pydantic",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\auth\\models.py",
+      "source_location": "L15",
+      "weight": 1.0
+    },
+    {
+      "source": "src_auth_models_py",
+      "target": "auth_models_role",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\auth\\models.py",
+      "source_location": "L22",
+      "weight": 1.0
+    },
+    {
+      "source": "auth_models_role",
+      "target": "str",
+      "relation": "inherits",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\auth\\models.py",
+      "source_location": "L22",
+      "weight": 1.0
+    },
+    {
+      "source": "auth_models_role",
+      "target": "enum",
+      "relation": "inherits",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\auth\\models.py",
+      "source_location": "L22",
+      "weight": 1.0
+    },
+    {
+      "source": "src_auth_models_py",
+      "target": "auth_models_has_permission",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\auth\\models.py",
+      "source_location": "L47",
+      "weight": 1.0
+    },
+    {
+      "source": "src_auth_models_py",
+      "target": "auth_models_user",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\auth\\models.py",
+      "source_location": "L55",
+      "weight": 1.0
+    },
+    {
+      "source": "auth_models_user",
+      "target": "basemodel",
+      "relation": "inherits",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\auth\\models.py",
+      "source_location": "L55",
+      "weight": 1.0
+    },
+    {
+      "source": "src_auth_models_py",
+      "target": "auth_models_tokenpayload",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\auth\\models.py",
+      "source_location": "L68",
+      "weight": 1.0
+    },
+    {
+      "source": "auth_models_tokenpayload",
+      "target": "basemodel",
+      "relation": "inherits",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\auth\\models.py",
+      "source_location": "L68",
+      "weight": 1.0
+    },
+    {
+      "source": "src_auth_models_py",
+      "target": "auth_models_tokenresponse",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\auth\\models.py",
+      "source_location": "L76",
+      "weight": 1.0
+    },
+    {
+      "source": "auth_models_tokenresponse",
+      "target": "basemodel",
+      "relation": "inherits",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\auth\\models.py",
+      "source_location": "L76",
+      "weight": 1.0
+    },
+    {
+      "source": "src_auth_models_py",
+      "target": "auth_models_loginrequest",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\auth\\models.py",
+      "source_location": "L82",
+      "weight": 1.0
+    },
+    {
+      "source": "auth_models_loginrequest",
+      "target": "basemodel",
+      "relation": "inherits",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\auth\\models.py",
+      "source_location": "L82",
+      "weight": 1.0
+    },
+    {
+      "source": "src_auth_models_py",
+      "target": "auth_models_get_user_by_username",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\auth\\models.py",
+      "source_location": "L121",
+      "weight": 1.0
+    },
+    {
+      "source": "src_auth_models_py",
+      "target": "auth_models_verify_password",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\auth\\models.py",
+      "source_location": "L128",
+      "weight": 1.0
+    },
+    {
+      "source": "auth_models_get_user_by_username",
+      "target": "auth_models_user",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\auth\\models.py",
+      "source_location": "L125",
+      "weight": 1.0
+    },
+    {
+      "source": "auth_models_rationale_1",
+      "target": "src_auth_models_py",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\auth\\models.py",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "auth_models_rationale_129",
+      "target": "auth_models_verify_password",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\auth\\models.py",
+      "source_location": "L129",
+      "weight": 1.0
+    },
+    {
+      "source": "src_auth_rbac_py",
+      "target": "os",
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\auth\\rbac.py",
+      "source_location": "L20",
+      "weight": 1.0
+    },
+    {
+      "source": "src_auth_rbac_py",
+      "target": "datetime",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\auth\\rbac.py",
+      "source_location": "L21",
+      "weight": 1.0
+    },
+    {
+      "source": "src_auth_rbac_py",
+      "target": "fastapi",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\auth\\rbac.py",
+      "source_location": "L23",
+      "weight": 1.0
+    },
+    {
+      "source": "src_auth_rbac_py",
+      "target": "fastapi_security",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\auth\\rbac.py",
+      "source_location": "L24",
+      "weight": 1.0
+    },
+    {
+      "source": "src_auth_rbac_py",
+      "target": "jose",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\auth\\rbac.py",
+      "source_location": "L25",
+      "weight": 1.0
+    },
+    {
+      "source": "src_auth_rbac_py",
+      "target": "src_auth_models",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\auth\\rbac.py",
+      "source_location": "L27",
+      "weight": 1.0
+    },
+    {
+      "source": "src_auth_rbac_py",
+      "target": "auth_rbac_create_access_token",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\auth\\rbac.py",
+      "source_location": "L52",
+      "weight": 1.0
+    },
+    {
+      "source": "src_auth_rbac_py",
+      "target": "auth_rbac_authenticate_user",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\auth\\rbac.py",
+      "source_location": "L68",
+      "weight": 1.0
+    },
+    {
+      "source": "src_auth_rbac_py",
+      "target": "auth_rbac_get_current_user",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\auth\\rbac.py",
+      "source_location": "L90",
+      "weight": 1.0
+    },
+    {
+      "source": "src_auth_rbac_py",
+      "target": "auth_rbac_require_permission",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\auth\\rbac.py",
+      "source_location": "L112",
+      "weight": 1.0
+    },
+    {
+      "source": "src_auth_rbac_py",
+      "target": "auth_rbac_require_ticker_access",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\auth\\rbac.py",
+      "source_location": "L132",
+      "weight": 1.0
+    },
+    {
+      "source": "auth_rbac_rationale_1",
+      "target": "src_auth_rbac_py",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\auth\\rbac.py",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "auth_rbac_rationale_69",
+      "target": "auth_rbac_authenticate_user",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\auth\\rbac.py",
+      "source_location": "L69",
+      "weight": 1.0
+    },
+    {
+      "source": "auth_rbac_rationale_91",
+      "target": "auth_rbac_get_current_user",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\auth\\rbac.py",
+      "source_location": "L91",
+      "weight": 1.0
+    },
+    {
+      "source": "auth_rbac_rationale_113",
+      "target": "auth_rbac_require_permission",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\auth\\rbac.py",
+      "source_location": "L113",
+      "weight": 1.0
+    },
+    {
+      "source": "auth_rbac_rationale_133",
+      "target": "auth_rbac_require_ticker_access",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\auth\\rbac.py",
+      "source_location": "L133",
+      "weight": 1.0
+    },
+    {
+      "source": "src_generation_llm_client_py",
+      "target": "os",
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\generation\\llm_client.py",
+      "source_location": "L16",
+      "weight": 1.0
+    },
+    {
+      "source": "src_generation_llm_client_py",
+      "target": "time",
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\generation\\llm_client.py",
+      "source_location": "L17",
+      "weight": 1.0
+    },
+    {
+      "source": "src_generation_llm_client_py",
+      "target": "typing",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\generation\\llm_client.py",
+      "source_location": "L18",
+      "weight": 1.0
+    },
+    {
+      "source": "src_generation_llm_client_py",
+      "target": "openai",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\generation\\llm_client.py",
+      "source_location": "L20",
+      "weight": 1.0
+    },
+    {
+      "source": "src_generation_llm_client_py",
+      "target": "pydantic",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\generation\\llm_client.py",
+      "source_location": "L21",
+      "weight": 1.0
+    },
+    {
+      "source": "src_generation_llm_client_py",
+      "target": "src_generation_prompt_builder",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\generation\\llm_client.py",
+      "source_location": "L23",
+      "weight": 1.0
+    },
+    {
+      "source": "src_generation_llm_client_py",
+      "target": "generation_llm_client_claim",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\generation\\llm_client.py",
+      "source_location": "L30",
+      "weight": 1.0
+    },
+    {
+      "source": "generation_llm_client_claim",
+      "target": "basemodel",
+      "relation": "inherits",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\generation\\llm_client.py",
+      "source_location": "L30",
+      "weight": 1.0
+    },
+    {
+      "source": "src_generation_llm_client_py",
+      "target": "generation_llm_client_structuredanswer",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\generation\\llm_client.py",
+      "source_location": "L39",
+      "weight": 1.0
+    },
+    {
+      "source": "generation_llm_client_structuredanswer",
+      "target": "basemodel",
+      "relation": "inherits",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\generation\\llm_client.py",
+      "source_location": "L39",
+      "weight": 1.0
+    },
+    {
+      "source": "src_generation_llm_client_py",
+      "target": "generation_llm_client_retrieval_signal",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\generation\\llm_client.py",
+      "source_location": "L68",
+      "weight": 1.0
+    },
+    {
+      "source": "src_generation_llm_client_py",
+      "target": "generation_llm_client_langsmith_log",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\generation\\llm_client.py",
+      "source_location": "L73",
+      "weight": 1.0
+    },
+    {
+      "source": "src_generation_llm_client_py",
+      "target": "generation_llm_client_generate_answer",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\generation\\llm_client.py",
+      "source_location": "L119",
+      "weight": 1.0
+    },
+    {
+      "source": "generation_llm_client_generate_answer",
+      "target": "generation_llm_client_retrieval_signal",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\generation\\llm_client.py",
+      "source_location": "L155",
+      "weight": 1.0
+    },
+    {
+      "source": "generation_llm_client_generate_answer",
+      "target": "generation_llm_client_langsmith_log",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\generation\\llm_client.py",
+      "source_location": "L208",
+      "weight": 1.0
+    },
+    {
+      "source": "generation_llm_client_rationale_1",
+      "target": "src_generation_llm_client_py",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\generation\\llm_client.py",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "generation_llm_client_rationale_80",
+      "target": "generation_llm_client_langsmith_log",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\generation\\llm_client.py",
+      "source_location": "L80",
+      "weight": 1.0
+    },
+    {
+      "source": "generation_llm_client_rationale_128",
+      "target": "generation_llm_client_generate_answer",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\generation\\llm_client.py",
+      "source_location": "L128",
+      "weight": 1.0
+    },
+    {
+      "source": "src_generation_prompt_builder_py",
+      "target": "generation_prompt_builder_build_context_block",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\generation\\prompt_builder.py",
+      "source_location": "L43",
+      "weight": 1.0
+    },
+    {
+      "source": "src_generation_prompt_builder_py",
+      "target": "generation_prompt_builder_build_messages",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\generation\\prompt_builder.py",
+      "source_location": "L58",
+      "weight": 1.0
+    },
+    {
+      "source": "generation_prompt_builder_build_messages",
+      "target": "generation_prompt_builder_build_context_block",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\generation\\prompt_builder.py",
+      "source_location": "L63",
+      "weight": 1.0
+    },
+    {
+      "source": "generation_prompt_builder_rationale_1",
+      "target": "src_generation_prompt_builder_py",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\generation\\prompt_builder.py",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "generation_prompt_builder_rationale_44",
+      "target": "generation_prompt_builder_build_context_block",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\generation\\prompt_builder.py",
+      "source_location": "L44",
+      "weight": 1.0
+    },
+    {
+      "source": "generation_prompt_builder_rationale_59",
+      "target": "generation_prompt_builder_build_messages",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\generation\\prompt_builder.py",
+      "source_location": "L59",
+      "weight": 1.0
+    },
+    {
+      "source": "src_guardrails_chain_py",
+      "target": "asyncio",
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\guardrails\\chain.py",
+      "source_location": "L16",
+      "weight": 1.0
+    },
+    {
+      "source": "src_guardrails_chain_py",
+      "target": "dataclasses",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\guardrails\\chain.py",
+      "source_location": "L17",
+      "weight": 1.0
+    },
+    {
+      "source": "src_guardrails_chain_py",
+      "target": "pydantic",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\guardrails\\chain.py",
+      "source_location": "L19",
+      "weight": 1.0
+    },
+    {
+      "source": "src_guardrails_chain_py",
+      "target": "src_guardrails_scope_filter",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\guardrails\\chain.py",
+      "source_location": "L21",
+      "weight": 1.0
+    },
+    {
+      "source": "src_guardrails_chain_py",
+      "target": "src_guardrails_safety_filter",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\guardrails\\chain.py",
+      "source_location": "L22",
+      "weight": 1.0
+    },
+    {
+      "source": "src_guardrails_chain_py",
+      "target": "guardrails_chain_guardrailresult",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\guardrails\\chain.py",
+      "source_location": "L29",
+      "weight": 1.0
+    },
+    {
+      "source": "guardrails_chain_guardrailresult",
+      "target": "basemodel",
+      "relation": "inherits",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\guardrails\\chain.py",
+      "source_location": "L29",
+      "weight": 1.0
+    },
+    {
+      "source": "src_guardrails_chain_py",
+      "target": "guardrails_chain_user_message",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\guardrails\\chain.py",
+      "source_location": "L37",
+      "weight": 1.0
+    },
+    {
+      "source": "src_guardrails_chain_py",
+      "target": "guardrails_chain_guardrailchain",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\guardrails\\chain.py",
+      "source_location": "L59",
+      "weight": 1.0
+    },
+    {
+      "source": "guardrails_chain_guardrailchain",
+      "target": "guardrails_chain_guardrailchain_post_init",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\guardrails\\chain.py",
+      "source_location": "L64",
+      "weight": 1.0
+    },
+    {
+      "source": "guardrails_chain_guardrailchain",
+      "target": "guardrails_chain_guardrailchain_run",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\guardrails\\chain.py",
+      "source_location": "L68",
+      "weight": 1.0
+    },
+    {
+      "source": "guardrails_chain_guardrailchain_run",
+      "target": "guardrails_chain_guardrailresult",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\guardrails\\chain.py",
+      "source_location": "L74",
+      "weight": 1.0
+    },
+    {
+      "source": "guardrails_chain_rationale_1",
+      "target": "src_guardrails_chain_py",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\guardrails\\chain.py",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "guardrails_chain_rationale_69",
+      "target": "guardrails_chain_guardrailchain_run",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\guardrails\\chain.py",
+      "source_location": "L69",
+      "weight": 1.0
+    },
+    {
+      "source": "src_guardrails_safety_filter_py",
+      "target": "dataclasses",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\guardrails\\safety_filter.py",
+      "source_location": "L18",
+      "weight": 1.0
+    },
+    {
+      "source": "src_guardrails_safety_filter_py",
+      "target": "langchain_core_output_parsers",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\guardrails\\safety_filter.py",
+      "source_location": "L20",
+      "weight": 1.0
+    },
+    {
+      "source": "src_guardrails_safety_filter_py",
+      "target": "langchain_core_prompts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\guardrails\\safety_filter.py",
+      "source_location": "L21",
+      "weight": 1.0
+    },
+    {
+      "source": "src_guardrails_safety_filter_py",
+      "target": "langchain_openai",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\guardrails\\safety_filter.py",
+      "source_location": "L22",
+      "weight": 1.0
+    },
+    {
+      "source": "src_guardrails_safety_filter_py",
+      "target": "pydantic",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\guardrails\\safety_filter.py",
+      "source_location": "L23",
+      "weight": 1.0
+    },
+    {
+      "source": "src_guardrails_safety_filter_py",
+      "target": "guardrails_safety_filter_safetyresult",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\guardrails\\safety_filter.py",
+      "source_location": "L30",
+      "weight": 1.0
+    },
+    {
+      "source": "guardrails_safety_filter_safetyresult",
+      "target": "basemodel",
+      "relation": "inherits",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\guardrails\\safety_filter.py",
+      "source_location": "L30",
+      "weight": 1.0
+    },
+    {
+      "source": "src_guardrails_safety_filter_py",
+      "target": "guardrails_safety_filter_safetyfilter",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\guardrails\\safety_filter.py",
+      "source_location": "L83",
+      "weight": 1.0
+    },
+    {
+      "source": "guardrails_safety_filter_safetyfilter",
+      "target": "guardrails_safety_filter_safetyfilter_post_init",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\guardrails\\safety_filter.py",
+      "source_location": "L88",
+      "weight": 1.0
+    },
+    {
+      "source": "guardrails_safety_filter_safetyfilter",
+      "target": "guardrails_safety_filter_safetyfilter_check",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\guardrails\\safety_filter.py",
+      "source_location": "L96",
+      "weight": 1.0
+    },
+    {
+      "source": "guardrails_safety_filter_safetyfilter_check",
+      "target": "guardrails_safety_filter_safetyresult",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\guardrails\\safety_filter.py",
+      "source_location": "L98",
+      "weight": 1.0
+    },
+    {
+      "source": "guardrails_safety_filter_rationale_1",
+      "target": "src_guardrails_safety_filter_py",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\guardrails\\safety_filter.py",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "src_guardrails_scope_filter_py",
+      "target": "dataclasses",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\guardrails\\scope_filter.py",
+      "source_location": "L19",
+      "weight": 1.0
+    },
+    {
+      "source": "src_guardrails_scope_filter_py",
+      "target": "langchain_core_output_parsers",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\guardrails\\scope_filter.py",
+      "source_location": "L21",
+      "weight": 1.0
+    },
+    {
+      "source": "src_guardrails_scope_filter_py",
+      "target": "langchain_core_prompts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\guardrails\\scope_filter.py",
+      "source_location": "L22",
+      "weight": 1.0
+    },
+    {
+      "source": "src_guardrails_scope_filter_py",
+      "target": "langchain_openai",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\guardrails\\scope_filter.py",
+      "source_location": "L23",
+      "weight": 1.0
+    },
+    {
+      "source": "src_guardrails_scope_filter_py",
+      "target": "pydantic",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\guardrails\\scope_filter.py",
+      "source_location": "L24",
+      "weight": 1.0
+    },
+    {
+      "source": "src_guardrails_scope_filter_py",
+      "target": "guardrails_scope_filter_scoperesult",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\guardrails\\scope_filter.py",
+      "source_location": "L31",
+      "weight": 1.0
+    },
+    {
+      "source": "guardrails_scope_filter_scoperesult",
+      "target": "basemodel",
+      "relation": "inherits",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\guardrails\\scope_filter.py",
+      "source_location": "L31",
+      "weight": 1.0
+    },
+    {
+      "source": "src_guardrails_scope_filter_py",
+      "target": "guardrails_scope_filter_scopefilter",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\guardrails\\scope_filter.py",
+      "source_location": "L77",
+      "weight": 1.0
+    },
+    {
+      "source": "guardrails_scope_filter_scopefilter",
+      "target": "guardrails_scope_filter_scopefilter_post_init",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\guardrails\\scope_filter.py",
+      "source_location": "L82",
+      "weight": 1.0
+    },
+    {
+      "source": "guardrails_scope_filter_scopefilter",
+      "target": "guardrails_scope_filter_scopefilter_check",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\guardrails\\scope_filter.py",
+      "source_location": "L90",
+      "weight": 1.0
+    },
+    {
+      "source": "guardrails_scope_filter_scopefilter_check",
+      "target": "guardrails_scope_filter_scoperesult",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\guardrails\\scope_filter.py",
+      "source_location": "L92",
+      "weight": 1.0
+    },
+    {
+      "source": "guardrails_scope_filter_rationale_1",
+      "target": "src_guardrails_scope_filter_py",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\guardrails\\scope_filter.py",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "src_ingestion_edgar_fetcher_py",
+      "target": "time",
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\ingestion\\edgar_fetcher.py",
+      "source_location": "L9",
+      "weight": 1.0
+    },
+    {
+      "source": "src_ingestion_edgar_fetcher_py",
+      "target": "requests",
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\ingestion\\edgar_fetcher.py",
+      "source_location": "L10",
+      "weight": 1.0
+    },
+    {
+      "source": "src_ingestion_edgar_fetcher_py",
+      "target": "pathlib",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\ingestion\\edgar_fetcher.py",
+      "source_location": "L11",
+      "weight": 1.0
+    },
+    {
+      "source": "src_ingestion_edgar_fetcher_py",
+      "target": "bs4",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\ingestion\\edgar_fetcher.py",
+      "source_location": "L12",
+      "weight": 1.0
+    },
+    {
+      "source": "src_ingestion_edgar_fetcher_py",
+      "target": "ingestion_edgar_fetcher_strip_ix_wrapper",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\ingestion\\edgar_fetcher.py",
+      "source_location": "L21",
+      "weight": 1.0
+    },
+    {
+      "source": "src_ingestion_edgar_fetcher_py",
+      "target": "ingestion_edgar_fetcher_is_viewer_page",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\ingestion\\edgar_fetcher.py",
+      "source_location": "L36",
+      "weight": 1.0
+    },
+    {
+      "source": "src_ingestion_edgar_fetcher_py",
+      "target": "ingestion_edgar_fetcher_get_cik",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\ingestion\\edgar_fetcher.py",
+      "source_location": "L42",
+      "weight": 1.0
+    },
+    {
+      "source": "src_ingestion_edgar_fetcher_py",
+      "target": "ingestion_edgar_fetcher_get_filing_metadata",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\ingestion\\edgar_fetcher.py",
+      "source_location": "L53",
+      "weight": 1.0
+    },
+    {
+      "source": "src_ingestion_edgar_fetcher_py",
+      "target": "ingestion_edgar_fetcher_get_primary_document_url",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\ingestion\\edgar_fetcher.py",
+      "source_location": "L87",
+      "weight": 1.0
+    },
+    {
+      "source": "src_ingestion_edgar_fetcher_py",
+      "target": "ingestion_edgar_fetcher_download_filing",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\ingestion\\edgar_fetcher.py",
+      "source_location": "L170",
+      "weight": 1.0
+    },
+    {
+      "source": "src_ingestion_edgar_fetcher_py",
+      "target": "ingestion_edgar_fetcher_fetch_filings",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\ingestion\\edgar_fetcher.py",
+      "source_location": "L180",
+      "weight": 1.0
+    },
+    {
+      "source": "ingestion_edgar_fetcher_get_primary_document_url",
+      "target": "ingestion_edgar_fetcher_is_viewer_page",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\ingestion\\edgar_fetcher.py",
+      "source_location": "L113",
+      "weight": 1.0
+    },
+    {
+      "source": "ingestion_edgar_fetcher_get_primary_document_url",
+      "target": "ingestion_edgar_fetcher_strip_ix_wrapper",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\ingestion\\edgar_fetcher.py",
+      "source_location": "L122",
+      "weight": 1.0
+    },
+    {
+      "source": "ingestion_edgar_fetcher_download_filing",
+      "target": "ingestion_edgar_fetcher_strip_ix_wrapper",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\ingestion\\edgar_fetcher.py",
+      "source_location": "L172",
+      "weight": 1.0
+    },
+    {
+      "source": "ingestion_edgar_fetcher_fetch_filings",
+      "target": "ingestion_edgar_fetcher_get_cik",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\ingestion\\edgar_fetcher.py",
+      "source_location": "L192",
+      "weight": 1.0
+    },
+    {
+      "source": "ingestion_edgar_fetcher_fetch_filings",
+      "target": "ingestion_edgar_fetcher_get_filing_metadata",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\ingestion\\edgar_fetcher.py",
+      "source_location": "L198",
+      "weight": 1.0
+    },
+    {
+      "source": "ingestion_edgar_fetcher_fetch_filings",
+      "target": "ingestion_edgar_fetcher_get_primary_document_url",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\ingestion\\edgar_fetcher.py",
+      "source_location": "L204",
+      "weight": 1.0
+    },
+    {
+      "source": "ingestion_edgar_fetcher_fetch_filings",
+      "target": "ingestion_edgar_fetcher_download_filing",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\ingestion\\edgar_fetcher.py",
+      "source_location": "L218",
+      "weight": 1.0
+    },
+    {
+      "source": "ingestion_edgar_fetcher_rationale_1",
+      "target": "src_ingestion_edgar_fetcher_py",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\ingestion\\edgar_fetcher.py",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "ingestion_edgar_fetcher_rationale_22",
+      "target": "ingestion_edgar_fetcher_strip_ix_wrapper",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\ingestion\\edgar_fetcher.py",
+      "source_location": "L22",
+      "weight": 1.0
+    },
+    {
+      "source": "ingestion_edgar_fetcher_rationale_37",
+      "target": "ingestion_edgar_fetcher_is_viewer_page",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\ingestion\\edgar_fetcher.py",
+      "source_location": "L37",
+      "weight": 1.0
+    },
+    {
+      "source": "ingestion_edgar_fetcher_rationale_43",
+      "target": "ingestion_edgar_fetcher_get_cik",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\ingestion\\edgar_fetcher.py",
+      "source_location": "L43",
+      "weight": 1.0
+    },
+    {
+      "source": "ingestion_edgar_fetcher_rationale_58",
+      "target": "ingestion_edgar_fetcher_get_filing_metadata",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\ingestion\\edgar_fetcher.py",
+      "source_location": "L58",
+      "weight": 1.0
+    },
+    {
+      "source": "ingestion_edgar_fetcher_rationale_88",
+      "target": "ingestion_edgar_fetcher_get_primary_document_url",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\ingestion\\edgar_fetcher.py",
+      "source_location": "L88",
+      "weight": 1.0
+    },
+    {
+      "source": "ingestion_edgar_fetcher_rationale_171",
+      "target": "ingestion_edgar_fetcher_download_filing",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\ingestion\\edgar_fetcher.py",
+      "source_location": "L171",
+      "weight": 1.0
+    },
+    {
+      "source": "ingestion_edgar_fetcher_rationale_187",
+      "target": "ingestion_edgar_fetcher_fetch_filings",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\ingestion\\edgar_fetcher.py",
+      "source_location": "L187",
+      "weight": 1.0
+    },
+    {
+      "source": "src_ingestion_indexer_py",
+      "target": "json",
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\ingestion\\indexer.py",
+      "source_location": "L13",
+      "weight": 1.0
+    },
+    {
+      "source": "src_ingestion_indexer_py",
+      "target": "pickle",
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\ingestion\\indexer.py",
+      "source_location": "L14",
+      "weight": 1.0
+    },
+    {
+      "source": "src_ingestion_indexer_py",
+      "target": "pathlib",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\ingestion\\indexer.py",
+      "source_location": "L15",
+      "weight": 1.0
+    },
+    {
+      "source": "src_ingestion_indexer_py",
+      "target": "faiss",
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\ingestion\\indexer.py",
+      "source_location": "L17",
+      "weight": 1.0
+    },
+    {
+      "source": "src_ingestion_indexer_py",
+      "target": "numpy",
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\ingestion\\indexer.py",
+      "source_location": "L18",
+      "weight": 1.0
+    },
+    {
+      "source": "src_ingestion_indexer_py",
+      "target": "rank_bm25",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\ingestion\\indexer.py",
+      "source_location": "L19",
+      "weight": 1.0
+    },
+    {
+      "source": "src_ingestion_indexer_py",
+      "target": "src_ingestion_pdf_parser",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\ingestion\\indexer.py",
+      "source_location": "L21",
+      "weight": 1.0
+    },
+    {
+      "source": "src_ingestion_indexer_py",
+      "target": "ingestion_indexer_embed_texts",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\ingestion\\indexer.py",
+      "source_location": "L32",
+      "weight": 1.0
+    },
+    {
+      "source": "src_ingestion_indexer_py",
+      "target": "ingestion_indexer_build_indexes",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\ingestion\\indexer.py",
+      "source_location": "L45",
+      "weight": 1.0
+    },
+    {
+      "source": "src_ingestion_indexer_py",
+      "target": "ingestion_indexer_load_indexes",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\ingestion\\indexer.py",
+      "source_location": "L79",
+      "weight": 1.0
+    },
+    {
+      "source": "src_ingestion_indexer_py",
+      "target": "ingestion_indexer_indexes_exist",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\ingestion\\indexer.py",
+      "source_location": "L99",
+      "weight": 1.0
+    },
+    {
+      "source": "ingestion_indexer_build_indexes",
+      "target": "ingestion_indexer_embed_texts",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\ingestion\\indexer.py",
+      "source_location": "L58",
+      "weight": 1.0
+    },
+    {
+      "source": "ingestion_indexer_rationale_1",
+      "target": "src_ingestion_indexer_py",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\ingestion\\indexer.py",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "ingestion_indexer_rationale_35",
+      "target": "ingestion_indexer_embed_texts",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\ingestion\\indexer.py",
+      "source_location": "L35",
+      "weight": 1.0
+    },
+    {
+      "source": "ingestion_indexer_rationale_46",
+      "target": "ingestion_indexer_build_indexes",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\ingestion\\indexer.py",
+      "source_location": "L46",
+      "weight": 1.0
+    },
+    {
+      "source": "ingestion_indexer_rationale_80",
+      "target": "ingestion_indexer_load_indexes",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\ingestion\\indexer.py",
+      "source_location": "L80",
+      "weight": 1.0
+    },
+    {
+      "source": "src_ingestion_pdf_parser_py",
+      "target": "re",
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\ingestion\\pdf_parser.py",
+      "source_location": "L9",
+      "weight": 1.0
+    },
+    {
+      "source": "src_ingestion_pdf_parser_py",
+      "target": "dataclasses",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\ingestion\\pdf_parser.py",
+      "source_location": "L10",
+      "weight": 1.0
+    },
+    {
+      "source": "src_ingestion_pdf_parser_py",
+      "target": "pathlib",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\ingestion\\pdf_parser.py",
+      "source_location": "L11",
+      "weight": 1.0
+    },
+    {
+      "source": "src_ingestion_pdf_parser_py",
+      "target": "pymupdf",
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\ingestion\\pdf_parser.py",
+      "source_location": "L13",
+      "weight": 1.0
+    },
+    {
+      "source": "src_ingestion_pdf_parser_py",
+      "target": "bs4",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\ingestion\\pdf_parser.py",
+      "source_location": "L14",
+      "weight": 1.0
+    },
+    {
+      "source": "src_ingestion_pdf_parser_py",
+      "target": "ingestion_pdf_parser_chunk",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\ingestion\\pdf_parser.py",
+      "source_location": "L18",
+      "weight": 1.0
+    },
+    {
+      "source": "ingestion_pdf_parser_chunk",
+      "target": "ingestion_pdf_parser_chunk_to_dict",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\ingestion\\pdf_parser.py",
+      "source_location": "L29",
+      "weight": 1.0
+    },
+    {
+      "source": "src_ingestion_pdf_parser_py",
+      "target": "ingestion_pdf_parser_clean_text",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\ingestion\\pdf_parser.py",
+      "source_location": "L42",
+      "weight": 1.0
+    },
+    {
+      "source": "src_ingestion_pdf_parser_py",
+      "target": "ingestion_pdf_parser_split_into_chunks",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\ingestion\\pdf_parser.py",
+      "source_location": "L48",
+      "weight": 1.0
+    },
+    {
+      "source": "src_ingestion_pdf_parser_py",
+      "target": "ingestion_pdf_parser_extract_text_from_html",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\ingestion\\pdf_parser.py",
+      "source_location": "L63",
+      "weight": 1.0
+    },
+    {
+      "source": "src_ingestion_pdf_parser_py",
+      "target": "ingestion_pdf_parser_parse_pdf",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\ingestion\\pdf_parser.py",
+      "source_location": "L90",
+      "weight": 1.0
+    },
+    {
+      "source": "src_ingestion_pdf_parser_py",
+      "target": "ingestion_pdf_parser_parse_htm",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\ingestion\\pdf_parser.py",
+      "source_location": "L126",
+      "weight": 1.0
+    },
+    {
+      "source": "src_ingestion_pdf_parser_py",
+      "target": "ingestion_pdf_parser_parse_filing",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\ingestion\\pdf_parser.py",
+      "source_location": "L171",
+      "weight": 1.0
+    },
+    {
+      "source": "src_ingestion_pdf_parser_py",
+      "target": "ingestion_pdf_parser_parse_all_filings",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\ingestion\\pdf_parser.py",
+      "source_location": "L189",
+      "weight": 1.0
+    },
+    {
+      "source": "ingestion_pdf_parser_extract_text_from_html",
+      "target": "ingestion_pdf_parser_clean_text",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\ingestion\\pdf_parser.py",
+      "source_location": "L86",
+      "weight": 1.0
+    },
+    {
+      "source": "ingestion_pdf_parser_parse_pdf",
+      "target": "ingestion_pdf_parser_clean_text",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\ingestion\\pdf_parser.py",
+      "source_location": "L104",
+      "weight": 1.0
+    },
+    {
+      "source": "ingestion_pdf_parser_parse_pdf",
+      "target": "ingestion_pdf_parser_split_into_chunks",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\ingestion\\pdf_parser.py",
+      "source_location": "L107",
+      "weight": 1.0
+    },
+    {
+      "source": "ingestion_pdf_parser_parse_pdf",
+      "target": "ingestion_pdf_parser_chunk",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\ingestion\\pdf_parser.py",
+      "source_location": "L109",
+      "weight": 1.0
+    },
+    {
+      "source": "ingestion_pdf_parser_parse_htm",
+      "target": "ingestion_pdf_parser_extract_text_from_html",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\ingestion\\pdf_parser.py",
+      "source_location": "L139",
+      "weight": 1.0
+    },
+    {
+      "source": "ingestion_pdf_parser_parse_htm",
+      "target": "ingestion_pdf_parser_split_into_chunks",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\ingestion\\pdf_parser.py",
+      "source_location": "L153",
+      "weight": 1.0
+    },
+    {
+      "source": "ingestion_pdf_parser_parse_htm",
+      "target": "ingestion_pdf_parser_chunk",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\ingestion\\pdf_parser.py",
+      "source_location": "L155",
+      "weight": 1.0
+    },
+    {
+      "source": "ingestion_pdf_parser_parse_filing",
+      "target": "ingestion_pdf_parser_parse_pdf",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\ingestion\\pdf_parser.py",
+      "source_location": "L182",
+      "weight": 1.0
+    },
+    {
+      "source": "ingestion_pdf_parser_parse_filing",
+      "target": "ingestion_pdf_parser_parse_htm",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\ingestion\\pdf_parser.py",
+      "source_location": "L184",
+      "weight": 1.0
+    },
+    {
+      "source": "ingestion_pdf_parser_parse_all_filings",
+      "target": "ingestion_pdf_parser_parse_filing",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\ingestion\\pdf_parser.py",
+      "source_location": "L201",
+      "weight": 1.0
+    },
+    {
+      "source": "ingestion_pdf_parser_rationale_1",
+      "target": "src_ingestion_pdf_parser_py",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\ingestion\\pdf_parser.py",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "ingestion_pdf_parser_rationale_19",
+      "target": "ingestion_pdf_parser_chunk",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\ingestion\\pdf_parser.py",
+      "source_location": "L19",
+      "weight": 1.0
+    },
+    {
+      "source": "ingestion_pdf_parser_rationale_51",
+      "target": "ingestion_pdf_parser_split_into_chunks",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\ingestion\\pdf_parser.py",
+      "source_location": "L51",
+      "weight": 1.0
+    },
+    {
+      "source": "ingestion_pdf_parser_rationale_64",
+      "target": "ingestion_pdf_parser_extract_text_from_html",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\ingestion\\pdf_parser.py",
+      "source_location": "L64",
+      "weight": 1.0
+    },
+    {
+      "source": "ingestion_pdf_parser_rationale_98",
+      "target": "ingestion_pdf_parser_parse_pdf",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\ingestion\\pdf_parser.py",
+      "source_location": "L98",
+      "weight": 1.0
+    },
+    {
+      "source": "ingestion_pdf_parser_rationale_134",
+      "target": "ingestion_pdf_parser_parse_htm",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\ingestion\\pdf_parser.py",
+      "source_location": "L134",
+      "weight": 1.0
+    },
+    {
+      "source": "ingestion_pdf_parser_rationale_179",
+      "target": "ingestion_pdf_parser_parse_filing",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\ingestion\\pdf_parser.py",
+      "source_location": "L179",
+      "weight": 1.0
+    },
+    {
+      "source": "ingestion_pdf_parser_rationale_194",
+      "target": "ingestion_pdf_parser_parse_all_filings",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\ingestion\\pdf_parser.py",
+      "source_location": "L194",
+      "weight": 1.0
+    },
+    {
+      "source": "src_ingestion_run_py",
+      "target": "argparse",
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\ingestion\\run.py",
+      "source_location": "L13",
+      "weight": 1.0
+    },
+    {
+      "source": "src_ingestion_run_py",
+      "target": "os",
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\ingestion\\run.py",
+      "source_location": "L14",
+      "weight": 1.0
+    },
+    {
+      "source": "src_ingestion_run_py",
+      "target": "dotenv",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\ingestion\\run.py",
+      "source_location": "L15",
+      "weight": 1.0
+    },
+    {
+      "source": "src_ingestion_run_py",
+      "target": "src_ingestion_edgar_fetcher",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\ingestion\\run.py",
+      "source_location": "L16",
+      "weight": 1.0
+    },
+    {
+      "source": "src_ingestion_run_py",
+      "target": "src_ingestion_pdf_parser",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\ingestion\\run.py",
+      "source_location": "L17",
+      "weight": 1.0
+    },
+    {
+      "source": "src_ingestion_run_py",
+      "target": "src_ingestion_indexer",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\ingestion\\run.py",
+      "source_location": "L18",
+      "weight": 1.0
+    },
+    {
+      "source": "src_ingestion_run_py",
+      "target": "ingestion_run_main",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\ingestion\\run.py",
+      "source_location": "L26",
+      "weight": 1.0
+    },
+    {
+      "source": "ingestion_run_rationale_1",
+      "target": "src_ingestion_run_py",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\ingestion\\run.py",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "src_observability_langfuse_tracer_py",
+      "target": "os",
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\observability\\langfuse_tracer.py",
+      "source_location": "L8",
+      "weight": 1.0
+    },
+    {
+      "source": "src_observability_langfuse_tracer_py",
+      "target": "observability_langfuse_tracer_build_langfuse_client",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\observability\\langfuse_tracer.py",
+      "source_location": "L11",
+      "weight": 1.0
+    },
+    {
+      "source": "observability_langfuse_tracer_rationale_1",
+      "target": "src_observability_langfuse_tracer_py",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\observability\\langfuse_tracer.py",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "observability_langfuse_tracer_rationale_12",
+      "target": "observability_langfuse_tracer_build_langfuse_client",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\observability\\langfuse_tracer.py",
+      "source_location": "L12",
+      "weight": 1.0
+    },
+    {
+      "source": "src_retrieval_bm25_search_py",
+      "target": "rank_bm25",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\retrieval\\bm25_search.py",
+      "source_location": "L10",
+      "weight": 1.0
+    },
+    {
+      "source": "src_retrieval_bm25_search_py",
+      "target": "retrieval_bm25_search_bm25_search",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\retrieval\\bm25_search.py",
+      "source_location": "L13",
+      "weight": 1.0
+    },
+    {
+      "source": "retrieval_bm25_search_rationale_1",
+      "target": "src_retrieval_bm25_search_py",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\retrieval\\bm25_search.py",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "retrieval_bm25_search_rationale_19",
+      "target": "retrieval_bm25_search_bm25_search",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\retrieval\\bm25_search.py",
+      "source_location": "L19",
+      "weight": 1.0
+    },
+    {
+      "source": "src_retrieval_fusion_py",
+      "target": "retrieval_fusion_reciprocal_rank_fusion",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\retrieval\\fusion.py",
+      "source_location": "L12",
+      "weight": 1.0
+    },
+    {
+      "source": "retrieval_fusion_rationale_1",
+      "target": "src_retrieval_fusion_py",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\retrieval\\fusion.py",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "retrieval_fusion_rationale_18",
+      "target": "retrieval_fusion_reciprocal_rank_fusion",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\retrieval\\fusion.py",
+      "source_location": "L18",
+      "weight": 1.0
+    },
+    {
+      "source": "src_retrieval_reranker_py",
+      "target": "cohere",
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\retrieval\\reranker.py",
+      "source_location": "L12",
+      "weight": 1.0
+    },
+    {
+      "source": "src_retrieval_reranker_py",
+      "target": "retrieval_reranker_rerank",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\retrieval\\reranker.py",
+      "source_location": "L15",
+      "weight": 1.0
+    },
+    {
+      "source": "retrieval_reranker_rationale_1",
+      "target": "src_retrieval_reranker_py",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\retrieval\\reranker.py",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "retrieval_reranker_rationale_22",
+      "target": "retrieval_reranker_rerank",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\retrieval\\reranker.py",
+      "source_location": "L22",
+      "weight": 1.0
+    },
+    {
+      "source": "src_retrieval_vector_search_py",
+      "target": "numpy",
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\retrieval\\vector_search.py",
+      "source_location": "L8",
+      "weight": 1.0
+    },
+    {
+      "source": "src_retrieval_vector_search_py",
+      "target": "faiss",
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\retrieval\\vector_search.py",
+      "source_location": "L9",
+      "weight": 1.0
+    },
+    {
+      "source": "src_retrieval_vector_search_py",
+      "target": "openai",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\retrieval\\vector_search.py",
+      "source_location": "L10",
+      "weight": 1.0
+    },
+    {
+      "source": "src_retrieval_vector_search_py",
+      "target": "retrieval_vector_search_embed_query",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\retrieval\\vector_search.py",
+      "source_location": "L15",
+      "weight": 1.0
+    },
+    {
+      "source": "src_retrieval_vector_search_py",
+      "target": "retrieval_vector_search_vector_search",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\retrieval\\vector_search.py",
+      "source_location": "L23",
+      "weight": 1.0
+    },
+    {
+      "source": "retrieval_vector_search_vector_search",
+      "target": "retrieval_vector_search_embed_query",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\retrieval\\vector_search.py",
+      "source_location": "L34",
+      "weight": 1.0
+    },
+    {
+      "source": "retrieval_vector_search_rationale_1",
+      "target": "src_retrieval_vector_search_py",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\retrieval\\vector_search.py",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "retrieval_vector_search_rationale_16",
+      "target": "retrieval_vector_search_embed_query",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\retrieval\\vector_search.py",
+      "source_location": "L16",
+      "weight": 1.0
+    },
+    {
+      "source": "retrieval_vector_search_rationale_30",
+      "target": "retrieval_vector_search_vector_search",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "src\\retrieval\\vector_search.py",
+      "source_location": "L30",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_test_ingestion_py",
+      "target": "src_ingestion_pdf_parser",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "tests\\test_ingestion.py",
+      "source_location": "L8",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_test_ingestion_py",
+      "target": "tests_test_ingestion_test_clean_text_collapses_whitespace",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tests\\test_ingestion.py",
+      "source_location": "L13",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_test_ingestion_py",
+      "target": "tests_test_ingestion_test_clean_text_strips_control_chars",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tests\\test_ingestion.py",
+      "source_location": "L17",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_test_ingestion_py",
+      "target": "tests_test_ingestion_test_clean_text_strips_leading_trailing",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tests\\test_ingestion.py",
+      "source_location": "L21",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_test_ingestion_py",
+      "target": "tests_test_ingestion_test_clean_text_empty_string",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tests\\test_ingestion.py",
+      "source_location": "L25",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_test_ingestion_py",
+      "target": "tests_test_ingestion_test_split_respects_chunk_size",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tests\\test_ingestion.py",
+      "source_location": "L31",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_test_ingestion_py",
+      "target": "tests_test_ingestion_test_split_produces_overlap",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tests\\test_ingestion.py",
+      "source_location": "L39",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_test_ingestion_py",
+      "target": "tests_test_ingestion_test_split_skips_tiny_chunks",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tests\\test_ingestion.py",
+      "source_location": "L50",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_test_ingestion_py",
+      "target": "tests_test_ingestion_test_split_returns_list",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tests\\test_ingestion.py",
+      "source_location": "L56",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_test_ingestion_py",
+      "target": "tests_test_ingestion_test_chunk_to_dict_has_required_keys",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tests\\test_ingestion.py",
+      "source_location": "L63",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_test_ingestion_py",
+      "target": "tests_test_ingestion_test_chunk_to_dict_values_correct",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tests\\test_ingestion.py",
+      "source_location": "L78",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_test_ingestion_py",
+      "target": "tests_test_ingestion_test_chunk_metadata_merged_into_dict",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tests\\test_ingestion.py",
+      "source_location": "L94",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_test_ingestion_py",
+      "target": "tests_test_ingestion_test_indexes_exist_returns_false_when_missing",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tests\\test_ingestion.py",
+      "source_location": "L111",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_test_ingestion_py",
+      "target": "tests_test_ingestion_test_indexes_exist_returns_true_when_present",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tests\\test_ingestion.py",
+      "source_location": "L120",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_test_ingestion_rationale_1",
+      "target": "tests_test_ingestion_py",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "tests\\test_ingestion.py",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_test_retrieval_py",
+      "target": "pytest",
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "source_file": "tests\\test_retrieval.py",
+      "source_location": "L8",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_test_retrieval_py",
+      "target": "rank_bm25",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "tests\\test_retrieval.py",
+      "source_location": "L9",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_test_retrieval_py",
+      "target": "src_retrieval_bm25_search",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "tests\\test_retrieval.py",
+      "source_location": "L10",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_test_retrieval_py",
+      "target": "src_retrieval_fusion",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "tests\\test_retrieval.py",
+      "source_location": "L11",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_test_retrieval_py",
+      "target": "tests_test_retrieval_bm25_index",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tests\\test_retrieval.py",
+      "source_location": "L66",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_test_retrieval_py",
+      "target": "tests_test_retrieval_test_bm25_returns_relevant_result",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tests\\test_retrieval.py",
+      "source_location": "L73",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_test_retrieval_py",
+      "target": "tests_test_retrieval_test_bm25_ticker_exact_match",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tests\\test_retrieval.py",
+      "source_location": "L79",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_test_retrieval_py",
+      "target": "tests_test_retrieval_test_bm25_respects_top_k",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tests\\test_retrieval.py",
+      "source_location": "L84",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_test_retrieval_py",
+      "target": "tests_test_retrieval_test_bm25_adds_score_field",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tests\\test_retrieval.py",
+      "source_location": "L89",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_test_retrieval_py",
+      "target": "tests_test_retrieval_test_bm25_empty_query_returns_no_results",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tests\\test_retrieval.py",
+      "source_location": "L96",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_test_retrieval_py",
+      "target": "tests_test_retrieval_make_vector_results",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tests\\test_retrieval.py",
+      "source_location": "L104",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_test_retrieval_py",
+      "target": "tests_test_retrieval_make_bm25_results",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tests\\test_retrieval.py",
+      "source_location": "L113",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_test_retrieval_py",
+      "target": "tests_test_retrieval_test_rrf_merges_both_lists",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tests\\test_retrieval.py",
+      "source_location": "L122",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_test_retrieval_py",
+      "target": "tests_test_retrieval_test_rrf_deduplicates",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tests\\test_retrieval.py",
+      "source_location": "L129",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_test_retrieval_py",
+      "target": "tests_test_retrieval_test_rrf_adds_rrf_score",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tests\\test_retrieval.py",
+      "source_location": "L135",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_test_retrieval_py",
+      "target": "tests_test_retrieval_test_rrf_respects_top_n",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tests\\test_retrieval.py",
+      "source_location": "L142",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_test_retrieval_py",
+      "target": "tests_test_retrieval_test_rrf_sorted_descending",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tests\\test_retrieval.py",
+      "source_location": "L149",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_test_retrieval_py",
+      "target": "tests_test_retrieval_test_rrf_single_list",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tests\\test_retrieval.py",
+      "source_location": "L155",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_test_retrieval_py",
+      "target": "tests_test_retrieval_test_rrf_empty_lists",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tests\\test_retrieval.py",
+      "source_location": "L160",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_test_retrieval_py",
+      "target": "tests_test_retrieval_test_prompt_builder_includes_citation_format",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tests\\test_retrieval.py",
+      "source_location": "L167",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_test_retrieval_py",
+      "target": "tests_test_retrieval_test_prompt_builder_returns_two_messages",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tests\\test_retrieval.py",
+      "source_location": "L175",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_test_retrieval_py",
+      "target": "tests_test_retrieval_test_context_block_numbers_chunks",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tests\\test_retrieval.py",
+      "source_location": "L183",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_test_retrieval_py",
+      "target": "tests_test_retrieval_test_retrieval_signal_returns_mean_rerank_score",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tests\\test_retrieval.py",
+      "source_location": "L193",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_test_retrieval_py",
+      "target": "tests_test_retrieval_test_retrieval_signal_returns_none_when_no_rerank_scores",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tests\\test_retrieval.py",
+      "source_location": "L203",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_test_retrieval_py",
+      "target": "tests_test_retrieval_test_retrieval_signal_ignores_chunks_without_rerank_score",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tests\\test_retrieval.py",
+      "source_location": "L210",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_test_retrieval_py",
+      "target": "tests_test_retrieval_test_confidence_blends_llm_and_retrieval",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tests\\test_retrieval.py",
+      "source_location": "L221",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_test_retrieval_py",
+      "target": "tests_test_retrieval_test_confidence_falls_back_to_llm_only",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tests\\test_retrieval.py",
+      "source_location": "L229",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_test_retrieval_py",
+      "target": "tests_test_retrieval_test_structured_answer_schema_fields",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tests\\test_retrieval.py",
+      "source_location": "L237",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_test_retrieval_py",
+      "target": "tests_test_retrieval_test_claim_schema_fields",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tests\\test_retrieval.py",
+      "source_location": "L254",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_test_retrieval_test_rrf_merges_both_lists",
+      "target": "tests_test_retrieval_make_vector_results",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "tests\\test_retrieval.py",
+      "source_location": "L123",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_test_retrieval_test_rrf_merges_both_lists",
+      "target": "tests_test_retrieval_make_bm25_results",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "tests\\test_retrieval.py",
+      "source_location": "L123",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_test_retrieval_test_rrf_deduplicates",
+      "target": "tests_test_retrieval_make_vector_results",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "tests\\test_retrieval.py",
+      "source_location": "L130",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_test_retrieval_test_rrf_deduplicates",
+      "target": "tests_test_retrieval_make_bm25_results",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "tests\\test_retrieval.py",
+      "source_location": "L130",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_test_retrieval_test_rrf_adds_rrf_score",
+      "target": "tests_test_retrieval_make_vector_results",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "tests\\test_retrieval.py",
+      "source_location": "L136",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_test_retrieval_test_rrf_adds_rrf_score",
+      "target": "tests_test_retrieval_make_bm25_results",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "tests\\test_retrieval.py",
+      "source_location": "L136",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_test_retrieval_test_rrf_respects_top_n",
+      "target": "tests_test_retrieval_make_vector_results",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "tests\\test_retrieval.py",
+      "source_location": "L144",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_test_retrieval_test_rrf_respects_top_n",
+      "target": "tests_test_retrieval_make_bm25_results",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "tests\\test_retrieval.py",
+      "source_location": "L144",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_test_retrieval_test_rrf_sorted_descending",
+      "target": "tests_test_retrieval_make_vector_results",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "tests\\test_retrieval.py",
+      "source_location": "L150",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_test_retrieval_test_rrf_sorted_descending",
+      "target": "tests_test_retrieval_make_bm25_results",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "tests\\test_retrieval.py",
+      "source_location": "L150",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_test_retrieval_test_rrf_single_list",
+      "target": "tests_test_retrieval_make_vector_results",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "tests\\test_retrieval.py",
+      "source_location": "L156",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_test_retrieval_rationale_1",
+      "target": "tests_test_retrieval_py",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "tests\\test_retrieval.py",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_test_retrieval_rationale_105",
+      "target": "tests_test_retrieval_make_vector_results",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "tests\\test_retrieval.py",
+      "source_location": "L105",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_test_retrieval_rationale_114",
+      "target": "tests_test_retrieval_make_bm25_results",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "tests\\test_retrieval.py",
+      "source_location": "L114",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_test_retrieval_rationale_222",
+      "target": "tests_test_retrieval_test_confidence_blends_llm_and_retrieval",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "tests\\test_retrieval.py",
+      "source_location": "L222",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_test_retrieval_rationale_230",
+      "target": "tests_test_retrieval_test_confidence_falls_back_to_llm_only",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "tests\\test_retrieval.py",
+      "source_location": "L230",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_test_retrieval_rationale_238",
+      "target": "tests_test_retrieval_test_structured_answer_schema_fields",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "tests\\test_retrieval.py",
+      "source_location": "L238",
+      "weight": 1.0
+    },
+    {
+      "source": "api_main_askrequest",
+      "target": "auth_models_user",
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "src\\api\\main.py",
+      "source_location": "L32",
+      "weight": 0.8
+    },
+    {
+      "source": "api_main_claim",
+      "target": "auth_models_user",
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "src\\api\\main.py",
+      "source_location": "L32",
+      "weight": 0.8
+    },
+    {
+      "source": "api_main_askresponse",
+      "target": "auth_models_user",
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "src\\api\\main.py",
+      "source_location": "L32",
+      "weight": 0.8
+    },
+    {
+      "source": "api_main_ingestresponse",
+      "target": "auth_models_user",
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "src\\api\\main.py",
+      "source_location": "L32",
+      "weight": 0.8
+    },
+    {
+      "source": "api_main_rationale_1",
+      "target": "auth_models_user",
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "src\\api\\main.py",
+      "source_location": "L32",
+      "weight": 0.8
+    },
+    {
+      "source": "api_main_rationale_130",
+      "target": "auth_models_user",
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "src\\api\\main.py",
+      "source_location": "L32",
+      "weight": 0.8
+    },
+    {
+      "source": "api_main_rationale_150",
+      "target": "auth_models_user",
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "src\\api\\main.py",
+      "source_location": "L32",
+      "weight": 0.8
+    },
+    {
+      "source": "api_main_rationale_251",
+      "target": "auth_models_user",
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "src\\api\\main.py",
+      "source_location": "L32",
+      "weight": 0.8
+    },
+    {
+      "source": "api_main_askrequest",
+      "target": "guardrails_chain_guardrailchain",
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "src\\api\\main.py",
+      "source_location": "L39",
+      "weight": 0.8
+    },
+    {
+      "source": "api_main_claim",
+      "target": "guardrails_chain_guardrailchain",
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "src\\api\\main.py",
+      "source_location": "L39",
+      "weight": 0.8
+    },
+    {
+      "source": "api_main_askresponse",
+      "target": "guardrails_chain_guardrailchain",
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "src\\api\\main.py",
+      "source_location": "L39",
+      "weight": 0.8
+    },
+    {
+      "source": "api_main_ingestresponse",
+      "target": "guardrails_chain_guardrailchain",
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "src\\api\\main.py",
+      "source_location": "L39",
+      "weight": 0.8
+    },
+    {
+      "source": "api_main_rationale_1",
+      "target": "guardrails_chain_guardrailchain",
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "src\\api\\main.py",
+      "source_location": "L39",
+      "weight": 0.8
+    },
+    {
+      "source": "api_main_rationale_130",
+      "target": "guardrails_chain_guardrailchain",
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "src\\api\\main.py",
+      "source_location": "L39",
+      "weight": 0.8
+    },
+    {
+      "source": "api_main_rationale_150",
+      "target": "guardrails_chain_guardrailchain",
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "src\\api\\main.py",
+      "source_location": "L39",
+      "weight": 0.8
+    },
+    {
+      "source": "api_main_rationale_251",
+      "target": "guardrails_chain_guardrailchain",
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "src\\api\\main.py",
+      "source_location": "L39",
+      "weight": 0.8
+    },
+    {
+      "source": "auth_rbac_rationale_1",
+      "target": "auth_models_role",
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "src\\auth\\rbac.py",
+      "source_location": "L27",
+      "weight": 0.8
+    },
+    {
+      "source": "auth_rbac_rationale_69",
+      "target": "auth_models_role",
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "src\\auth\\rbac.py",
+      "source_location": "L27",
+      "weight": 0.8
+    },
+    {
+      "source": "auth_rbac_rationale_91",
+      "target": "auth_models_role",
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "src\\auth\\rbac.py",
+      "source_location": "L27",
+      "weight": 0.8
+    },
+    {
+      "source": "auth_rbac_rationale_113",
+      "target": "auth_models_role",
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "src\\auth\\rbac.py",
+      "source_location": "L27",
+      "weight": 0.8
+    },
+    {
+      "source": "auth_rbac_rationale_133",
+      "target": "auth_models_role",
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "src\\auth\\rbac.py",
+      "source_location": "L27",
+      "weight": 0.8
+    },
+    {
+      "source": "auth_rbac_rationale_1",
+      "target": "auth_models_tokenpayload",
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "src\\auth\\rbac.py",
+      "source_location": "L27",
+      "weight": 0.8
+    },
+    {
+      "source": "auth_rbac_rationale_69",
+      "target": "auth_models_tokenpayload",
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "src\\auth\\rbac.py",
+      "source_location": "L27",
+      "weight": 0.8
+    },
+    {
+      "source": "auth_rbac_rationale_91",
+      "target": "auth_models_tokenpayload",
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "src\\auth\\rbac.py",
+      "source_location": "L27",
+      "weight": 0.8
+    },
+    {
+      "source": "auth_rbac_rationale_113",
+      "target": "auth_models_tokenpayload",
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "src\\auth\\rbac.py",
+      "source_location": "L27",
+      "weight": 0.8
+    },
+    {
+      "source": "auth_rbac_rationale_133",
+      "target": "auth_models_tokenpayload",
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "src\\auth\\rbac.py",
+      "source_location": "L27",
+      "weight": 0.8
+    },
+    {
+      "source": "auth_rbac_rationale_1",
+      "target": "auth_models_tokenresponse",
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "src\\auth\\rbac.py",
+      "source_location": "L27",
+      "weight": 0.8
+    },
+    {
+      "source": "auth_rbac_rationale_69",
+      "target": "auth_models_tokenresponse",
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "src\\auth\\rbac.py",
+      "source_location": "L27",
+      "weight": 0.8
+    },
+    {
+      "source": "auth_rbac_rationale_91",
+      "target": "auth_models_tokenresponse",
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "src\\auth\\rbac.py",
+      "source_location": "L27",
+      "weight": 0.8
+    },
+    {
+      "source": "auth_rbac_rationale_113",
+      "target": "auth_models_tokenresponse",
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "src\\auth\\rbac.py",
+      "source_location": "L27",
+      "weight": 0.8
+    },
+    {
+      "source": "auth_rbac_rationale_133",
+      "target": "auth_models_tokenresponse",
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "src\\auth\\rbac.py",
+      "source_location": "L27",
+      "weight": 0.8
+    },
+    {
+      "source": "auth_rbac_rationale_1",
+      "target": "auth_models_user",
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "src\\auth\\rbac.py",
+      "source_location": "L27",
+      "weight": 0.8
+    },
+    {
+      "source": "auth_rbac_rationale_69",
+      "target": "auth_models_user",
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "src\\auth\\rbac.py",
+      "source_location": "L27",
+      "weight": 0.8
+    },
+    {
+      "source": "auth_rbac_rationale_91",
+      "target": "auth_models_user",
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "src\\auth\\rbac.py",
+      "source_location": "L27",
+      "weight": 0.8
+    },
+    {
+      "source": "auth_rbac_rationale_113",
+      "target": "auth_models_user",
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "src\\auth\\rbac.py",
+      "source_location": "L27",
+      "weight": 0.8
+    },
+    {
+      "source": "auth_rbac_rationale_133",
+      "target": "auth_models_user",
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "src\\auth\\rbac.py",
+      "source_location": "L27",
+      "weight": 0.8
+    },
+    {
+      "source": "guardrails_chain_guardrailresult",
+      "target": "guardrails_scope_filter_scopefilter",
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "src\\guardrails\\chain.py",
+      "source_location": "L21",
+      "weight": 0.8
+    },
+    {
+      "source": "guardrails_chain_guardrailchain",
+      "target": "guardrails_scope_filter_scopefilter",
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "src\\guardrails\\chain.py",
+      "source_location": "L21",
+      "weight": 0.8
+    },
+    {
+      "source": "guardrails_chain_rationale_1",
+      "target": "guardrails_scope_filter_scopefilter",
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "src\\guardrails\\chain.py",
+      "source_location": "L21",
+      "weight": 0.8
+    },
+    {
+      "source": "guardrails_chain_rationale_69",
+      "target": "guardrails_scope_filter_scopefilter",
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "src\\guardrails\\chain.py",
+      "source_location": "L21",
+      "weight": 0.8
+    },
+    {
+      "source": "guardrails_chain_guardrailresult",
+      "target": "guardrails_scope_filter_scoperesult",
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "src\\guardrails\\chain.py",
+      "source_location": "L21",
+      "weight": 0.8
+    },
+    {
+      "source": "guardrails_chain_guardrailchain",
+      "target": "guardrails_scope_filter_scoperesult",
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "src\\guardrails\\chain.py",
+      "source_location": "L21",
+      "weight": 0.8
+    },
+    {
+      "source": "guardrails_chain_rationale_1",
+      "target": "guardrails_scope_filter_scoperesult",
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "src\\guardrails\\chain.py",
+      "source_location": "L21",
+      "weight": 0.8
+    },
+    {
+      "source": "guardrails_chain_rationale_69",
+      "target": "guardrails_scope_filter_scoperesult",
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "src\\guardrails\\chain.py",
+      "source_location": "L21",
+      "weight": 0.8
+    },
+    {
+      "source": "guardrails_chain_guardrailresult",
+      "target": "guardrails_safety_filter_safetyfilter",
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "src\\guardrails\\chain.py",
+      "source_location": "L22",
+      "weight": 0.8
+    },
+    {
+      "source": "guardrails_chain_guardrailchain",
+      "target": "guardrails_safety_filter_safetyfilter",
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "src\\guardrails\\chain.py",
+      "source_location": "L22",
+      "weight": 0.8
+    },
+    {
+      "source": "guardrails_chain_rationale_1",
+      "target": "guardrails_safety_filter_safetyfilter",
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "src\\guardrails\\chain.py",
+      "source_location": "L22",
+      "weight": 0.8
+    },
+    {
+      "source": "guardrails_chain_rationale_69",
+      "target": "guardrails_safety_filter_safetyfilter",
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "src\\guardrails\\chain.py",
+      "source_location": "L22",
+      "weight": 0.8
+    },
+    {
+      "source": "guardrails_chain_guardrailresult",
+      "target": "guardrails_safety_filter_safetyresult",
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "src\\guardrails\\chain.py",
+      "source_location": "L22",
+      "weight": 0.8
+    },
+    {
+      "source": "guardrails_chain_guardrailchain",
+      "target": "guardrails_safety_filter_safetyresult",
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "src\\guardrails\\chain.py",
+      "source_location": "L22",
+      "weight": 0.8
+    },
+    {
+      "source": "guardrails_chain_rationale_1",
+      "target": "guardrails_safety_filter_safetyresult",
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "src\\guardrails\\chain.py",
+      "source_location": "L22",
+      "weight": 0.8
+    },
+    {
+      "source": "guardrails_chain_rationale_69",
+      "target": "guardrails_safety_filter_safetyresult",
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "src\\guardrails\\chain.py",
+      "source_location": "L22",
+      "weight": 0.8
+    },
+    {
+      "source": "ingestion_indexer_rationale_1",
+      "target": "ingestion_pdf_parser_chunk",
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "src\\ingestion\\indexer.py",
+      "source_location": "L21",
+      "weight": 0.8
+    },
+    {
+      "source": "ingestion_indexer_rationale_35",
+      "target": "ingestion_pdf_parser_chunk",
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "src\\ingestion\\indexer.py",
+      "source_location": "L21",
+      "weight": 0.8
+    },
+    {
+      "source": "ingestion_indexer_rationale_46",
+      "target": "ingestion_pdf_parser_chunk",
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "src\\ingestion\\indexer.py",
+      "source_location": "L21",
+      "weight": 0.8
+    },
+    {
+      "source": "ingestion_indexer_rationale_80",
+      "target": "ingestion_pdf_parser_chunk",
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "src\\ingestion\\indexer.py",
+      "source_location": "L21",
+      "weight": 0.8
+    },
+    {
+      "source": "tests_test_ingestion_rationale_1",
+      "target": "ingestion_pdf_parser_chunk",
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "tests\\test_ingestion.py",
+      "source_location": "L8",
+      "weight": 0.8
+    },
+    {
+      "source": "tests_test_retrieval_rationale_1",
+      "target": "generation_llm_client_structuredanswer",
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "tests\\test_retrieval.py",
+      "source_location": "L239",
+      "weight": 0.8
+    },
+    {
+      "source": "tests_test_retrieval_rationale_105",
+      "target": "generation_llm_client_structuredanswer",
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "tests\\test_retrieval.py",
+      "source_location": "L239",
+      "weight": 0.8
+    },
+    {
+      "source": "tests_test_retrieval_rationale_114",
+      "target": "generation_llm_client_structuredanswer",
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "tests\\test_retrieval.py",
+      "source_location": "L239",
+      "weight": 0.8
+    },
+    {
+      "source": "tests_test_retrieval_rationale_222",
+      "target": "generation_llm_client_structuredanswer",
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "tests\\test_retrieval.py",
+      "source_location": "L239",
+      "weight": 0.8
+    },
+    {
+      "source": "tests_test_retrieval_rationale_230",
+      "target": "generation_llm_client_structuredanswer",
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "tests\\test_retrieval.py",
+      "source_location": "L239",
+      "weight": 0.8
+    },
+    {
+      "source": "tests_test_retrieval_rationale_238",
+      "target": "generation_llm_client_structuredanswer",
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "tests\\test_retrieval.py",
+      "source_location": "L239",
+      "weight": 0.8
+    },
+    {
+      "source": "tests_test_retrieval_rationale_1",
+      "target": "generation_llm_client_claim",
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "tests\\test_retrieval.py",
+      "source_location": "L239",
+      "weight": 0.8
+    },
+    {
+      "source": "tests_test_retrieval_rationale_105",
+      "target": "generation_llm_client_claim",
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "tests\\test_retrieval.py",
+      "source_location": "L239",
+      "weight": 0.8
+    },
+    {
+      "source": "tests_test_retrieval_rationale_114",
+      "target": "generation_llm_client_claim",
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "tests\\test_retrieval.py",
+      "source_location": "L239",
+      "weight": 0.8
+    },
+    {
+      "source": "tests_test_retrieval_rationale_222",
+      "target": "generation_llm_client_claim",
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "tests\\test_retrieval.py",
+      "source_location": "L239",
+      "weight": 0.8
+    },
+    {
+      "source": "tests_test_retrieval_rationale_230",
+      "target": "generation_llm_client_claim",
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "tests\\test_retrieval.py",
+      "source_location": "L239",
+      "weight": 0.8
+    },
+    {
+      "source": "tests_test_retrieval_rationale_238",
+      "target": "generation_llm_client_claim",
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "tests\\test_retrieval.py",
+      "source_location": "L239",
+      "weight": 0.8
+    },
+    {
+      "source": "tests_test_retrieval_rationale_1",
+      "target": "generation_llm_client_claim",
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "tests\\test_retrieval.py",
+      "source_location": "L255",
+      "weight": 0.8
+    },
+    {
+      "source": "tests_test_retrieval_rationale_105",
+      "target": "generation_llm_client_claim",
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "tests\\test_retrieval.py",
+      "source_location": "L255",
+      "weight": 0.8
+    },
+    {
+      "source": "tests_test_retrieval_rationale_114",
+      "target": "generation_llm_client_claim",
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "tests\\test_retrieval.py",
+      "source_location": "L255",
+      "weight": 0.8
+    },
+    {
+      "source": "tests_test_retrieval_rationale_222",
+      "target": "generation_llm_client_claim",
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "tests\\test_retrieval.py",
+      "source_location": "L255",
+      "weight": 0.8
+    },
+    {
+      "source": "tests_test_retrieval_rationale_230",
+      "target": "generation_llm_client_claim",
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "tests\\test_retrieval.py",
+      "source_location": "L255",
+      "weight": 0.8
+    },
+    {
+      "source": "tests_test_retrieval_rationale_238",
+      "target": "generation_llm_client_claim",
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "tests\\test_retrieval.py",
+      "source_location": "L255",
+      "weight": 0.8
+    },
+    {
+      "source": "eval_run_ragas_upload_to_langsmith",
+      "target": "str",
+      "relation": "calls",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "eval\\run_ragas.py",
+      "source_location": "L181",
+      "weight": 1.0
+    },
+    {
+      "source": "api_main_lifespan",
+      "target": "ingestion_indexer_indexes_exist",
+      "relation": "calls",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "src\\api\\main.py",
+      "source_location": "L48",
+      "weight": 1.0
+    },
+    {
+      "source": "api_main_lifespan",
+      "target": "ingestion_indexer_load_indexes",
+      "relation": "calls",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "src\\api\\main.py",
+      "source_location": "L51",
+      "weight": 1.0
+    },
+    {
+      "source": "api_main_lifespan",
+      "target": "observability_langfuse_tracer_build_langfuse_client",
+      "relation": "calls",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "src\\api\\main.py",
+      "source_location": "L56",
+      "weight": 1.0
+    },
+    {
+      "source": "api_main_lifespan",
+      "target": "guardrails_chain_guardrailchain",
+      "relation": "calls",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "src\\api\\main.py",
+      "source_location": "L60",
+      "weight": 1.0
+    },
+    {
+      "source": "api_main_login",
+      "target": "auth_rbac_authenticate_user",
+      "relation": "calls",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "src\\api\\main.py",
+      "source_location": "L137",
+      "weight": 1.0
+    },
+    {
+      "source": "api_main_login",
+      "target": "auth_rbac_create_access_token",
+      "relation": "calls",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "src\\api\\main.py",
+      "source_location": "L138",
+      "weight": 1.0
+    },
+    {
+      "source": "api_main_ask",
+      "target": "auth_rbac_require_ticker_access",
+      "relation": "calls",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "src\\api\\main.py",
+      "source_location": "L167",
+      "weight": 1.0
+    },
+    {
+      "source": "api_main_ask",
+      "target": "retrieval_vector_search_vector_search",
+      "relation": "calls",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "src\\api\\main.py",
+      "source_location": "L195",
+      "weight": 1.0
+    },
+    {
+      "source": "api_main_ask",
+      "target": "retrieval_bm25_search_bm25_search",
+      "relation": "calls",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "src\\api\\main.py",
+      "source_location": "L199",
+      "weight": 1.0
+    },
+    {
+      "source": "api_main_ask",
+      "target": "retrieval_fusion_reciprocal_rank_fusion",
+      "relation": "calls",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "src\\api\\main.py",
+      "source_location": "L203",
+      "weight": 1.0
+    },
+    {
+      "source": "api_main_ask",
+      "target": "retrieval_reranker_rerank",
+      "relation": "calls",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "src\\api\\main.py",
+      "source_location": "L206",
+      "weight": 1.0
+    },
+    {
+      "source": "api_main_ask",
+      "target": "generation_llm_client_generate_answer",
+      "relation": "calls",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "src\\api\\main.py",
+      "source_location": "L217",
+      "weight": 1.0
+    },
+    {
+      "source": "api_main_run_ingest",
+      "target": "str",
+      "relation": "calls",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "src\\api\\main.py",
+      "source_location": "L262",
+      "weight": 1.0
+    },
+    {
+      "source": "auth_rbac_create_access_token",
+      "target": "auth_models_tokenresponse",
+      "relation": "calls",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "src\\auth\\rbac.py",
+      "source_location": "L62",
+      "weight": 1.0
+    },
+    {
+      "source": "auth_rbac_authenticate_user",
+      "target": "auth_models_verify_password",
+      "relation": "calls",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "src\\auth\\rbac.py",
+      "source_location": "L70",
+      "weight": 1.0
+    },
+    {
+      "source": "auth_rbac_authenticate_user",
+      "target": "auth_models_get_user_by_username",
+      "relation": "calls",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "src\\auth\\rbac.py",
+      "source_location": "L76",
+      "weight": 1.0
+    },
+    {
+      "source": "auth_rbac_get_current_user",
+      "target": "auth_models_tokenpayload",
+      "relation": "calls",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "src\\auth\\rbac.py",
+      "source_location": "L102",
+      "weight": 1.0
+    },
+    {
+      "source": "auth_rbac_get_current_user",
+      "target": "auth_models_get_user_by_username",
+      "relation": "calls",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "src\\auth\\rbac.py",
+      "source_location": "L106",
+      "weight": 1.0
+    },
+    {
+      "source": "generation_llm_client_langsmith_log",
+      "target": "str",
+      "relation": "calls",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "src\\generation\\llm_client.py",
+      "source_location": "L96",
+      "weight": 1.0
+    },
+    {
+      "source": "generation_llm_client_generate_answer",
+      "target": "generation_prompt_builder_build_messages",
+      "relation": "calls",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "src\\generation\\llm_client.py",
+      "source_location": "L137",
+      "weight": 1.0
+    },
+    {
+      "source": "guardrails_chain_guardrailchain_post_init",
+      "target": "guardrails_scope_filter_scopefilter",
+      "relation": "calls",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "src\\guardrails\\chain.py",
+      "source_location": "L65",
+      "weight": 1.0
+    },
+    {
+      "source": "guardrails_chain_guardrailchain_post_init",
+      "target": "guardrails_safety_filter_safetyfilter",
+      "relation": "calls",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "src\\guardrails\\chain.py",
+      "source_location": "L66",
+      "weight": 1.0
+    },
+    {
+      "source": "ingestion_edgar_fetcher_get_cik",
+      "target": "str",
+      "relation": "calls",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "src\\ingestion\\edgar_fetcher.py",
+      "source_location": "L49",
+      "weight": 1.0
+    },
+    {
+      "source": "ingestion_edgar_fetcher_fetch_filings",
+      "target": "str",
+      "relation": "calls",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "src\\ingestion\\edgar_fetcher.py",
+      "source_location": "L230",
+      "weight": 1.0
+    },
+    {
+      "source": "ingestion_indexer_build_indexes",
+      "target": "str",
+      "relation": "calls",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "src\\ingestion\\indexer.py",
+      "source_location": "L62",
+      "weight": 1.0
+    },
+    {
+      "source": "ingestion_indexer_load_indexes",
+      "target": "str",
+      "relation": "calls",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "src\\ingestion\\indexer.py",
+      "source_location": "L87",
+      "weight": 1.0
+    },
+    {
+      "source": "ingestion_pdf_parser_parse_pdf",
+      "target": "str",
+      "relation": "calls",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "src\\ingestion\\pdf_parser.py",
+      "source_location": "L99",
+      "weight": 1.0
+    },
+    {
+      "source": "ingestion_pdf_parser_parse_htm",
+      "target": "str",
+      "relation": "calls",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "src\\ingestion\\pdf_parser.py",
+      "source_location": "L162",
+      "weight": 1.0
+    },
+    {
+      "source": "ingestion_run_main",
+      "target": "ingestion_indexer_indexes_exist",
+      "relation": "calls",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "src\\ingestion\\run.py",
+      "source_location": "L54",
+      "weight": 1.0
+    },
+    {
+      "source": "ingestion_run_main",
+      "target": "ingestion_edgar_fetcher_fetch_filings",
+      "relation": "calls",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "src\\ingestion\\run.py",
+      "source_location": "L64",
+      "weight": 1.0
+    },
+    {
+      "source": "ingestion_run_main",
+      "target": "ingestion_pdf_parser_parse_all_filings",
+      "relation": "calls",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "src\\ingestion\\run.py",
+      "source_location": "L75",
+      "weight": 1.0
+    },
+    {
+      "source": "ingestion_run_main",
+      "target": "ingestion_indexer_build_indexes",
+      "relation": "calls",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "src\\ingestion\\run.py",
+      "source_location": "L86",
+      "weight": 1.0
+    },
+    {
+      "source": "retrieval_fusion_reciprocal_rank_fusion",
+      "target": "str",
+      "relation": "calls",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "src\\retrieval\\fusion.py",
+      "source_location": "L36",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_test_ingestion_test_clean_text_collapses_whitespace",
+      "target": "ingestion_pdf_parser_clean_text",
+      "relation": "calls",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "tests\\test_ingestion.py",
+      "source_location": "L14",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_test_ingestion_test_clean_text_strips_control_chars",
+      "target": "ingestion_pdf_parser_clean_text",
+      "relation": "calls",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "tests\\test_ingestion.py",
+      "source_location": "L18",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_test_ingestion_test_clean_text_strips_leading_trailing",
+      "target": "ingestion_pdf_parser_clean_text",
+      "relation": "calls",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "tests\\test_ingestion.py",
+      "source_location": "L22",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_test_ingestion_test_clean_text_empty_string",
+      "target": "ingestion_pdf_parser_clean_text",
+      "relation": "calls",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "tests\\test_ingestion.py",
+      "source_location": "L26",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_test_ingestion_test_split_respects_chunk_size",
+      "target": "ingestion_pdf_parser_split_into_chunks",
+      "relation": "calls",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "tests\\test_ingestion.py",
+      "source_location": "L34",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_test_ingestion_test_split_produces_overlap",
+      "target": "ingestion_pdf_parser_split_into_chunks",
+      "relation": "calls",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "tests\\test_ingestion.py",
+      "source_location": "L42",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_test_ingestion_test_split_skips_tiny_chunks",
+      "target": "ingestion_pdf_parser_split_into_chunks",
+      "relation": "calls",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "tests\\test_ingestion.py",
+      "source_location": "L52",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_test_ingestion_test_split_returns_list",
+      "target": "ingestion_pdf_parser_split_into_chunks",
+      "relation": "calls",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "tests\\test_ingestion.py",
+      "source_location": "L57",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_test_ingestion_test_chunk_to_dict_has_required_keys",
+      "target": "ingestion_pdf_parser_chunk",
+      "relation": "calls",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "tests\\test_ingestion.py",
+      "source_location": "L64",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_test_ingestion_test_chunk_to_dict_values_correct",
+      "target": "ingestion_pdf_parser_chunk",
+      "relation": "calls",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "tests\\test_ingestion.py",
+      "source_location": "L79",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_test_ingestion_test_chunk_metadata_merged_into_dict",
+      "target": "ingestion_pdf_parser_chunk",
+      "relation": "calls",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "tests\\test_ingestion.py",
+      "source_location": "L95",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_test_retrieval_test_bm25_returns_relevant_result",
+      "target": "retrieval_bm25_search_bm25_search",
+      "relation": "calls",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "tests\\test_retrieval.py",
+      "source_location": "L74",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_test_retrieval_test_bm25_ticker_exact_match",
+      "target": "retrieval_bm25_search_bm25_search",
+      "relation": "calls",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "tests\\test_retrieval.py",
+      "source_location": "L80",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_test_retrieval_test_bm25_respects_top_k",
+      "target": "retrieval_bm25_search_bm25_search",
+      "relation": "calls",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "tests\\test_retrieval.py",
+      "source_location": "L85",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_test_retrieval_test_bm25_adds_score_field",
+      "target": "retrieval_bm25_search_bm25_search",
+      "relation": "calls",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "tests\\test_retrieval.py",
+      "source_location": "L90",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_test_retrieval_test_bm25_empty_query_returns_no_results",
+      "target": "retrieval_bm25_search_bm25_search",
+      "relation": "calls",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "tests\\test_retrieval.py",
+      "source_location": "L97",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_test_retrieval_test_rrf_merges_both_lists",
+      "target": "retrieval_fusion_reciprocal_rank_fusion",
+      "relation": "calls",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "tests\\test_retrieval.py",
+      "source_location": "L123",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_test_retrieval_test_rrf_deduplicates",
+      "target": "retrieval_fusion_reciprocal_rank_fusion",
+      "relation": "calls",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "tests\\test_retrieval.py",
+      "source_location": "L130",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_test_retrieval_test_rrf_adds_rrf_score",
+      "target": "retrieval_fusion_reciprocal_rank_fusion",
+      "relation": "calls",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "tests\\test_retrieval.py",
+      "source_location": "L136",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_test_retrieval_test_rrf_respects_top_n",
+      "target": "retrieval_fusion_reciprocal_rank_fusion",
+      "relation": "calls",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "tests\\test_retrieval.py",
+      "source_location": "L143",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_test_retrieval_test_rrf_sorted_descending",
+      "target": "retrieval_fusion_reciprocal_rank_fusion",
+      "relation": "calls",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "tests\\test_retrieval.py",
+      "source_location": "L150",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_test_retrieval_test_rrf_single_list",
+      "target": "retrieval_fusion_reciprocal_rank_fusion",
+      "relation": "calls",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "tests\\test_retrieval.py",
+      "source_location": "L156",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_test_retrieval_test_rrf_empty_lists",
+      "target": "retrieval_fusion_reciprocal_rank_fusion",
+      "relation": "calls",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "tests\\test_retrieval.py",
+      "source_location": "L161",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_test_retrieval_test_prompt_builder_includes_citation_format",
+      "target": "generation_prompt_builder_build_messages",
+      "relation": "calls",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "tests\\test_retrieval.py",
+      "source_location": "L169",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_test_retrieval_test_prompt_builder_returns_two_messages",
+      "target": "generation_prompt_builder_build_messages",
+      "relation": "calls",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "tests\\test_retrieval.py",
+      "source_location": "L177",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_test_retrieval_test_context_block_numbers_chunks",
+      "target": "generation_prompt_builder_build_context_block",
+      "relation": "calls",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "tests\\test_retrieval.py",
+      "source_location": "L185",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_test_retrieval_test_retrieval_signal_returns_mean_rerank_score",
+      "target": "generation_llm_client_retrieval_signal",
+      "relation": "calls",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "tests\\test_retrieval.py",
+      "source_location": "L199",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_test_retrieval_test_retrieval_signal_returns_none_when_no_rerank_scores",
+      "target": "generation_llm_client_retrieval_signal",
+      "relation": "calls",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "tests\\test_retrieval.py",
+      "source_location": "L206",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_test_retrieval_test_retrieval_signal_ignores_chunks_without_rerank_score",
+      "target": "generation_llm_client_retrieval_signal",
+      "relation": "calls",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "tests\\test_retrieval.py",
+      "source_location": "L217",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_test_retrieval_test_confidence_falls_back_to_llm_only",
+      "target": "generation_llm_client_retrieval_signal",
+      "relation": "calls",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "tests\\test_retrieval.py",
+      "source_location": "L232",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_test_retrieval_test_structured_answer_schema_fields",
+      "target": "generation_llm_client_structuredanswer",
+      "relation": "calls",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "tests\\test_retrieval.py",
+      "source_location": "L240",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_test_retrieval_test_structured_answer_schema_fields",
+      "target": "generation_llm_client_claim",
+      "relation": "calls",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "tests\\test_retrieval.py",
+      "source_location": "L242",
+      "weight": 1.0
+    },
+    {
+      "source": "tests_test_retrieval_test_claim_schema_fields",
+      "target": "generation_llm_client_claim",
+      "relation": "calls",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "tests\\test_retrieval.py",
+      "source_location": "L256",
+      "weight": 1.0
+    },
+    {
+      "source": "readme_finance_rag",
+      "target": "readme_sec_edgar",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0
+    },
+    {
+      "source": "readme_finance_rag",
+      "target": "readme_hybrid_search",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0
+    },
+    {
+      "source": "readme_finance_rag",
+      "target": "readme_jwt_rbac",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0
+    }
+  ],
+  "metadata": {
+    "total_nodes": 236,
+    "total_edges": 497,
+    "communities": 3
+  }
+}
