@@ -143,6 +143,42 @@ Results are uploaded to LangSmith after each run so you can track metric trends 
 
 ---
 
+## Understanding the Codebase with Graphify
+
+This repo includes a **queryable knowledge graph** (`graphify-out/graph.json`) that maps the entire codebase — 236 nodes (functions, classes, concepts) and 497 relationships (calls, dependencies, architecture patterns).
+
+Instead of reading 30 Python files, **ask the graph**:
+
+```bash
+# Query the graph from Claude Code
+/graphify query "How does authentication integrate with retrieval?"
+/graphify path "SEC EDGAR" "GPT-4o"
+/graphify explain "LangChain Guardrails"
+```
+
+**Key insights** (from the graph):
+- **God nodes** — `src/api/main.py`, `src/retrieval/fusion.py`, `src/generation/llm_client.py`
+- **Query pipeline** — EDGAR → PDF parser → FAISS/BM25 → RRF → Cohere → GPT-4o
+- **Safety layer** — RBAC + scope filter + safety filter + RAGAS eval
+- **Observability** — Langfuse traces span entire pipeline; LangSmith logs cost/metrics
+
+### Updating the Graph
+
+After code changes, update the graph (incremental, no API cost):
+
+```bash
+/graphify . --update
+```
+
+Commit `graphify-out/` to keep the map in sync with code. Claude will use the latest graph in all future sessions.
+
+**References:**
+- `graphify-out/GRAPH_REPORT.md` — Audit report (architecture, god nodes, surprises)
+- `graphify-out/graph.json` — Raw graph (query this via `/graphify`)
+- More commands: [graphify docs](https://graphify.net/)
+
+---
+
 ## Example response
 
 ```json
