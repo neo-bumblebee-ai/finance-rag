@@ -1,0 +1,74 @@
+services:
+  # ── Test environment ─────────────────────────────────────────
+  - type: web
+    name: finance-rag-test
+    runtime: docker
+    branch: develop
+    dockerfilePath: ./Dockerfile
+    region: oregon
+    plan: starter
+    healthCheckPath: /health
+    envVars:
+      - key: ENVIRONMENT
+        value: test
+      - key: LANGCHAIN_PROJECT
+        value: finance-rag-test
+      - key: LANGCHAIN_TRACING_V2
+        value: "true"
+      - key: LANGCHAIN_ENDPOINT
+        value: https://api.smith.langchain.com
+      - key: LANGFUSE_HOST
+        value: https://cloud.langfuse.com
+      - key: GUARDRAILS_DISABLED
+        value: "false"
+      - key: JWT_EXPIRE_MINUTES
+        value: "60"
+      - key: OPENAI_API_KEY
+        sync: false
+      - key: COHERE_API_KEY
+        sync: false
+      - key: JWT_SECRET_KEY
+        sync: false
+      - key: LANGFUSE_SECRET_KEY
+        sync: false
+      - key: LANGFUSE_PUBLIC_KEY
+        sync: false
+      - key: LANGCHAIN_API_KEY
+        sync: false
+
+  # ── Production environment ───────────────────────────────────
+  - type: web
+    name: finance-rag-prod
+    runtime: docker
+    branch: main
+    dockerfilePath: ./Dockerfile
+    region: oregon
+    plan: starter
+    healthCheckPath: /health
+    envVars:
+      - key: ENVIRONMENT
+        value: production
+      - key: LANGCHAIN_PROJECT
+        value: finance-rag-production
+      - key: LANGCHAIN_TRACING_V2
+        value: "true"
+      - key: LANGCHAIN_ENDPOINT
+        value: https://api.smith.langchain.com
+      - key: LANGFUSE_HOST
+        value: https://cloud.langfuse.com
+      - key: GUARDRAILS_DISABLED
+        value: "false"
+      - key: JWT_EXPIRE_MINUTES
+        value: "60"
+      - key: OPENAI_API_KEY
+        sync: false
+      - key: COHERE_API_KEY
+        sync: false
+      - key: JWT_SECRET_KEY
+        sync: false
+      - key: LANGFUSE_SECRET_KEY
+        sync: false
+      - key: LANGFUSE_PUBLIC_KEY
+        sync: false
+      - key: LANGCHAIN_API_KEY
+        sync: false
