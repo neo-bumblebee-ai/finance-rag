@@ -2,7 +2,7 @@ services:
   # ── Test environment ─────────────────────────────────────────
   - type: web
     name: finance-rag-test
-    runtime: docker
+    env: docker
     branch: develop
     dockerfilePath: ./Dockerfile
     region: oregon
@@ -39,7 +39,7 @@ services:
   # ── Production environment ───────────────────────────────────
   - type: web
     name: finance-rag-prod
-    runtime: docker
+    env: docker
     branch: main
     dockerfilePath: ./Dockerfile
     region: oregon
