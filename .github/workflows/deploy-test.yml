@@ -1,0 +1,30 @@
+name: Deploy → Test
+
+on:
+  push:
+    branches: [develop]
+
+jobs:
+  deploy:
+    name: Deploy to Render (test)
+    runs-on: ubuntu-latest
+    environment:
+      name: test
+      url: ${{ vars.RENDER_TEST_URL }}
+
+    steps:
+      - name: Trigger Render deploy
+        run: |
+          curl --fail -X POST "${{ secrets.RENDER_DEPLOY_HOOK_TEST }}" \
+            -H "Content-Type: application/json"
+
+      - name: Wait for deployment
+        run: |
+          echo "Deployment triggered. Monitor at https://dashboard.render.com"
+          echo "Test URL: ${{ vars.RENDER_TEST_URL }}"
+
+      - name: Health check
+        run: |
+          sleep 60
+          curl --fail --retry 5 --retry-delay 15 \
+            "${{ vars.RENDER_TEST_URL }}/health" | jq .
